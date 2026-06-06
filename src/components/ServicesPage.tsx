@@ -107,12 +107,37 @@ const processSteps = [
   },
 ];
 
-const faqs = [
-  "Do you offer custom quotes?",
-  "How long does a website take?",
-  "Do you write the content?",
-  "Do you offer ongoing support?",
-  "Can I request one-off work?",
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const faqs: FaqItem[] = [
+  {
+    question: "Do you offer custom quotes?",
+    answer:
+      "Yes. Every project is different, so quotes are tailored to the scope of work, your goals, and the level of support you need.",
+  },
+  {
+    question: "How long does a website take?",
+    answer:
+      "Timelines depend on the size and complexity of the project. Smaller websites can move faster, while more detailed projects may take longer. Once I understand your requirements, I’ll give you a clearer timeline.",
+  },
+  {
+    question: "Do you write the content?",
+    answer:
+      "I can help shape, refine, and organise your content so it works well online. If you already have content, I can work with that too.",
+  },
+  {
+    question: "Do you offer ongoing support?",
+    answer:
+      "Yes. I can provide ongoing website, content, and digital support to help your business stay updated and consistent after launch.",
+  },
+  {
+    question: "Can I request one-off work?",
+    answer:
+      "Yes. If you only need help with a specific update, design task, or piece of digital support, one-off work can be discussed depending on availability.",
+  },
 ];
 
 function InstagramIcon({ className = "" }: { className?: string }) {
@@ -184,6 +209,7 @@ export default function RJMStudioServicesPage() {
   }, []);
   const activeItem = "Services";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
     <div className="min-h-screen bg-[#06070a] text-white">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.05),transparent_22%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_16%)]" />
@@ -460,21 +486,34 @@ export default function RJMStudioServicesPage() {
         <section className="grid gap-6 py-8 lg:grid-cols-[1fr_0.95fr]">
           <PremiumCard className="p-8 md:p-10">
             <SectionLabel>FAQ</SectionLabel>
+
             <div className="space-y-1">
-              {faqs.map((faq) => (
-                <div
-                  key={faq}
-                  className="flex items-center justify-between border-b border-white/10 py-5 text-white"
-                >
-                  <span>{faq}</span>
-                  <ChevronDown className="h-5 w-5 text-amber-300" />
+              {faqs.map((faq: FaqItem, index: number) => (
+                <div key={faq.question} className="border-b border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="flex w-full cursor-pointer items-center justify-between py-5 text-left text-white"
+                  >
+                    <span>{faq.question}</span>
+                    <ChevronDown
+                      className={`h-5 w-5 text-amber-300 transition-transform duration-200 ${
+                        openFaq === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {openFaq === index && (
+                    <div className="pb-5 pr-8 text-sm leading-7 text-zinc-400">
+                      {faq.answer}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </PremiumCard>
 
           <div className="relative overflow-hidden rounded-[0.9rem] border border-white/10 min-h-[360px]">
-            {/* Background image */}
             <div className="absolute inset-0">
               <img
                 src="/images/CTABackgroun.png"
@@ -483,10 +522,8 @@ export default function RJMStudioServicesPage() {
               />
             </div>
 
-            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/58 to-black/8" />
 
-            {/* Content */}
             <div className="relative z-10 flex h-full items-center px-8 py-8 md:px-10">
               <div className="max-w-[46%]">
                 <h2 className="heading-display text-3xl font-light leading-[1.12] text-white md:text-4xl">
@@ -500,7 +537,7 @@ export default function RJMStudioServicesPage() {
 
                 <div className="mt-8">
                   <Link to="/contact">
-                    <SecondaryButton>Book a Discovery Call</SecondaryButton>
+                    <SecondaryButton>Get in Touch</SecondaryButton>
                   </Link>
                 </div>
               </div>
