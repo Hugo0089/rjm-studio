@@ -1,5 +1,6 @@
 import Footer from "./Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Menu,
@@ -132,6 +133,7 @@ export default function AboutPage() {
     window.scrollTo(0, 0);
   }, []);
   const activeItem = "About";
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#06070a] text-white">
@@ -177,18 +179,73 @@ export default function AboutPage() {
             <div className="flex items-center gap-3">
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
                 className="hidden rounded-md border border-amber-300/60 px-5 py-2.5 text-sm text-amber-100 transition hover:bg-amber-300/10 md:inline-flex"
               >
                 Get in Touch
               </Link>
+
               <button
                 className="inline-flex rounded-[0.6rem] border border-white/10 p-2.5 text-zinc-300 lg:hidden"
                 aria-label="Open menu"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
               >
-                <Menu className="h-5 w-5" />
+                {mobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>
+
+          {mobileMenuOpen && (
+            <div className="mt-4 flex flex-col gap-3 rounded-[0.8rem] border border-white/10 bg-black/80 p-4 lg:hidden">
+              {navItems.map((item) => {
+                const route =
+                  item === "Home"
+                    ? "/"
+                    : item === "Services"
+                      ? "/services"
+                      : item === "Contact"
+                        ? "/contact"
+                        : item === "About"
+                          ? "/about"
+                          : item === "Work"
+                            ? "/work"
+                            : "#";
+
+                return (
+                  <Link
+                    key={item}
+                    to={route}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.scrollTo(0, 0);
+                    }}
+                    className={
+                      item === activeItem
+                        ? "text-white"
+                        : "text-zinc-300 transition hover:text-white"
+                    }
+                  >
+                    {item}
+                  </Link>
+                );
+              })}
+
+              <Link
+                to="/contact"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+                className="mt-2 inline-flex rounded-md border border-amber-300/60 px-4 py-2.5 text-sm text-amber-100 transition hover:bg-amber-300/10"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          )}
         </header>
 
         <section className="mt-13 relative overflow-hidden border border-white/10 min-h-[620px]">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import Footer from "./Footer";
 import {
   ArrowRight,
@@ -296,6 +297,7 @@ export default function RJMStudioHomepageApp() {
     window.scrollTo(0, 0);
   }, []);
   const activeItem = "Home";
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-[#06070a] text-white">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.05),transparent_22%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_16%)]" />
@@ -344,14 +346,68 @@ export default function RJMStudioHomepageApp() {
               >
                 Get in Touch
               </Link>
+
               <button
                 className="inline-flex rounded-full border border-white/10 p-2.5 text-zinc-300 lg:hidden"
                 aria-label="Open menu"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
               >
-                <Menu className="h-5 w-5" />
+                {mobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>
+
+          {mobileMenuOpen && (
+            <div className="mt-4 flex flex-col gap-3 rounded-[0.8rem] border border-white/10 bg-black/80 p-4 lg:hidden">
+              {navItems.map((item) => {
+                const route =
+                  item === "Home"
+                    ? "/"
+                    : item === "Services"
+                      ? "/services"
+                      : item === "Contact"
+                        ? "/contact"
+                        : item === "About"
+                          ? "/about"
+                          : item === "Work"
+                            ? "/work"
+                            : "#";
+
+                return (
+                  <Link
+                    key={item}
+                    to={route}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.scrollTo(0, 0);
+                    }}
+                    className={
+                      item === activeItem
+                        ? "text-white"
+                        : "text-zinc-300 transition hover:text-white"
+                    }
+                  >
+                    {item}
+                  </Link>
+                );
+              })}
+
+              <Link
+                to="/contact"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
+                className="mt-2 inline-flex rounded-md border border-amber-300/60 px-4 py-2.5 text-sm text-amber-100 transition hover:bg-amber-300/10"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          )}
         </header>
 
         <section className="grid items-center gap-16 pb-14 pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:pt-20">
