@@ -453,6 +453,135 @@ export default function RJMStudioServicesPage() {
           </div>
         </section>
 
+        <section className="py-16">
+          <div className="text-center">
+            <SectionLabel>Packages & Pricing</SectionLabel>
+            <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
+              Clear packages designed to help your business grow with
+              confidence.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-zinc-400">
+              Choose from website design, social media management, and ongoing
+              digital support packages. All prices are starting prices and can
+              be tailored to your business needs.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <PremiumCard className="p-8">
+              <div className="text-2xl font-light text-white">
+                Website Packages
+              </div>
+              <p className="mt-3 text-base leading-8 text-zinc-400">
+                A range of website packages for small businesses, from simple
+                updates to full custom builds.
+              </p>
+
+              <div className="mt-8 space-y-5">
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">
+                    Website Refresh / Update
+                  </div>
+                  <div className="mt-1 text-amber-300">From £225</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">
+                    Full Website Refresh / Redesign
+                  </div>
+                  <div className="mt-1 text-amber-300">From £425</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">Website Full Build</div>
+                  <div className="mt-1 text-amber-300">From £495</div>
+                </div>
+
+                <div>
+                  <div className="text-lg text-white">Website Plus Build</div>
+                  <div className="mt-1 text-amber-300">From £795</div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="/images/website-packages-guide.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                >
+                  View Pricing Guide
+                </a>
+
+                <a
+                  href="/images/website-packages-guide.png"
+                  download
+                  className="inline-flex rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5"
+                >
+                  Download Guide
+                </a>
+              </div>
+            </PremiumCard>
+
+            <PremiumCard className="p-8">
+              <div className="text-2xl font-light text-white">
+                Social Media & Support
+              </div>
+              <p className="mt-3 text-base leading-8 text-zinc-400">
+                Monthly content and digital support packages designed to keep
+                your business visible, professional, and consistent online.
+              </p>
+
+              <div className="mt-8 space-y-5">
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">
+                    Social Media Presence
+                  </div>
+                  <div className="mt-1 text-amber-300">From £225/month</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">
+                    Social Media Presence+
+                  </div>
+                  <div className="mt-1 text-amber-300">From £375/month</div>
+                </div>
+
+                <div className="border-b border-white/10 pb-5">
+                  <div className="text-lg text-white">
+                    Social Media Management
+                  </div>
+                  <div className="mt-1 text-amber-300">From £600/month</div>
+                </div>
+
+                <div>
+                  <div className="text-lg text-white">Digital Support</div>
+                  <div className="mt-1 text-amber-300">From £150/month</div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="/images/social-media-support-packages-guide.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                >
+                  View Pricing Guide
+                </a>
+
+                <a
+                  href="/images/social-media-support-packages-guide.png"
+                  download
+                  className="inline-flex rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5"
+                >
+                  Download Guide
+                </a>
+              </div>
+            </PremiumCard>
+          </div>
+        </section>
+
         <section className="py-12">
           <PremiumCard className="p-8 md:p-10">
             <div className="text-center">
