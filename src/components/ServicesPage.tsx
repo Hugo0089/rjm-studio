@@ -52,7 +52,7 @@ const detailedServices = [
   },
   {
     icon: InstagramIcon,
-    title: "Social Media Content Management",
+    title: "Social Media Management",
     description:
       "Branded content that helps your business stay consistent, connect with your audience, and grow your online presence.",
     includes: [
