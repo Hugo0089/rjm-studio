@@ -72,8 +72,8 @@ const services = [
   },
   {
     icon: InstagramIcon,
-    title: "Social Media Content Management",
-    copy: "Consistent, branded content that keeps your business visible, engaging, and top of mind with your ideal clients.",
+    title: "Social Media Management",
+    copy: "Consistent, branded social media content that helps your business stay active, visible, and trusted online.",
   },
   {
     icon: Wrench,
@@ -497,7 +497,7 @@ export default function RJMStudioHomepageApp() {
                     to={
                       service.title === "Website Design"
                         ? "/services#website-design"
-                        : service.title === "Social Media Content Management"
+                        : service.title === "Social Media Management"
                           ? "/services#social-media-content"
                           : service.title === "Digital Support"
                             ? "/services#digital-support"
