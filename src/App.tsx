@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import RJMStudioHomepage from "./components/RJMStudioHomepage";
 import RJMStudioServicesPage from "./components/ServicesPage";
 import WorkPage from "./components/WorkPage";
@@ -20,6 +21,7 @@ export default function App() {
       </BrowserRouter>
 
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
