@@ -139,7 +139,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About | RJM Studio</title>
+        <title>About | RjM Studio</title>
         <meta
           name="description"
           content="Learn more about RJM Studio and its approach to website design, social media management, and digital support."

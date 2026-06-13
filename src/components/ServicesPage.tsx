@@ -214,7 +214,7 @@ export default function RJMStudioServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Services | RJM Studio</title>
+        <title>Services | RjM Studio</title>
         <meta
           name="description"
           content="Explore website design, social media management, and digital support services from RJM Studio for small and medium businesses."

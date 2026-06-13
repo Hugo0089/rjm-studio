@@ -213,7 +213,7 @@ export default function WorkPage() {
   return (
     <>
       <Helmet>
-        <title>Work | RJM Studio</title>
+        <title>Work | RjM Studio</title>
         <meta
           name="description"
           content="View selected website and digital design work created by RJM Studio for small businesses."
@@ -462,15 +462,6 @@ export default function WorkPage() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="studio@rjm-studio.co.uk?subject=RJM%20Studio%20Enquiry"
-                  className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
-                >
-                  <span className="inline-flex items-center gap-2 text-black">
-                    Send an Email <ArrowRight className="h-4 w-4 text-black" />
-                  </span>
-                </a>
-
                 <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
                   <SecondaryButton>
                     <span className="inline-flex items-center gap-2">

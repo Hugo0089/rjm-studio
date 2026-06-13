@@ -177,7 +177,7 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact | RJM Studio</title>
+        <title>Contact | RjM Studio</title>
         <meta
           name="description"
           content="Get in touch with RJM Studio to discuss your website, social media, or digital support needs."

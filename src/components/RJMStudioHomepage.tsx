@@ -307,7 +307,7 @@ export default function RJMStudioHomepageApp() {
           name="description"
           content="RJM Studio helps small businesses build a stronger online presence through website design, social media management, and digital support."
         />
-        <meta property="og:title" content="RJM Studio" />
+        <meta property="og:title" content="RjM Studio" />
         <meta
           property="og:description"
           content="Web design, social media management, and digital support for small businesses."
