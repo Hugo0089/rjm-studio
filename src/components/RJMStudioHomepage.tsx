@@ -302,15 +302,15 @@ export default function RJMStudioHomepageApp() {
   return (
     <>
       <Helmet>
-        <title>RJM Studio | Web Design, Social Media & Digital Support</title>
+        <title>Web Developer & Designer Isle of Man | RjM Studio</title>
         <meta
           name="description"
-          content="RJM Studio helps small businesses build a stronger online presence through website design, social media management, and digital support."
+          content="RJM Studio is a digital studio based in the Isle of Man, providing custom web development and digital design for small businesses."
         />
         <meta property="og:title" content="RjM Studio" />
         <meta
           property="og:description"
-          content="Web design, social media management, and digital support for small businesses."
+          content="RJM Studio is a digital studio based in the Isle of Man, providing custom web development and digital design for small businesses."
         />
         <meta
           property="og:image"
@@ -439,9 +439,11 @@ export default function RJMStudioHomepageApp() {
                 </h1>
               </div>
               <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-300">
-                RJM Studio creates premium websites, social media content, and
-                digital experiences for small businesses that want to look
-                professional, build trust, and grow online.
+                RjM Studio is a professional digital studio based in the{" "}
+                <strong>Isle of Man</strong>. I provide freelance{" "}
+                <strong>web developer</strong> services, custom web design, and
+                ongoing digital support to help local small businesses build a
+                powerful online presence.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link to="/contact">

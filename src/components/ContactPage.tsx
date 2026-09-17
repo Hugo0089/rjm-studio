@@ -177,7 +177,7 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact | RjM Studio</title>
+        <title>Contact | RjM Studio™</title>
         <meta
           name="description"
           content="Get in touch with RJM Studio to discuss your website, social media, or digital support needs."
@@ -570,7 +570,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="mailto:rjm890724@gmail.com?subject=RJM%20Studio%20Enquiry"
+                href="mailto:studio@rjm-studio.co.uk?subject=RJM%20Studio%20Enquiry"
                 className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
               >
                 <span className="inline-flex items-center gap-2 text-black">

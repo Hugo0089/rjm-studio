@@ -213,7 +213,7 @@ export default function WorkPage() {
   return (
     <>
       <Helmet>
-        <title>Work | RjM Studio</title>
+        <title>Work | RjM Studio™</title>
         <meta
           name="description"
           content="View selected website and digital design work created by RJM Studio for small businesses."
