@@ -443,7 +443,7 @@ export default function RJMStudioHomepageApp() {
                 <strong>Isle of Man</strong>. I provide freelance{" "}
                 <strong>web developer</strong> services, custom web design, and
                 ongoing digital support to help local small businesses build a
-                powerful online presence.
+                strong, professional online presence.{" "}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link to="/contact">
