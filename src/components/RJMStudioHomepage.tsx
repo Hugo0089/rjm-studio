@@ -1,9 +1,11 @@
+import GlowCursor from "./GlowCursor";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
+import Aurora from "./Aurora";
 import {
   ArrowRight,
   CheckCircle2,
@@ -319,7 +321,34 @@ export default function RJMStudioHomepageApp() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="min-h-screen bg-[#06070a] text-white">
+
+      <GlowCursor
+        color="#F4C76B"
+        secondaryColor="#A87932"
+        trailLength={40}
+        trailWidth={8}
+        trailTaper={0.8}
+        followSpeed={0.16}
+        glowIntensity={1.2}
+        glowSpread={1.2}
+        hotspot={0.65}
+        brightness={1}
+        opacity={0.65}
+        pulseSpeed={1.1}
+        noiseStrength={0.035}
+        idleFade
+        idleTimeout={700}
+        fadeDuration={900}
+        blendMode="screen"
+      >
+      <div className="relative min-h-screen bg-[#06070a] text-white">
+        {/* Full-width background behind header, blending into Aurora */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-gradient-to-b from-[#211A14] via-[#211A14]/80 to-transparent"
+          aria-hidden="true"
+        />
+
+        {/* Existing page background */}
         <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.05),transparent_22%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_16%)]" />
 
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-8 lg:px-10">
@@ -430,8 +459,25 @@ export default function RJMStudioHomepageApp() {
             )}
           </header>
 
-          <section className="grid items-center gap-16 pb-14 pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:pt-20">
-            <div>
+          <section className="relative isolate grid items-center gap-16 pb-14 pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:pt-20">
+            {/* Full-bleed Aurora background */}
+
+            {/* Full-bleed Aurora extending behind the header */}
+            <div
+              className="pointer-events-none absolute -top-[140px] bottom-0 left-1/2 z-0 w-screen -translate-x-1/2 opacity-40"
+              aria-hidden="true"
+            >
+              <Aurora
+                colorStops={["#4C3219", "#A97732", "#1B1714"]}
+                amplitude={0.8}
+                blend={0.6}
+                speed={0.5}
+                lightMode={false}
+              />
+            </div>
+
+            {/* Existing hero text and buttons */}
+            <div className="relative z-10">
               <div className="max-w-2xl text-5xl font-light leading-[1.02] tracking-tight text-white md:text-7xl">
                 <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
                   A stronger online presence, designed to{" "}
@@ -445,14 +491,21 @@ export default function RJMStudioHomepageApp() {
                 ongoing digital support to help local small businesses build a
                 strong, professional online presence.{" "}
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Link to="/contact">
-                  <PrimaryButton>Get in Touch</PrimaryButton>
-                  <Link to="/work" className="ml-3">
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <div className="w-full [&>button]:w-full sm:[&>button]:w-auto">
+                    <PrimaryButton>Get in Touch</PrimaryButton>
+                  </div>
+                </Link>
+
+                <Link to="/work" className="w-full sm:w-auto">
+                  <div className="w-full [&>button]:w-full sm:[&>button]:w-auto">
                     <SecondaryButton>View Our Work</SecondaryButton>
-                  </Link>
+                  </div>
                 </Link>
               </div>
+
               <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.2em] text-zinc-500">
                 <span>Website Design</span>
                 <span>Content Management</span>
@@ -553,8 +606,33 @@ export default function RJMStudioHomepageApp() {
             </div>
           </section>
 
-          <section className="grid gap-10 py-24 lg:grid-cols-[0.74fr_1.26fr]">
-            <div>
+          <section className="relative isolate grid gap-10 py-24 lg:grid-cols-[0.74fr_1.26fr]">
+            {/* Aurora background for Why RJM Studio */}
+
+            {/* Full-bleed Aurora with soft top and bottom edges */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2 opacity-40"
+              aria-hidden="true"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+              }}
+            >
+              <Aurora
+                colorStops={["#4C3219", "#A97732", "#1B1714"]}
+                amplitude={0.8}
+                blend={0.6}
+                speed={0.5}
+                lightMode={false}
+              />
+
+              {/* Dark overlay for readability */}
+              <div className="absolute inset-0 bg-[#06070a]/25" />
+            </div>
+
+            <div className="relative z-10">
               <SectionLabel>Why RJM Studio</SectionLabel>
               <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
                 Built for businesses that want to look the part online.
@@ -580,7 +658,7 @@ export default function RJMStudioHomepageApp() {
               </div>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="relative z-10 grid gap-5 md:grid-cols-2">
               {features.map((feature) => {
                 const Icon = feature.icon;
                 return (
@@ -702,6 +780,7 @@ export default function RJMStudioHomepageApp() {
           <Footer />
         </div>
       </div>
+      </GlowCursor>
     </>
   );
 }
