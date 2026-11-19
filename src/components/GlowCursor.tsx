@@ -207,6 +207,7 @@ const GlowCursor = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const propsRef = useRef<GlowCursorConfig>({} as GlowCursorConfig);
 
+  useEffect(() => {
   propsRef.current = {
     color,
     secondaryColor,
@@ -228,6 +229,7 @@ const GlowCursor = ({
     blendMode,
     enabled,
   };
+  });
 
   useEffect(() => {
     const container = containerRef.current;

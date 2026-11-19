@@ -109,7 +109,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
-        <span>© 2025 RJM Studio. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} RJM Studio. All rights reserved.</span>
         <div className="flex gap-6">
           <a href="/privacy" className="transition hover:text-white">
             Privacy Policy

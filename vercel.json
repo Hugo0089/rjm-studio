@@ -1,8 +1,24 @@
 {
   "rewrites": [
-    { "source": "/services", "destination": "/" },
-    { "source": "/work", "destination": "/" },
-    { "source": "/about", "destination": "/" },
-    { "source": "/contact", "destination": "/" }
+    {
+      "source": "/services",
+      "destination": "/"
+    },
+    {
+      "source": "/work",
+      "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
+      "destination": "/"
+    },
+    {
+      "source": "/work/ventosus",
+      "destination": "/"
+    }
   ]
 }
