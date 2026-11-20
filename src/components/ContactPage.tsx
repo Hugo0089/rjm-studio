@@ -208,7 +208,7 @@ export default function ContactPage() {
             <div className="flex items-center justify-between gap-4">
               <ScriptLogo />
 
-              <nav className="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+              <nav className="hidden items-center gap-14 text-sm text-zinc-200 lg:flex xl:gap-16">
                 {navItems.map((item) => {
                   const route =
                     item === "Home"

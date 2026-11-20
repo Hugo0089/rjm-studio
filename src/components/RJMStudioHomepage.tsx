@@ -36,20 +36,24 @@ const navItems = ["Home", "Services", "Work", "About", "Contact"];
 
 const trustPoints = [
   {
-    icon: ShieldCheck,
-    text: "Professional websites that build credibility",
-  },
-  {
-    icon: MessageSquareText,
-    text: "Content that keeps your brand visible",
-  },
-  {
-    icon: Globe,
-    text: "Designed for small business growth",
+    icon: MonitorSmartphone,
+    title: "Custom Websites",
+    copy: "Built around your business goals.",
   },
   {
     icon: LayoutTemplate,
-    text: "Clean, modern, conversion-focused layouts",
+    title: "Website Refreshes",
+    copy: "Modernise and improve your existing site.",
+  },
+  {
+    icon: Wrench,
+    title: "Digital Support",
+    copy: "Ongoing help after launch.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security-Aware Build",
+    copy: "Built with sensible security practices in mind.",
   },
 ];
 
@@ -222,54 +226,121 @@ function DeviceImage({
 
 function HeroVisual() {
   const lines = [
-    'const studio = {',
+    "const studio = {",
     '  name: "RJM Studio",',
     '  location: "Isle of Man",',
     '  focus: "Your business",',
-    '};',
-    '',
-    'export default function Website() {',
-    '  return <Experience',
-    '    studio={studio}',
+    "};",
+    "",
+    "export default function Website() {",
+    "  return <Experience",
+    "    studio={studio}",
     '    design="thoughtful"',
-    '    responsive />;',
-    '}',
+    "    responsive />;",
+    "}",
   ];
   return (
-    <div aria-hidden="true" className="pointer-events-none relative w-full min-w-0 select-none pb-0 pt-0 sm:pb-16 sm:pt-24 lg:pt-24">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none relative w-full min-w-0 select-none pb-0 pt-0 sm:pb-16 sm:pt-24 lg:pt-24"
+    >
       <div className="absolute inset-0 -z-10 rounded-full blur-3xl bg-[radial-gradient(ellipse_at_25%_40%,rgba(251,191,36,0.20),transparent_65%)]" />
-      <div className="relative mb-4 rounded-2xl border border-amber-300/25 bg-gradient-to-br from-[#211A14] to-[#0c0d10] p-5 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:w-64 sm:pb-12">
-        <p className="flex items-center gap-2 text-sm font-medium text-amber-200"><ShieldCheck className="h-5 w-5" /> Security by design</p>
-        <p className="mt-3 text-xs leading-6 text-zinc-300">Thoughtful dependencies<br />Careful configuration<br />Security-conscious development</p>
+      <div className="relative mb-4 rounded-2xl border border-amber-300/25 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.10),transparent_42%),linear-gradient(135deg,#111214,#0b0c0e)] p-5 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:w-64 sm:pb-12">
+        <p className="flex items-center gap-2 text-sm font-medium text-amber-200">
+          <ShieldCheck className="h-5 w-5" /> Security by design
+        </p>
+        <p className="mt-3 text-xs leading-6 text-zinc-300">
+          Thoughtful dependencies
+          <br />
+          Careful configuration
+          <br />
+          Security-conscious development
+        </p>
       </div>
       <div className="relative overflow-hidden rounded-2xl border border-amber-300/50 bg-[#0b0c0e]/95 shadow-[0_0_60px_rgba(251,191,36,0.12)] sm:mr-7">
         <div className="flex items-center gap-4 border-b border-white/10 bg-white/5 px-4 py-3">
-          <span className="flex gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-amber-300" /><i className="h-2.5 w-2.5 rounded-full bg-amber-200/60" /><i className="h-2.5 w-2.5 rounded-full bg-zinc-500" /></span>
-          <span className="min-w-0 flex-1 text-center font-mono text-xs text-zinc-400">rjm-studio / development</span>
+          <span className="flex gap-1.5">
+            <i className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+            <i className="h-2.5 w-2.5 rounded-full bg-amber-200/60" />
+            <i className="h-2.5 w-2.5 rounded-full bg-zinc-500" />
+          </span>
+          <span className="min-w-0 flex-1 text-center font-mono text-xs text-zinc-400">
+            rjm-studio / development
+          </span>
         </div>
-        <div className="heading-display border-b border-white/10 px-5 py-4 text-2xl text-white">RJM Studio</div>
+        <div className="heading-display border-b border-white/10 px-5 py-4 text-2xl text-white">
+          RJM Studio
+        </div>
         <div className="flex min-w-0">
           <div className="hidden w-36 shrink-0 border-r border-white/10 py-5 text-xs leading-7 text-zinc-400 sm:block xl:w-44">
             <p className="px-4 text-zinc-200">Explorer</p>
-            <p className="mt-3 bg-amber-300/10 px-4 text-amber-200">⌄ rjm-studio</p>
-            <div className="px-6">src<br /> components<br /> pages<br /> styles<br /><span className="text-amber-200"> website.tsx</span><br /> package.json</div>
+            <p className="mt-3 bg-amber-300/10 px-4 text-amber-200">
+              ⌄ rjm-studio
+            </p>
+            <div className="px-6">
+              src
+              <br /> components
+              <br /> pages
+              <br /> styles
+              <br />
+              <span className="text-amber-200"> website.tsx</span>
+              <br /> package.json
+            </div>
           </div>
           <div className="min-w-0 flex-1">
-            <div className="flex justify-between gap-2 border-b border-white/10 px-4 py-3 font-mono text-xs text-zinc-400"><span className="text-amber-200">website.tsx</span><span>main</span></div>
+            <div className="flex justify-between gap-2 border-b border-white/10 px-4 py-3 font-mono text-xs text-zinc-400">
+              <span className="text-amber-200">website.tsx</span>
+              <span>main</span>
+            </div>
             <div className="py-5 font-mono text-[0.7rem] leading-6 xl:text-sm xl:leading-7">
-              {lines.map((line,index)=>(<div key={index} className="flex px-3 xl:px-4"><span className="mr-3 w-4 shrink-0 text-right text-zinc-600">{index+1}</span><code className={`min-w-0 whitespace-pre-wrap break-words ${line.includes('"') ? 'text-amber-200' : 'text-zinc-300'}`}>{line || ' '}</code></div>))}
+              {lines.map((line, index) => (
+                <div key={index} className="flex px-3 xl:px-4">
+                  <span className="mr-3 w-4 shrink-0 text-right text-zinc-600">
+                    {index + 1}
+                  </span>
+                  <code
+                    className={`min-w-0 whitespace-pre-wrap break-words ${line.includes('"') ? "text-amber-200" : "text-zinc-300"}`}
+                  >
+                    {line || " "}
+                  </code>
+                </div>
+              ))}
             </div>
           </div>
         </div>
         <div className="border-t border-white/10 px-5 pb-6 pt-3 sm:pb-8">
-          <div className="mb-3 flex flex-wrap gap-5 text-xs text-zinc-400"><span className="border-b border-amber-300 pb-2 text-amber-200">Terminal</span><span>Console</span><span>Output</span></div>
-          <p className="font-mono text-xs leading-6 text-zinc-300"><span className="text-amber-300">›</span> npm run build<br />Design · Develop · Refine</p>
-          <p className="mt-2 text-xs text-zinc-500">Illustrative development workspace</p>
+          <div className="mb-3 flex flex-wrap gap-5 text-xs text-zinc-400">
+            <span className="border-b border-amber-300 pb-2 text-amber-200">
+              Terminal
+            </span>
+            <span>Console</span>
+            <span>Output</span>
+          </div>
+          <p className="font-mono text-xs leading-6 text-zinc-300">
+            <span className="text-amber-300">›</span> npm run build
+            <br />
+            Design · Develop · Refine
+          </p>
+          <p className="mt-2 text-xs text-zinc-500">
+            Illustrative development workspace
+          </p>
         </div>
       </div>
-      <div className="relative mt-4 rounded-2xl border border-amber-300/60 bg-[linear-gradient(120deg,#211A14,#0c0d10)] p-5 shadow-[0_12px_50px_rgba(0,0,0,0.5)] sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-72 xl:w-80">
-        <div className="flex items-center justify-between gap-4"><div><p className="text-xs uppercase tracking-[0.2em] text-amber-200">Built with care</p><p className="heading-display mt-3 text-3xl text-white">Ready for your next step.</p></div><ShieldCheck className="h-12 w-12 shrink-0 text-amber-300" /></div>
-        <p className="mt-3 text-sm text-zinc-300">Performance · Usability · Security</p>
+      <div className="relative mt-4 rounded-2xl border border-amber-300/60 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.11),transparent_45%),linear-gradient(120deg,#111214,#0b0c0e)] p-5 shadow-[0_12px_50px_rgba(0,0,0,0.5)] sm:absolute sm:bottom-0 sm:right-0 sm:mt-0 sm:w-72 xl:w-80">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-200">
+              Built with care
+            </p>
+            <p className="heading-display mt-3 text-3xl text-white">
+              Ready for your next step.
+            </p>
+          </div>
+          <ShieldCheck className="h-12 w-12 shrink-0 text-amber-300" />
+        </div>
+        <p className="mt-3 text-sm text-zinc-300">
+          Performance · Usability · Security
+        </p>
       </div>
     </div>
   );
@@ -337,7 +408,7 @@ export default function RJMStudioHomepageApp() {
           className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2"
           style={{
             background:
-              "radial-gradient(circle at 18% 42%, rgba(138,90,36,0.16), transparent 34%), radial-gradient(circle at 82% 58%, rgba(96,165,250,0.045), transparent 30%)",
+              "radial-gradient(circle at 18% 42%, rgba(251,191,36,0.10), transparent 36%), radial-gradient(circle at 82% 58%, rgba(251,191,36,0.045), transparent 32%)",
             maskImage:
               "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
             WebkitMaskImage:
@@ -345,19 +416,19 @@ export default function RJMStudioHomepageApp() {
           }}
         />
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-gradient-to-b from-[#211A14] via-[#211A14]/80 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-[linear-gradient(to_bottom,rgba(244,199,107,0.08),rgba(244,199,107,0.025),transparent)]"
           aria-hidden="true"
         />
 
         {/* Existing page background */}
-        <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.05),transparent_22%),radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_16%)]" />
+        <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.035),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(244,199,107,0.045),transparent_22%),radial-gradient(circle_at_top_right,rgba(244,199,107,0.08),transparent_16%)]" />
 
         <div className="relative w-full px-6 pb-20 pt-6 md:px-8 lg:px-10">
           <header className="sticky top-4 z-40 rounded-[0.6rem] border border-white/10 bg-black/35 px-5 py-4 backdrop-blur-xl">
             <div className="flex items-center justify-between gap-4">
               <ScriptLogo />
 
-              <nav className="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+              <nav className="hidden items-center gap-14 text-sm text-zinc-200 lg:flex xl:gap-16">
                 {navItems.map((item) => {
                   const route =
                     item === "Home"
@@ -460,14 +531,26 @@ export default function RJMStudioHomepageApp() {
             )}
           </header>
 
-          <section aria-labelledby="hero-heading" className="relative isolate grid min-w-0 items-center gap-12 pb-16 pt-12 md:gap-14 md:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10 xl:gap-14">
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_60%_40%,rgba(251,191,36,0.14),transparent_60%)]" />
+          <section
+            aria-labelledby="hero-heading"
+            className="relative isolate grid min-w-0 items-center gap-12 pb-16 pt-12 md:gap-14 md:py-20 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10 xl:gap-14"
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_60%_40%,rgba(251,191,36,0.14),transparent_60%)]"
+            />
             <div className="relative z-10 min-w-0">
               <p className="mb-6 max-w-lg text-xs font-medium uppercase leading-6 tracking-[0.18em] text-amber-200 sm:text-sm">
                 Web Design &amp; Digital Support · Isle of Man
               </p>
-              <h1 id="hero-heading" className="heading-display max-w-2xl text-5xl font-light leading-[1.04] tracking-tight text-white sm:text-6xl xl:text-7xl">
-                Websites designed to make your business <span className="text-amber-300 italic [font-synthesis:style]">look the part.</span>
+              <h1
+                id="hero-heading"
+                className="heading-display max-w-2xl text-5xl font-light leading-[1.04] tracking-tight text-white sm:text-6xl xl:text-7xl"
+              >
+                Websites designed to make your business{" "}
+                <span className="text-amber-300 italic [font-synthesis:style]">
+                  look the part.
+                </span>
               </h1>
               <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-300">
                 RjM Studio is a professional digital studio based in the{" "}
@@ -478,38 +561,63 @@ export default function RJMStudioHomepageApp() {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <Link to="/work" className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-gradient-to-b from-amber-200 to-amber-400 px-8 py-4 text-base font-semibold !text-black transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 motion-reduce:transition-none">
+                <Link
+                  to="/work"
+                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-gradient-to-b from-amber-200 to-amber-400 px-8 py-4 text-base font-semibold !text-black transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 motion-reduce:transition-none"
+                >
                   View Our Work
                 </Link>
-                <Link to="/contact" className="inline-flex min-h-12 items-center justify-center rounded-md border border-zinc-300 px-8 py-4 text-base font-medium text-white transition-colors hover:bg-amber-300/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 motion-reduce:transition-none">
+                <Link
+                  to="/contact"
+                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-zinc-300 px-8 py-4 text-base font-medium text-white transition-colors hover:bg-amber-300/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 motion-reduce:transition-none"
+                >
                   Start a Project
                 </Link>
               </div>
               <p className="mt-7 flex max-w-xl items-start gap-2.5 text-sm italic leading-6 text-zinc-300">
-                <ShieldCheck aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-amber-300/80" />
+                <ShieldCheck
+                  aria-hidden="true"
+                  className="mt-1 h-4 w-4 shrink-0 text-amber-300/80"
+                />
                 Built with performance, usability and security in mind.
               </p>
             </div>
             <HeroVisual />
           </section>
 
-          <section className="grid gap-4 border-y border-white/10 py-6 md:grid-cols-2 xl:grid-cols-4">
-            {trustPoints.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.text}
-                  className="flex items-center gap-4 rounded-2xl px-3 py-2"
-                >
-                  <div className="rounded-full border border-amber-300/30 bg-amber-300/5 p-2.5 text-amber-300">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="text-sm leading-6 text-zinc-200">
-                    {item.text}
-                  </div>
-                </div>
-              );
-            })}
+          <section className="py-7">
+            <div className="overflow-hidden rounded-[1rem] border border-amber-300/15 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.075),transparent_40%),linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.012))]">
+              <div className="grid md:grid-cols-2 xl:grid-cols-4">
+                {trustPoints.map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.title}
+                      className={`flex gap-4 px-6 py-6 ${
+                        index !== trustPoints.length - 1
+                          ? "border-b rgba(255,255,255,0.05) xl:border-b-0 xl:border-r"
+                          : ""
+                      }`}
+                    >
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
+                        <Icon className="h-5 w-5" />
+                      </div>
+
+                      <div>
+                        <h3 className="text-base font-medium text-white">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-1 text-sm leading-6 text-zinc-400">
+                          {item.copy}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </section>
 
           <section
@@ -585,6 +693,14 @@ export default function RJMStudioHomepageApp() {
 
           <section className="relative isolate grid gap-10 py-24 lg:grid-cols-[0.74fr_1.26fr]">
             {/* Aurora background for Why RJM Studio */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 45%, rgba(251,191,36,0.10), transparent 32%)",
+              }}
+            />
 
             {/* Full-bleed Aurora with soft top and bottom edges */}
             <div
@@ -725,7 +841,7 @@ export default function RJMStudioHomepageApp() {
 
           <section
             id="contact"
-            className="mt-10 overflow-hidden rounded-[1rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.08),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] px-6 py-10 md:px-10 md:py-12"
+            className="mt-10 overflow-hidden rounded-[1rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.07),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(184,135,43,0.055),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] px-6 py-10 md:px-10 md:py-12"
           >
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="heading-display text-3xl font-light leading-tight text-white md:text-5xl">

@@ -23,7 +23,7 @@ export default function Header({ activeItem }: HeaderProps) {
       <div className="flex items-center justify-between gap-4">
         <ScriptLogo />
 
-        <nav className="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+        <nav className="hidden items-center gap-24 text-sm text-zinc-200 lg:flex">
           {navItems.map((item) => {
             const route =
               item === "Home"

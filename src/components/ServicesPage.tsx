@@ -6,77 +6,75 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  Check,
   ChevronDown,
   Menu,
   MonitorSmartphone,
+  RefreshCw,
+  ShieldCheck,
   Wrench,
 } from "lucide-react";
 
 const navItems = ["Home", "Services", "Work", "About", "Contact"];
 
-const serviceCards = [
+const editorialServices = [
   {
+    number: "01",
     icon: MonitorSmartphone,
-    title: "Website Design",
+    title: "Custom Websites",
     description:
-      "Modern, responsive websites designed to build trust, showcase your business, and turn visitors into enquiries.",
-  },
-  {
-    icon: InstagramIcon,
-    title: "Social Media Content Management",
-    description:
-      "Consistent, branded content that helps your business stay visible, connect with your audience, and grow your online presence.",
-  },
-  {
-    icon: Wrench,
-    title: "Digital Support",
-    description:
-      "Reliable ongoing support for your website, design, content, and day-to-day digital updates.",
-  },
-];
-
-const detailedServices = [
-  {
-    icon: MonitorSmartphone,
-    title: "Website Design",
-    description:
-      "Clean, strategic websites that reflect your brand and give your business the professional presence it deserves.",
+      "Modern websites designed around your business, audience, and goals — with a professional experience across every screen.",
     includes: [
-      "Custom, responsive design",
-      "Up to 5 pages or tailored to your needs",
-      "Mobile-first and SEO-ready structure",
-      "Contact forms and enquiry setup",
-      "Training and handover",
-      "Post-launch support",
+      "Responsive website design",
+      "Custom development",
+      "Mobile-first layouts",
+      "Contact and enquiry setup",
+      "SEO-ready structure",
+      "Launch and handover support",
     ],
   },
   {
-    icon: InstagramIcon,
-    title: "Social Media Management",
+    number: "02",
+    icon: RefreshCw,
+    title: "Website Refreshes",
     description:
-      "Branded content that helps your business stay consistent, connect with your audience, and grow your online presence.",
+      "Give an existing website a stronger visual presence, clearer structure, and a better experience without starting again unnecessarily.",
     includes: [
-      "Content planning and strategy",
-      "Branded graphics and post design",
-      "Captions and hashtag support",
-      "Scheduling support",
-      "Monthly content delivery",
-      "Performance-focused approach",
+      "Website redesigns",
+      "Layout improvements",
+      "Responsive fixes",
+      "Content restructuring",
+      "CTA improvements",
+      "Performance-focused updates",
     ],
   },
   {
+    number: "03",
     icon: Wrench,
     title: "Digital Support",
     description:
-      "Flexible ongoing support for your website, design, and practical digital needs as your business grows.",
+      "Practical ongoing help to keep your website and digital presence current, reliable, and working for your business.",
     includes: [
-      "Website updates and edits",
-      "Design support for graphics and banners",
-      "Technical support and troubleshooting",
-      "Content updates",
-      "One-off or ongoing support",
-      "Fast, reliable communication",
+      "Website updates",
+      "Technical troubleshooting",
+      "Content changes",
+      "Design support",
+      "Landing page and section edits",
+      "Ongoing maintenance",
+    ],
+  },
+  {
+    number: "04",
+    icon: ShieldCheck,
+    title: "Security-Aware Development",
+    description:
+      "A security-conscious approach informed by cybersecurity experience, helping create websites that are considered carefully from build to launch.",
+    includes: [
+      "Security-conscious implementation",
+      "Secure configuration",
+      "Dependency awareness",
+      "Access best practices",
+      "HTTPS and deployment considerations",
+      "Performance and reliability",
     ],
   },
 ];
@@ -141,25 +139,6 @@ const faqs: FaqItem[] = [
   },
 ];
 
-function InstagramIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 function ScriptLogo() {
   return (
     <a href="#" className="shrink-0">
@@ -185,22 +164,6 @@ function SecondaryButton({ children }: { children: React.ReactNode }) {
     <button className="cursor-pointer rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5">
       {children}
     </button>
-  );
-}
-
-function PremiumCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`rounded-[0.9rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] ${className}`}
-    >
-      {children}
-    </div>
   );
 }
 
@@ -245,7 +208,7 @@ export default function RJMStudioServicesPage() {
             <div className="flex items-center justify-between gap-4">
               <ScriptLogo />
 
-              <nav className="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+              <nav className="hidden items-center gap-14 text-sm text-zinc-200 lg:flex xl:gap-16">
                 {navItems.map((item) => {
                   const route =
                     item === "Home"
@@ -385,280 +348,260 @@ export default function RJMStudioServicesPage() {
 
                 <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
                   Services designed to elevate your{" "}
-                  <span className="text-amber-300">business online.</span>
+                  <span className="text-amber-300">online presence.</span>
                 </h1>
 
                 <p className="mt-6 max-w-[500px] text-lg leading-8 text-zinc-300">
-                  RJM Studio offers website design, content management, and
-                  digital support to help small businesses build a stronger
-                  online presence and grow with confidence.
+                  From custom websites and website refreshes to ongoing digital
+                  support, RJM Studio helps small businesses build a
+                  professional, reliable, and security-aware online presence.
                 </p>
               </div>
             </div>
           </section>
 
-          <section className="py-16">
-            <div className="text-center">
+          <section className="border-t border-white/10 py-20">
+            <div className="mb-12 max-w-3xl">
               <SectionLabel>What I Do</SectionLabel>
-              <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
-                Three core services. One clear goal: helping your business make
-                an impact.
+
+              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                Digital services built around{" "}
+                <span className="text-amber-300">your business.</span>
               </h2>
-            </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {serviceCards.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <PremiumCard key={service.title} className="p-8">
-                    <div className="inline-flex rounded-2xl border border-amber-300/20 bg-amber-300/5 p-3 text-amber-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-6 text-2xl font-light leading-tight text-white">
-                      {service.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-8 text-zinc-400">
-                      {service.description}
-                    </p>
-                    <Link
-                      to="/contact"
-                      className="mt-8 inline-flex items-center gap-2 text-sm text-amber-200 transition hover:text-amber-100"
-                    >
-                      Get in Touch
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </PremiumCard>
-                );
-              })}
-            </div>
-          </section>
-
-          <section className="border-t border-white/10 py-12">
-            <SectionLabel>Services in Detail</SectionLabel>
-            <div className="space-y-6">
-              {detailedServices.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <PremiumCard key={service.title} className="p-0">
-                    <div className="grid gap-0 lg:grid-cols-[1.15fr_1.85fr]">
-                      <div className="border-b border-white/10 p-7 lg:border-b-0 lg:border-r">
-                        <div className="inline-flex rounded-2xl border border-amber-300/20 bg-amber-300/5 p-3 text-amber-300">
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="mt-5 text-2xl font-light leading-tight text-white">
-                          {service.title}
-                        </h3>
-                        <p className="mt-4 max-w-md text-base leading-8 text-zinc-400">
-                          {service.description}
-                        </p>
-                      </div>
-
-                      <div className="grid gap-0 md:grid-cols-2">
-                        <div className="border-b border-white/10 p-7 md:border-b-0 md:border-r">
-                          <div className="text-xs uppercase tracking-[0.24em] text-amber-300/80">
-                            What’s Included
-                          </div>
-                          <ul className="mt-5 space-y-4">
-                            {service.includes.slice(0, 3).map((item) => (
-                              <li
-                                key={item}
-                                className="flex gap-3 text-sm leading-7 text-zinc-300"
-                              >
-                                <Check className="mt-1 h-4 w-4 shrink-0 text-amber-300" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="p-7">
-                          <div className="text-xs uppercase tracking-[0.24em] text-amber-300/80">
-                            What’s Included
-                          </div>
-                          <ul className="mt-5 space-y-4">
-                            {service.includes.slice(3).map((item) => (
-                              <li
-                                key={item}
-                                className="flex gap-3 text-sm leading-7 text-zinc-300"
-                              >
-                                <Check className="mt-1 h-4 w-4 shrink-0 text-amber-300" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </PremiumCard>
-                );
-              })}
-            </div>
-          </section>
-
-          <section className="py-16">
-            <div className="text-center">
-              <SectionLabel>Packages & Pricing</SectionLabel>
-              <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
-                Clear packages designed to help your business grow with
-                confidence.
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-                Choose from website design, social media management, and ongoing
-                digital support packages. All prices are starting prices and can
-                be tailored to your business needs.
+              <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
+                Whether you need a new website, improvements to an existing one,
+                or reliable support after launch, each service can be tailored
+                to what your business actually needs.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-2">
-              <PremiumCard className="p-8">
-                <div className="text-2xl font-light text-white">
-                  Website Packages
-                </div>
-                <p className="mt-3 text-base leading-8 text-zinc-400">
-                  A range of website packages for small businesses, from simple
-                  updates to full custom builds.
-                </p>
+            <div className="border-b border-white/10">
+              {editorialServices.map((service) => {
+                const Icon = service.icon;
 
-                <div className="mt-8 space-y-5">
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">
-                      Website Refresh / Update
-                    </div>
-                    <div className="mt-1 text-amber-300">From £225</div>
-                  </div>
-
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">
-                      Full Website Refresh / Redesign
-                    </div>
-                    <div className="mt-1 text-amber-300">From £425</div>
-                  </div>
-
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">Website Full Build</div>
-                    <div className="mt-1 text-amber-300">From £495</div>
-                  </div>
-
-                  <div>
-                    <div className="text-lg text-white">Website Plus Build</div>
-                    <div className="mt-1 text-amber-300">From £795</div>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="/images/website-packages-guide.png"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                return (
+                  <article
+                    key={service.number}
+                    className="grid gap-7 border-t border-white/10 py-10 md:py-12 lg:grid-cols-[110px_0.8fr_1.2fr] lg:gap-10"
                   >
-                    View Pricing Guide
-                  </a>
-
-                  <a
-                    href="/images/website-packages-guide.png"
-                    download
-                    className="inline-flex rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5"
-                  >
-                    Download Guide
-                  </a>
-                </div>
-              </PremiumCard>
-
-              <PremiumCard className="p-8">
-                <div className="text-2xl font-light text-white">
-                  Social Media & Support
-                </div>
-                <p className="mt-3 text-base leading-8 text-zinc-400">
-                  Monthly content and digital support packages designed to keep
-                  your business visible, professional, and consistent online.
-                </p>
-
-                <div className="mt-8 space-y-5">
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">
-                      Social Media Presence
+                    <div>
+                      <span className="heading-display text-5xl font-light italic text-amber-300/80 md:text-6xl">
+                        {service.number}
+                      </span>
                     </div>
-                    <div className="mt-1 text-amber-300">From £225/month</div>
-                  </div>
 
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">
-                      Social Media Presence+
+                    <div>
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
+                          <Icon className="h-5 w-5" />
+                        </div>
+
+                        <h3 className="heading-display text-3xl font-light text-white md:text-4xl">
+                          {service.title}
+                        </h3>
+                      </div>
+
+                      <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
+                        {service.description}
+                      </p>
                     </div>
-                    <div className="mt-1 text-amber-300">From £375/month</div>
-                  </div>
 
-                  <div className="border-b border-white/10 pb-5">
-                    <div className="text-lg text-white">
-                      Social Media Management
+                    <div className="lg:border-l lg:border-white/10 lg:pl-10">
+                      <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                        What’s Included
+                      </div>
+
+                      <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                        {service.includes.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-3 text-sm leading-6 text-zinc-300"
+                          >
+                            <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="mt-1 text-amber-300">From £600/month</div>
-                  </div>
-
-                  <div>
-                    <div className="text-lg text-white">Digital Support</div>
-                    <div className="mt-1 text-amber-300">From £150/month</div>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="/images/social-media-support-packages-guide.png"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
-                  >
-                    View Pricing Guide
-                  </a>
-
-                  <a
-                    href="/images/social-media-support-packages-guide.png"
-                    download
-                    className="inline-flex rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5"
-                  >
-                    Download Guide
-                  </a>
-                </div>
-              </PremiumCard>
+                  </article>
+                );
+              })}
             </div>
           </section>
 
-          <section className="py-12">
-            <PremiumCard className="p-8 md:p-10">
-              <div className="text-center">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-amber-300/10 bg-[#090807] py-16 md:py-20">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 20%, rgba(138,90,36,0.14), transparent 34%), radial-gradient(circle at 82% 72%, rgba(138,90,36,0.08), transparent 30%)",
+              }}
+            />
+            <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
+              <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr_1fr] lg:gap-0">
+                <div className="lg:pr-12">
+                  <SectionLabel>Packages & Pricing</SectionLabel>
+
+                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                    Flexible options to suit{" "}
+                    <span className="italic text-amber-300">your needs.</span>
+                  </h2>
+
+                  <p className="mt-5 max-w-md text-base leading-8 text-zinc-300">
+                    Every business is different. Explore the current pricing
+                    guides for package details, or get in touch for something
+                    more tailored.
+                  </p>
+                </div>
+
+                <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
+                  <div className="text-2xl font-light text-white">
+                    Website Packages
+                  </div>
+
+                  <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                    Website refreshes, redesigns and custom builds for small
+                    businesses at different stages of their online journey.
+                  </p>
+
+                  <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                    <a
+                      href="/images/website-packages-guide.png"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                    >
+                      View Pricing Guide
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+
+                    <a
+                      href="/images/website-packages-guide.png"
+                      download
+                      className="inline-flex items-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                    >
+                      Download Guide
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+                  <div className="text-2xl font-light text-white">
+                    Social Media & Digital Support
+                  </div>
+
+                  <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                    Content management and practical ongoing digital support
+                    designed to help your business stay visible and up to date.
+                  </p>
+
+                  <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                    <a
+                      href="/images/social-media-support-packages-guide.png"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                    >
+                      View Pricing Guide
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+
+                    <a
+                      href="/images/social-media-support-packages-guide.png"
+                      download
+                      className="inline-flex items-center rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                    >
+                      Download Guide
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-b border-white/10 py-20">
+            <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
+              <div>
                 <SectionLabel>My Process</SectionLabel>
-                <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                  A simple process, built around clarity.
+
+                <h2 className="heading-display max-w-md text-4xl font-light leading-tight text-white md:text-5xl">
+                  A simple process, built around{" "}
+                  <span className="italic text-amber-300">clarity.</span>
                 </h2>
               </div>
 
-              <div className="mt-10 grid gap-6 lg:grid-cols-4">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {processSteps.map((step, index) => (
-                  <div key={step.number} className="relative">
-                    {index < processSteps.length - 1 && (
-                      <div className="absolute right-[-18px] top-8 hidden h-px w-9 bg-amber-300/40 lg:block" />
-                    )}
-                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-amber-300/30 bg-amber-300/5 text-sm tracking-[0.18em] text-amber-200">
-                      {step.number}
+                  <div
+                    key={step.number}
+                    className="border-t border-white/10 pt-6"
+                  >
+                    <div className="text-xs tracking-[0.24em] text-amber-300/80">
+                      0{index + 1}
                     </div>
-                    <h3 className="mt-5 text-2xl font-light text-white">
+
+                    <h3 className="mt-5 text-xl font-light text-white">
                       {step.title}
                     </h3>
-                    <p className="mt-3 max-w-[230px] text-sm leading-7 text-zinc-400">
+
+                    <p className="mt-3 text-sm leading-7 text-zinc-400">
                       {step.description}
                     </p>
                   </div>
                 ))}
               </div>
-            </PremiumCard>
+            </div>
           </section>
 
-          <section className="grid gap-6 py-8 lg:grid-cols-[1fr_0.95fr]">
-            <PremiumCard className="p-8 md:p-10">
-              <SectionLabel>FAQ</SectionLabel>
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#0b0a09] py-10 md:py-12">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 20% 50%, rgba(138,90,36,0.14), transparent 32%)",
+              }}
+            />
+            <div className="mx-auto max-w-5xl px-6 md:px-8 lg:px-10">
+              <div className="grid gap-6 md:grid-cols-[90px_1fr] md:items-start">
+                <div className="heading-display text-6xl leading-none text-amber-300/80">
+                  “
+                </div>
 
-              <div className="space-y-1">
+                <figure>
+                  <blockquote className="heading-display text-xl font-light italic leading-relaxed text-zinc-100 md:text-2xl">
+                    <p>
+                      We’ve reflected on our recent journey with you and its
+                      impact on our business. It was a big decision for us as a
+                      small company with limited funds, but we are so pleased we
+                      made that decision and can’t thank you enough for all your
+                      efforts and the final outcome — our new website is
+                      fantastic!
+                    </p>
+                  </blockquote>
+
+                  <figcaption className="mt-5 text-xs uppercase tracking-[0.22em] text-amber-200/80">
+                    Rob — Ventosus Micro Winery
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-b border-white/10 py-16 md:py-20">
+            <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
+              <div>
+                <SectionLabel>FAQ</SectionLabel>
+
+                <h2 className="heading-display max-w-sm text-4xl font-light leading-tight text-white md:text-5xl">
+                  Frequently asked{" "}
+                  <span className="italic text-amber-300">questions.</span>
+                </h2>
+              </div>
+
+              <div className="border-t border-white/10">
                 {faqs.map((faq: FaqItem, index: number) => (
                   <div key={faq.question} className="border-b border-white/10">
                     <button
@@ -666,54 +609,82 @@ export default function RJMStudioServicesPage() {
                       onClick={() =>
                         setOpenFaq(openFaq === index ? null : index)
                       }
-                      className="flex w-full cursor-pointer items-center justify-between py-5 text-left text-white"
+                      className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-white"
                     >
-                      <span>{faq.question}</span>
+                      <span className="text-base">{faq.question}</span>
+
                       <ChevronDown
-                        className={`h-5 w-5 text-amber-300 transition-transform duration-200 ${
+                        className={`h-5 w-5 shrink-0 text-amber-300 transition-transform duration-200 ${
                           openFaq === index ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
                     {openFaq === index && (
-                      <div className="pb-5 pr-8 text-sm leading-7 text-zinc-400">
+                      <div className="max-w-2xl pb-6 pr-10 text-sm leading-7 text-zinc-400">
                         {faq.answer}
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-            </PremiumCard>
+            </div>
+          </section>
 
-            <div className="relative overflow-hidden rounded-[0.9rem] border border-white/10 min-h-[360px]">
-              <div className="absolute inset-0">
-                <img
-                  src="/images/CTABackgroun.png"
-                  alt="RJM Studio CTA background"
-                  className="h-full w-full object-cover object-[72%_center]"
-                />
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#090807] py-20 md:py-24">
+            {/* Left bronze sweep */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-[18%] -top-[70%] h-[165%] w-[42%] rotate-[-16deg] rounded-[50%] opacity-55"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(138,90,36,0.38) 0%, rgba(180,120,55,0.20) 42%, rgba(33,26,20,0.04) 72%, transparent 100%)",
+              }}
+            />
+
+            {/* Right bronze sweep */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-[82%] -right-[14%] h-[165%] w-[48%] rotate-[-12deg] rounded-[50%] opacity-58"
+              style={{
+                background:
+                  "linear-gradient(135deg, transparent 0%, rgba(33,26,20,0.04) 24%, rgba(138,90,36,0.24) 58%, rgba(180,120,55,0.38) 100%)",
+              }}
+            />
+
+            {/* Soft central warmth */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 45%, rgba(138,90,36,0.12), transparent 48%)",
+              }}
+            />
+
+            <div className="relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
+              <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                Let’s Work Together
               </div>
 
-              <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/58 to-black/8" />
+              <h2 className="heading-display mt-5 text-4xl font-light leading-tight text-white md:text-6xl">
+                Ready to discuss{" "}
+                <span className="italic text-amber-300">your project?</span>
+              </h2>
 
-              <div className="relative z-10 flex h-full items-center px-8 py-8 md:px-10">
-                <div className="max-w-[46%]">
-                  <h2 className="heading-display text-3xl font-light leading-[1.12] text-white md:text-4xl">
-                    Let’s build a stronger online presence for your business.
-                  </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-300">
+                Whether you’re looking for a new website, a refresh, or ongoing
+                digital support, let’s talk about what your business needs.
+              </p>
 
-                  <p className="mt-5 max-w-sm text-base leading-8 text-zinc-300">
-                    Every business is unique. Let’s chat about your goals and
-                    how I can help.
-                  </p>
-
-                  <div className="mt-8">
-                    <Link to="/contact">
-                      <SecondaryButton>Get in Touch</SecondaryButton>
-                    </Link>
-                  </div>
-                </div>
+              <div className="mt-8">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-medium text-black transition hover:bg-amber-200"
+                >
+                  Get in Touch
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </section>

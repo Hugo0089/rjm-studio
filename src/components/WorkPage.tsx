@@ -246,7 +246,7 @@ export default function WorkPage() {
             <div className="flex items-center justify-between gap-4">
               <ScriptLogo />
 
-              <nav className="hidden items-center gap-8 text-sm text-zinc-200 lg:flex">
+              <nav className="hidden items-center gap-14 text-sm text-zinc-200 lg:flex xl:gap-16">
                 {navItems.map((item) => {
                   const route =
                     item === "Home"
@@ -417,8 +417,66 @@ export default function WorkPage() {
           <section className="pt-12" aria-labelledby="ventosus-project-title">
             <SectionLabel>Featured Case Study</SectionLabel>
             <div className="overflow-hidden rounded-xl border border-amber-300/20 bg-white/[0.025] lg:grid lg:grid-cols-[1.3fr_1fr]">
-              <Link to="/work/ventosus" aria-label="View the Ventosus case study" className="block focus-visible:outline-2 focus-visible:outline-amber-300"><img src="/images/ventosus/home-after-1280.jpg" srcSet="/images/ventosus/home-after-640.jpg 640w, /images/ventosus/home-after-1280.jpg 1280w, /images/ventosus/home-after-1920.jpg 1920w" sizes="(max-width: 1023px) 90vw, 55vw" width={2504} height={1219} loading="lazy" decoding="async" alt="Ventosus redesigned homepage" className="h-auto w-full" /></Link>
-              <div className="self-center p-7 md:p-10"><p className="text-sm text-amber-200">Website Redesign</p><h2 id="ventosus-project-title" className="heading-display mt-3 text-4xl font-light">Ventosus Micro Winery</h2><p className="mt-4 leading-8 text-zinc-300">See the homepage, wines and wedding pages before and after the redesign.</p><figure className="mt-6 border-l-2 border-amber-300/60 pl-4"><blockquote className="text-base italic leading-7 text-zinc-200"><p>“Creating such a fantastic website and bringing our vision together.”</p></blockquote><figcaption className="mt-2 text-sm text-zinc-400">Ventosus Micro Winery</figcaption></figure><Link to="/work/ventosus" className="mt-6 inline-flex min-h-12 items-center rounded-md border border-amber-300/60 px-5 py-3 text-sm text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300">Explore the case study</Link></div>
+              <Link
+                to="/work/ventosus"
+                aria-label="View the Ventosus case study"
+                className="block focus-visible:outline-2 focus-visible:outline-amber-300"
+              >
+                <img
+                  src="/images/ventosus/home-after-1280.jpg"
+                  srcSet="/images/ventosus/home-after-640.jpg 640w, /images/ventosus/home-after-1280.jpg 1280w, /images/ventosus/home-after-1920.jpg 1920w"
+                  sizes="(max-width: 1023px) 90vw, 55vw"
+                  width={2504}
+                  height={1219}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Ventosus redesigned homepage"
+                  className="h-auto w-full"
+                />
+              </Link>
+              <div className="self-center p-7 md:p-10">
+                <p className="text-sm text-amber-200">Website Redesign</p>
+                <h2
+                  id="ventosus-project-title"
+                  className="heading-display mt-3 text-4xl font-light"
+                >
+                  Ventosus Micro Winery
+                </h2>
+                <p className="mt-4 leading-8 text-zinc-300">
+                  See the homepage, wines and wedding pages before and after the
+                  redesign.
+                </p>
+                <figure className="mt-6 border-l-2 border-amber-300/60 pl-4">
+                  <blockquote className="text-base italic leading-7 text-zinc-200">
+                    <p>
+                      “Creating such a fantastic website and bringing our vision
+                      together.”
+                    </p>
+                  </blockquote>
+                  <figcaption className="mt-2 text-sm text-zinc-400">
+                    Ventosus Micro Winery
+                  </figcaption>
+                </figure>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    to="/work/ventosus"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+                  >
+                    Explore Case Study
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+
+                  <a
+                    href="https://www.ventosus.co.uk/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-12 items-center gap-2 rounded-md border border-amber-300/60 px-5 py-3 text-sm text-amber-200 transition hover:bg-amber-300/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+                  >
+                    Visit Live Site
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
             </div>
           </section>
 
