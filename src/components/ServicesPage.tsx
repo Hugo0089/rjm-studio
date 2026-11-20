@@ -192,7 +192,7 @@ export default function RJMStudioServicesPage() {
           className="pointer-events-none fixed inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 20% 18%, rgba(138,90,36,0.15), transparent 36%), radial-gradient(circle at 78% 72%, rgba(138,90,36,0.10), transparent 34%)",
+              "radial-gradient(circle at top left, rgba(255,255,255,0.035), transparent 20%), radial-gradient(circle at bottom right, rgba(244,199,107,0.045), transparent 22%), radial-gradient(circle at top right, rgba(244,199,107,0.08), transparent 16%)",
           }}
         />
         <div className="relative z-10 w-full px-6 pb-20 pt-6 md:px-8 lg:px-10">
@@ -422,13 +422,13 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="relative left-1/2 w-screen -translate-x-1/2 border-y border-amber-300/10 bg-[#090807] py-16 md:py-20">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[#06070a] py-16 md:py-20">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at 18% 20%, rgba(138,90,36,0.14), transparent 34%), radial-gradient(circle at 82% 72%, rgba(138,90,36,0.08), transparent 30%)",
+                  "radial-gradient(circle at 18% 20%, rgba(138,90,36,0.14), transparent 34%), radial-gradient(circle at 82% 72%, rgba(251,191,36,0.10), transparent 30%)",
               }}
             />
             <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
@@ -547,13 +547,13 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#0b0a09] py-10 md:py-12">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[#06070a] py-10 md:py-12">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at 20% 50%, rgba(138,90,36,0.14), transparent 32%)",
+                  "radial-gradient(circle at 20% 50%, rgba(251,191,36,0.055), transparent 34%)",
               }}
             />
             <div className="mx-auto max-w-5xl px-6 md:px-8 lg:px-10">
@@ -623,34 +623,14 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#090807] py-20 md:py-24">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#06070a] py-20 md:py-24">
             {/* Left bronze sweep */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-[18%] -top-[70%] h-[165%] w-[42%] rotate-[-16deg] rounded-[50%] opacity-55"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(138,90,36,0.38) 0%, rgba(180,120,55,0.20) 42%, rgba(33,26,20,0.04) 72%, transparent 100%)",
-              }}
-            />
-
-            {/* Right bronze sweep */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-[82%] -right-[14%] h-[165%] w-[48%] rotate-[-12deg] rounded-[50%] opacity-58"
-              style={{
-                background:
-                  "linear-gradient(135deg, transparent 0%, rgba(33,26,20,0.04) 24%, rgba(138,90,36,0.24) 58%, rgba(180,120,55,0.38) 100%)",
-              }}
-            />
-
-            {/* Soft central warmth */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 45%, rgba(138,90,36,0.12), transparent 48%)",
+                  "radial-gradient(circle at 22% 35%, rgba(251,191,36,0.07), transparent 32%), radial-gradient(circle at 82% 68%, rgba(244,199,107,0.035), transparent 30%)",
               }}
             />
 

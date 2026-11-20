@@ -232,14 +232,18 @@ export default function WorkPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#090807] text-white">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 20% 18%, rgba(138,90,36,0.15), transparent 36%), radial-gradient(circle at 78% 72%, rgba(138,90,36,0.10), transparent 34%)",
+              "radial-gradient(circle at top left, rgba(255,255,255,0.035), transparent 20%), radial-gradient(circle at bottom right, rgba(244,199,107,0.045), transparent 22%), radial-gradient(circle at top right, rgba(244,199,107,0.08), transparent 16%)",
           }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-[linear-gradient(to_bottom,rgba(244,199,107,0.08),rgba(244,199,107,0.025),transparent)]"
         />
         <div className="relative z-10 w-full px-6 pb-20 pt-6 md:px-8 lg:px-10">
           <header className="sticky top-4 z-40 rounded-[0.6rem] border border-white/10 bg-black/35 px-5 py-4 backdrop-blur-xl">

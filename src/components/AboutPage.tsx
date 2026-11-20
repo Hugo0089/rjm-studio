@@ -5,16 +5,10 @@ import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Menu,
-  Monitor,
-  Rocket,
-  Users,
   MessageCircle,
   Pencil,
   LayoutTemplate,
   BarChart3,
-  Sparkles,
-  Target,
-  Clock3,
 } from "lucide-react";
 
 const navItems = ["Home", "Services", "Work", "About", "Contact"];
@@ -36,48 +30,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
-function SecondaryButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="cursor-pointer rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5">
-      {children}
-    </button>
-  );
-}
-
-function PremiumCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`rounded-[0.9rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-const whoIHelp = [
-  {
-    icon: Monitor,
-    title: "Small Businesses",
-    copy: "Helping local businesses build a stronger online presence that looks professional and inspires trust.",
-  },
-  {
-    icon: Rocket,
-    title: "Startups",
-    copy: "Supporting new ventures with clear branding, websites, and digital foundations that feel credible from day one.",
-  },
-  {
-    icon: Users,
-    title: "Entrepreneurs",
-    copy: "Helping founders and solo business owners present themselves clearly and confidently online.",
-  },
-];
 
 const approachSteps = [
   {
@@ -103,29 +55,6 @@ const approachSteps = [
     icon: BarChart3,
     title: "Support",
     copy: "Ongoing support, refinement, and updates help your business stay consistent and keep growing.",
-  },
-];
-
-const highlights = [
-  {
-    icon: Sparkles,
-    title: "Thoughtful design",
-    copy: "Every design choice is made with clarity, professionalism, and your brand in mind.",
-  },
-  {
-    icon: Target,
-    title: "Clear communication",
-    copy: "You can expect a straightforward process, honest updates, and clear next steps.",
-  },
-  {
-    icon: Clock3,
-    title: "Reliable support",
-    copy: "Whether it is launch day or ongoing updates, I aim to be dependable and easy to work with.",
-  },
-  {
-    icon: BarChart3,
-    title: "Focused execution",
-    copy: "The goal is not just to make things look good, but to help your business show up better online.",
   },
 ];
 
@@ -156,14 +85,18 @@ export default function AboutPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#090807] text-white">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 20% 18%, rgba(138,90,36,0.15), transparent 36%), radial-gradient(circle at 78% 72%, rgba(138,90,36,0.10), transparent 34%)",
+              "radial-gradient(circle at top left, rgba(255,255,255,0.035), transparent 20%), radial-gradient(circle at bottom right, rgba(244,199,107,0.045), transparent 22%), radial-gradient(circle at top right, rgba(244,199,107,0.08), transparent 16%)",
           }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-[linear-gradient(to_bottom,rgba(244,199,107,0.08),rgba(244,199,107,0.025),transparent)]"
         />
         <div className="relative z-10 w-full px-6 pb-20 pt-6 md:px-8 lg:px-10">
           <header className="sticky top-4 z-40 rounded-[0.6rem] border border-white/10 bg-black/35 px-5 py-4 backdrop-blur-xl">
@@ -302,144 +235,485 @@ export default function AboutPage() {
             />
 
             <div className="relative z-10 flex h-full flex-col justify-center px-6 py-10 md:px-8 lg:px-10">
-              <div className="max-w-[560px]">
-                <SectionLabel>About RJM Studio</SectionLabel>
+              <div className="max-w-[650px]">
+                <SectionLabel>About RjM Studio</SectionLabel>
 
-                <h1 className="heading-display text-4xl font-light leading-[1.04] tracking-tight text-white md:text-[5.2rem]">
-                  Design. Support.{" "}
-                  <span className="text-amber-300">Growth.</span>
+                <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
+                  Independent studio.{" "}
+                  <span className="italic text-amber-300">
+                    Personal approach.
+                  </span>
                 </h1>
 
-                <p className="mt-6 max-w-[520px] text-lg leading-8 text-zinc-300">
-                  I help small businesses and entrepreneurs build a stronger
-                  online presence through beautiful design, consistent content,
-                  and reliable digital support.
+                <p className="mt-7 max-w-[590px] text-lg leading-8 text-zinc-300">
+                  I’m Rj, founder of RjM Studio — an independent digital studio
+                  based in the Isle of Man, helping small businesses build a
+                  professional and confident presence online.
                 </p>
 
-                <p className="mt-6 max-w-[520px] text-lg leading-8 text-zinc-400">
-                  RJM Studio was built on the belief that great design does not
-                  have to be complicated. It just needs to be intentional,
-                  strategic, and aligned with your goals.
+                <p className="mt-5 max-w-[560px] text-base leading-8 text-zinc-400">
+                  I combine thoughtful design, web development, practical
+                  digital support and security-aware thinking to create work
+                  that looks polished, works reliably and makes sense for the
+                  business behind it.
                 </p>
 
-                <div className="mt-8"></div>
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.2em] text-amber-200/75">
+                  <span>Web Design</span>
+                  <span>Digital Support</span>
+                  <span>Security-Aware Development</span>
+                </div>
               </div>
             </div>
           </section>
 
-          <section className="py-16">
-            <div className="text-center">
-              <SectionLabel>Who I Help</SectionLabel>
-              <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
-                Built for businesses that want more
-              </h2>
-              <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
-                I work with small businesses, startups, and entrepreneurs who
-                want their brand to look professional, their content to connect,
-                and their digital presence to drive results.
-              </p>
-            </div>
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[#08090b] py-16 md:py-20">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 38%, rgba(251,191,36,0.055), transparent 34%), radial-gradient(circle at 84% 68%, rgba(244,199,107,0.03), transparent 28%)",
+              }}
+            />
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+                <div>
+                  <SectionLabel>01 / My Story</SectionLabel>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {whoIHelp.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <PremiumCard key={item.title} className="p-8">
-                    <div className="inline-flex rounded-2xl border border-amber-300/20 bg-amber-300/5 p-3 text-amber-300">
-                      <Icon className="h-6 w-6" />
+                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                    Built from a mix of{" "}
+                    <span className="italic text-amber-300">
+                      creativity and technology.
+                    </span>
+                  </h2>
+                </div>
+
+                <div className="max-w-3xl">
+                  <p className="heading-display text-2xl font-light leading-relaxed text-zinc-100 md:text-3xl">
+                    I’m Rj, the person behind RjM Studio.
+                  </p>
+
+                  <p className="mt-7 text-base leading-8 text-zinc-300">
+                    My background brings together web development, digital
+                    design, IT and cybersecurity. Over time, that combination
+                    naturally led me toward creating digital experiences that
+                    are not only visually considered, but practical, reliable
+                    and built with care.
+                  </p>
+
+                  <p className="mt-5 text-base leading-8 text-zinc-400">
+                    I started RjM Studio to offer small businesses a more
+                    personal alternative to the traditional agency experience. I
+                    like working closely with clients, understanding what they
+                    actually need, and creating solutions that feel right for
+                    the business rather than forcing every project into the same
+                    template.
+                  </p>
+
+                  <p className="mt-5 text-base leading-8 text-zinc-400">
+                    Whether I’m building a new website, refreshing an existing
+                    one or providing ongoing digital support, the goal is
+                    simple: create work that looks professional, works properly
+                    and gives the business confidence in how it presents itself
+                    online.
+                  </p>
+
+                  <div className="mt-10 grid gap-6 border-t border-white/10 pt-7 sm:grid-cols-3">
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Based
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Isle of Man
+                      </div>
                     </div>
-                    <h3 className="mt-6 text-2xl font-light text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-8 text-zinc-400">
-                      {item.copy}
-                    </p>
-                  </PremiumCard>
-                );
-              })}
-            </div>
-          </section>
 
-          <section className="border-t border-white/10 py-14">
-            <div className="text-center">
-              <SectionLabel>My Approach</SectionLabel>
-              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                Simple, collaborative, effective
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-6 lg:grid-cols-4">
-              {approachSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={step.number} className="relative">
-                    {index < approachSteps.length - 1 && (
-                      <div className="absolute right-[-18px] top-8 hidden h-px w-9 bg-amber-300/40 lg:block" />
-                    )}
-
-                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-amber-300/30 bg-amber-300/5 text-amber-200">
-                      <Icon className="h-6 w-6" />
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Studio
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Independent
+                      </div>
                     </div>
 
-                    <div className="mt-5 text-amber-300">{step.number}.</div>
-                    <h3 className="mt-2 text-2xl font-light text-white">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {step.copy}
-                    </p>
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Focus
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Web & Digital
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
+                </div>
+              </div>
             </div>
           </section>
 
-          <section className="border-t border-white/10 py-14">
-            <div className="text-center">
-              <SectionLabel>What You Can Expect</SectionLabel>
-              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                A thoughtful, reliable approach
-              </h2>
-            </div>
+          <section
+            className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-16 md:py-20"
+            style={{
+              background:
+                "linear-gradient(to bottom, #0a0b0e 0%, #090a0d 22%, #08090b 48%, #08090b 100%)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 82% 30%, rgba(251,191,36,0.05), transparent 32%)",
+              }}
+            />
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
+                <div>
+                  <SectionLabel>02 / What Shapes My Work</SectionLabel>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {highlights.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <PremiumCard key={item.title} className="p-8 text-center">
-                    <div className="mx-auto inline-flex rounded-2xl border border-amber-300/20 bg-amber-300/5 p-3 text-amber-300">
-                      <Icon className="h-6 w-6" />
+                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                    Good digital work should feel{" "}
+                    <span className="italic text-amber-300">considered.</span>
+                  </h2>
+
+                  <p className="mt-6 max-w-md text-base leading-8 text-zinc-400">
+                    The way I work is shaped by a balance of design thinking,
+                    technical awareness and a practical understanding of what
+                    small businesses actually need.
+                  </p>
+                </div>
+
+                <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+                  {[
+                    {
+                      number: "01",
+                      title: "Clarity",
+                      copy: "Good design should make things easier to understand. Clear structure, messaging and navigation come before unnecessary complexity.",
+                    },
+                    {
+                      number: "02",
+                      title: "Purpose",
+                      copy: "Every design choice should support a reason — whether that is building trust, improving usability or helping someone take the next step.",
+                    },
+                    {
+                      number: "03",
+                      title: "Reliability",
+                      copy: "A website needs to work just as well as it looks. I value thoughtful implementation, consistency and dependable support after launch.",
+                    },
+                    {
+                      number: "04",
+                      title: "Security Awareness",
+                      copy: "My cybersecurity background influences how I think about development, configuration and the small technical decisions that help create more considered digital experiences.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.number}
+                      className="border-t border-white/10 pt-7"
+                    >
+                      <div className="text-xs tracking-[0.22em] text-amber-300/75">
+                        {item.number}
+                      </div>
+
+                      <h3 className="heading-display mt-5 text-2xl font-light text-white md:text-3xl">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-4 max-w-md text-sm leading-7 text-zinc-400">
+                        {item.copy}
+                      </p>
                     </div>
-                    <h3 className="mt-5 text-2xl font-light text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {item.copy}
-                    </p>
-                  </PremiumCard>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
-          <section className="py-8">
-            <PremiumCard className="flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between md:p-10">
-              <div className="max-w-2xl">
-                <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                  Let’s build something great{" "}
-                  <span className="text-amber-300">together.</span>
-                </h2>
-                <p className="mt-4 text-base leading-8 text-zinc-400">
-                  Whether you need a website, content support, or ongoing help
-                  with your digital presence, I’m here to help you grow.
-                </p>
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-[#08090b] py-16 md:py-20">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-32"
+              style={{
+                background:
+                  "linear-gradient(to bottom, #0a0b0e 0%, rgba(10,11,14,0.72) 30%, transparent 100%)",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 82% 30%, rgba(251,191,36,0.05), transparent 32%)",
+              }}
+            />
+
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16">
+                <div>
+                  <SectionLabel>03 / Who I Work With</SectionLabel>
+
+                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                    Built for businesses that value a{" "}
+                    <span className="italic text-amber-300">
+                      thoughtful digital presence.
+                    </span>
+                  </h2>
+
+                  <p className="mt-6 max-w-md text-base leading-8 text-zinc-300">
+                    I work best with people who care about how their business is
+                    presented and want a digital presence that feels considered,
+                    professional and genuinely useful.
+                  </p>
+                </div>
+
+                <div className="grid gap-8 md:grid-cols-3">
+                  {[
+                    {
+                      number: "01",
+                      title: "Small Businesses",
+                      copy: "Helping established local businesses strengthen their online presence, communicate more clearly and build greater trust with their customers.",
+                    },
+                    {
+                      number: "02",
+                      title: "Startups",
+                      copy: "Supporting new ventures with the digital foundations they need to look credible and professional from the beginning.",
+                    },
+                    {
+                      number: "03",
+                      title: "Entrepreneurs",
+                      copy: "Helping founders and independent business owners present their ideas, services and expertise with confidence online.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.number}
+                      className="border-t border-white/10 pt-7"
+                    >
+                      <div className="text-xs tracking-[0.22em] text-amber-300/75">
+                        {item.number}
+                      </div>
+
+                      <h3 className="heading-display mt-5 text-2xl font-light leading-tight text-white md:text-3xl">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-5 text-sm leading-7 text-zinc-300">
+                        {item.copy}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="mt-8">
-                <Link to="/contact">
-                  <SecondaryButton>Get in Touch</SecondaryButton>
-                </Link>
+            </div>
+          </section>
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden  bg-[#0D0E11] py-16 md:py-20">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 35%, rgba(251,191,36,0.055), transparent 34%), radial-gradient(circle at 86% 70%, rgba(244,199,107,0.025), transparent 28%)",
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-28"
+              style={{
+                background:
+                  "linear-gradient(to bottom, #08090b 0%, rgba(8,9,11,0.72) 28%, transparent 100%)",
+              }}
+            />
+
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:gap-16">
+                <div>
+                  <SectionLabel>04 / How I Work</SectionLabel>
+
+                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                    A straightforward process from{" "}
+                    <span className="italic text-amber-300">
+                      idea to launch.
+                    </span>
+                  </h2>
+
+                  <p className="mt-6 max-w-md text-base leading-8 text-zinc-300">
+                    I keep the process clear and collaborative, so you always
+                    know what is happening, what comes next and where your
+                    project is heading.
+                  </p>
+                </div>
+
+                <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+                  {approachSteps.map((step) => (
+                    <div
+                      key={step.number}
+                      className="border-t border-white/10 pt-7"
+                    >
+                      <div className="text-xs tracking-[0.22em] text-amber-300/75">
+                        {step.number}
+                      </div>
+
+                      <h3 className="heading-display mt-5 text-2xl font-light text-white">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-7 text-zinc-300">
+                        {step.copy}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </PremiumCard>
+            </div>
+          </section>
+
+          <section
+            className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-16 md:py-24"
+            style={{
+              background:
+                "linear-gradient(to bottom, #0D0E11 0%, #0b0c0f 20%, #08090b 100%)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 22% 45%, rgba(251,191,36,0.065), transparent 34%), radial-gradient(circle at 88% 70%, rgba(244,199,107,0.025), transparent 28%)",
+              }}
+            />
+
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid items-start gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+                {/* Founder portrait */}
+                <div className="relative w-full max-w-[560px] lg:justify-self-start">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-6 -z-10 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.10),transparent_65%)] blur-2xl"
+                  />
+
+                  <div className="overflow-hidden rounded-[1rem] border border-white/10 bg-[#0b0c0e]">
+                    <img
+                      src="/images/rjm-founder-cyber.jpg"
+                      alt="Rj, founder of RjM Studio"
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/5] h-full w-full object-cover object-center"
+                    />
+                  </div>
+                </div>
+
+                {/* Founder story */}
+                <div className="max-w-2xl">
+                  <SectionLabel>05 / The Person Behind RjM</SectionLabel>
+
+                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                    I’m Rj.{" "}
+                    <span className="italic text-amber-300">
+                      Founder of RjM Studio.
+                    </span>
+                  </h2>
+
+                  <p className="mt-7 text-lg leading-8 text-zinc-200">
+                    When you work with RjM Studio, you work directly with me —
+                    from the first conversation and planning through to design,
+                    development, launch and ongoing support.
+                  </p>
+
+                  <p className="mt-5 text-base leading-8 text-zinc-300">
+                    I enjoy the space where creativity and technology meet.
+                    Building websites gives me the opportunity to combine visual
+                    thinking with problem solving, development and the technical
+                    awareness I’ve developed through my background in IT and
+                    cybersecurity.
+                  </p>
+
+                  <p className="mt-5 text-base leading-8 text-zinc-400">
+                    Being independent also means I can stay close to each
+                    project. There are no layers of account management or
+                    hand-offs between departments — just clear communication,
+                    practical advice and a genuine interest in creating
+                    something that works well for your business.
+                  </p>
+
+                  <div className="mt-9 grid gap-6 border-t border-white/10 pt-7 sm:grid-cols-3">
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Design
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Thoughtful & purposeful
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Technology
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Practical & reliable
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/75">
+                        Working Style
+                      </div>
+                      <div className="mt-2 text-sm text-zinc-300">
+                        Direct & collaborative
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-20 md:py-24"
+            style={{
+              background:
+                "linear-gradient(to bottom, #08090b 0%, #0b0c0f 42%, #06070a 100%)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 40%, rgba(251,191,36,0.065), transparent 34%), radial-gradient(circle at 86% 60%, rgba(244,199,107,0.03), transparent 30%)",
+              }}
+            />
+
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+                <div className="max-w-4xl">
+                  <SectionLabel>Let’s Work Together</SectionLabel>
+
+                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-6xl">
+                    Have something in mind?{" "}
+                    <span className="italic text-amber-300">
+                      Let’s build it together.
+                    </span>
+                  </h2>
+
+                  <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300">
+                    Whether you need a new website, a thoughtful refresh or
+                    ongoing digital support, tell me what you’re working on and
+                    we can explore the right way forward.
+                  </p>
+                </div>
+
+                <div>
+                  <Link
+                    to="/contact"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-amber-200"
+                  >
+                    Start a Conversation
+                  </Link>
+                </div>
+              </div>
+            </div>
           </section>
 
           <Footer />
