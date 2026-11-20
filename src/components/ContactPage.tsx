@@ -11,8 +11,6 @@ import {
   Menu,
   Clock3,
   MapPin,
-  Target,
-  BarChart3,
 } from "lucide-react";
 
 const navItems = ["Home", "Services", "Work", "About", "Contact"];
@@ -90,22 +88,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PremiumCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`rounded-[0.9rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
 const contactItems = [
   {
     icon: Mail,
@@ -121,24 +103,6 @@ const contactItems = [
     icon: MapPin,
     label: "Location",
     value: "Isle of Man / Remote",
-  },
-];
-
-const trustPoints = [
-  {
-    icon: Target,
-    title: "Tailored Solutions",
-    copy: "Every project is shaped around your goals, brand, and business needs.",
-  },
-  {
-    icon: Clock3,
-    title: "Reliable & Responsive",
-    copy: "I value your time and aim to respond clearly and promptly.",
-  },
-  {
-    icon: BarChart3,
-    title: "Focused on Results",
-    copy: "Design and support that help your business look stronger and grow.",
   },
 ];
 
@@ -194,14 +158,19 @@ export default function ContactPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#090807] text-white">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at 20% 18%, rgba(138,90,36,0.15), transparent 36%), radial-gradient(circle at 78% 72%, rgba(138,90,36,0.10), transparent 34%)",
+              "radial-gradient(circle at top left, rgba(255,255,255,0.035), transparent 20%), radial-gradient(circle at bottom right, rgba(244,199,107,0.045), transparent 22%), radial-gradient(circle at top right, rgba(244,199,107,0.08), transparent 16%)",
           }}
+        />
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[220px] bg-[linear-gradient(to_bottom,rgba(244,199,107,0.08),rgba(244,199,107,0.025),transparent)]"
         />
         <div className="relative z-10 w-full px-6 pb-20 pt-6 md:px-8 lg:px-10">
           <header className="sticky top-4 z-40 rounded-[0.6rem] border border-white/10 bg-black/35 px-5 py-4 backdrop-blur-xl">
@@ -312,297 +281,394 @@ export default function ContactPage() {
             )}
           </header>
 
-          <section className="mt-13 relative min-h-[620px]">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-20 md:py-24">
+            {/* Atmospheric gold edge lighting */}
             <div
-              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2"
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
               style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-              }}
-            >
-              <img
-                src="/images/DesktopWorkStation.png"
-                alt="RJM Studio contact workspace"
-                className="h-full w-full object-cover object-[86%_center] brightness-110 md:object-[70%_center]"
-              />
-            </div>
-
-            <div
-              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2 bg-gradient-to-r from-black/88 via-black/78 to-black/35 md:from-black/84 md:via-black/56 md:to-black/10"
-              style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
+                background:
+                  "radial-gradient(circle at 4% 42%, rgba(251,191,36,0.10), transparent 24%), radial-gradient(circle at 96% 30%, rgba(244,199,107,0.07), transparent 23%)",
               }}
             />
 
-            <div className="relative z-10 flex h-full flex-col justify-center px-6 py-10 md:px-8 lg:px-10">
-              <div className="max-w-[560px]">
-                <SectionLabel>Contact</SectionLabel>
+            <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-8 lg:px-10">
+              {/* Intro */}
+              <div className="mx-auto max-w-4xl text-center">
+                <SectionLabel>Start a Conversation</SectionLabel>
 
-                <h1 className="heading-display text-4xl font-light leading-[1.06] tracking-tight text-white md:text-[5.2rem]">
-                  Let’s talk about your{" "}
-                  <span className="text-amber-300">business.</span>
+                <h1 className="heading-display text-5xl font-light leading-[1.03] text-white md:text-7xl">
+                  Have something in mind?{" "}
+                  <span className="italic text-amber-300">
+                    Tell me about it.
+                  </span>
                 </h1>
 
-                <p className="mt-5 max-w-full text-base leading-8 text-zinc-300 md:mt-6 md:max-w-[520px] md:text-lg">
-                  Whether you need a new website, support managing content, or
-                  ongoing digital help, I’d love to hear about your goals and
-                  how I can help.
+                <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
+                  Whether you need a new website, a thoughtful refresh or
+                  ongoing digital support, tell me a little about what you’re
+                  working on. You don’t need to have everything figured out.
                 </p>
+              </div>
 
-                <div className="mt-10 space-y-5 max-w-[420px]">
-                  {contactItems.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <div
-                        key={item.label}
-                        className="flex items-start gap-4 border-b border-white/10 pb-4"
-                      >
-                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                          <Icon className="h-5 w-5" />
+              {/* Contact + form */}
+              <div className="mt-16 grid gap-12 border-t border-white/10 pt-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 lg:pt-16">
+                {/* Left column */}
+                <div className="lg:pr-8">
+                  <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                    Direct Contact
+                  </div>
+
+                  <h2 className="heading-display mt-5 max-w-md text-3xl font-light leading-tight text-white md:text-4xl">
+                    You’ll be speaking{" "}
+                    <span className="italic text-amber-300">
+                      directly with me.
+                    </span>
+                  </h2>
+
+                  <p className="mt-5 max-w-md text-base leading-8 text-zinc-400">
+                    I’m Rj, founder of RjM Studio. Your enquiry comes directly
+                    to me, and I’ll personally get back to you.
+                  </p>
+
+                  <div className="mt-10 space-y-6">
+                    {contactItems.map((item) => (
+                      <div key={item.label}>
+                        <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                          {item.label}
                         </div>
-                        <div>
-                          <div className="text-xs uppercase tracking-[0.24em] text-amber-300/80">
-                            {item.label}
-                          </div>
-                          <div className="mt-1 text-lg text-zinc-100">
-                            {item.value}
-                          </div>
+
+                        <div className="mt-2 text-base text-zinc-200">
+                          {item.value}
                         </div>
                       </div>
-                    );
-                  })}
+                    ))}
+                  </div>
+
+                  <div className="mt-10 border-t border-white/10 pt-7">
+                    <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                      Prefer email?
+                    </div>
+
+                    <a
+                      href="mailto:studio@rjm-studio.co.uk"
+                      className="mt-2 inline-block text-base text-zinc-200 transition hover:text-amber-200"
+                    >
+                      studio@rjm-studio.co.uk
+                    </a>
+                  </div>
+
+                  <div className="mt-10">
+                    <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                      Connect
+                    </div>
+
+                    <div className="mt-4 flex items-center gap-4">
+                      <a
+                        href="https://www.instagram.com/rjmstudio89/"
+                        aria-label="RjM Studio on Instagram"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                      >
+                        <InstagramIcon className="h-5 w-5" />
+                      </a>
+
+                      <a
+                        href="https://facebook.com/profile.php?id=61590794513268"
+                        aria-label="RjM Studio on Facebook"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                      >
+                        <FacebookIcon className="h-5 w-5" />
+                      </a>
+
+                      <a
+                        href="https://www.linkedin.com/in/rjm-studio-340a77413/"
+                        aria-label="RjM Studio on LinkedIn"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                      >
+                        <LinkedInIcon className="h-5 w-5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right column */}
+                <div className="lg:border-l lg:border-white/10 lg:pl-16">
+                  <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                    Project Enquiry
+                  </div>
+
+                  <h2 className="heading-display mt-5 text-3xl font-light text-white md:text-4xl">
+                    Tell me what you’re working on.
+                  </h2>
+
+                  <p className="mt-4 max-w-xl text-base leading-8 text-zinc-400">
+                    A few details will help me understand what you need and
+                    recommend the most sensible next step.
+                  </p>
+
+                  <form onSubmit={handleSubmit} className="mt-10 space-y-8">
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div>
+                        <label
+                          htmlFor="name"
+                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                        >
+                          Your Name
+                        </label>
+
+                        <input
+                          id="name"
+                          type="text"
+                          name="name"
+                          required
+                          placeholder="What should I call you?"
+                          className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                        />
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                        >
+                          Email
+                        </label>
+
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          required
+                          placeholder="Where can I reach you?"
+                          className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                        />
+
+                        <ValidationError
+                          prefix="Email"
+                          field="email"
+                          errors={state.errors}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="business"
+                        className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                      >
+                        Business / Website
+                      </label>
+
+                      <input
+                        id="business"
+                        type="text"
+                        name="business"
+                        placeholder="Business name or current website — optional"
+                        className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                      />
+                    </div>
+
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div className="relative">
+                        <label
+                          htmlFor="service"
+                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                        >
+                          What Can I Help With?
+                        </label>
+
+                        <select
+                          id="service"
+                          name="service"
+                          defaultValue=""
+                          className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
+                        >
+                          <option value="">Choose a service</option>
+                          <option value="New Website">New Website</option>
+                          <option value="Website Refresh">
+                            Website Refresh
+                          </option>
+                          <option value="Digital Support">
+                            Digital Support
+                          </option>
+                          <option value="Social Media / Content">
+                            Social Media / Content
+                          </option>
+                          <option value="Not sure yet">Not Sure Yet</option>
+                        </select>
+
+                        <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
+                      </div>
+
+                      <div className="relative">
+                        <label
+                          htmlFor="budget"
+                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                        >
+                          Budget — Optional
+                        </label>
+
+                        <select
+                          id="budget"
+                          name="budget"
+                          defaultValue=""
+                          className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
+                        >
+                          <option value="">Choose a range</option>
+                          <option value="Under £500">Under £500</option>
+                          <option value="£500–£1,000">£500–£1,000</option>
+                          <option value="£1,000–£2,500">£1,000–£2,500</option>
+                          <option value="£2,500+">£2,500+</option>
+                          <option value="Not sure">Not Sure Yet</option>
+                        </select>
+
+                        <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="message"
+                        className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                      >
+                        Project Details
+                      </label>
+
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={6}
+                        required
+                        placeholder="Tell me what you're working on, what you'd like to improve, or what you're trying to achieve."
+                        className="mt-3 w-full resize-none border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base leading-7 text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                      />
+
+                      <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={state.errors}
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                      <p className="max-w-md text-sm leading-6 text-zinc-500">
+                        You don’t need a finished brief. A rough idea is enough
+                        to start the conversation.
+                      </p>
+
+                      <button
+                        type="submit"
+                        disabled={state.submitting}
+                        className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        <span className="inline-flex items-center gap-2">
+                          {state.submitting
+                            ? "Sending..."
+                            : "Start a Conversation"}
+
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </section>
+          <section
+            className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-16 md:py-20"
+            style={{
+              background:
+                "linear-gradient(to bottom, #06070a 0%, #0a0b0e 45%, #08090b 100%)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 18% 40%, rgba(251,191,36,0.05), transparent 30%), radial-gradient(circle at 84% 60%, rgba(244,199,107,0.025), transparent 28%)",
+              }}
+            />
 
-          <section className="grid gap-6 py-10 lg:grid-cols-[1.2fr_0.8fr]">
-            <PremiumCard className="p-8 md:p-10">
-              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                Send a message
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-8 text-zinc-400">
-                Tell me a bit about your project and what you’re looking for.
-                I’ll get back to you as soon as possible.
-              </p>
-
-              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                <div className="grid gap-5 md:grid-cols-2">
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Your name *"
-                    className="w-full rounded-md border border-white/10 bg-black/20 px-4 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-amber-300/50"
-                  />
-
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="Email address *"
-                      className="w-full rounded-md border border-white/10 bg-black/20 px-4 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-amber-300/50"
-                    />
-                    <ValidationError
-                      prefix="Email"
-                      field="email"
-                      errors={state.errors}
-                    />
-                  </div>
-                </div>
-
-                <input
-                  type="text"
-                  name="business"
-                  placeholder="Business name"
-                  className="w-full rounded-md border border-white/10 bg-black/20 px-4 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-amber-300/50"
-                />
-
-                <div className="relative">
-                  <select
-                    name="service"
-                    aria-label="Service you are interested in"
-                    defaultValue=""
-                    className="w-full appearance-none rounded-md border border-white/10 bg-zinc-950 px-4 py-4 text-white outline-none focus:border-amber-300/50"
-                  >
-                    <option value="">Service you’re interested in</option>
-                    <option value="Website Design">Website Design</option>
-                    <option value="Social Media Content Management">
-                      Social Media Content Management
-                    </option>
-                    <option value="Digital Support">Digital Support</option>
-                    <option value="Not sure yet">Not sure yet</option>
-                  </select>
-                  <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
-                </div>
-
+            <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16">
                 <div>
-                  <textarea
-                    name="message"
-                    rows={6}
-                    required
-                    placeholder="Tell me about your project *"
-                    className="w-full rounded-md border border-white/10 bg-black/20 px-4 py-4 text-white outline-none placeholder:text-zinc-500 focus:border-amber-300/50"
-                  />
-                  <ValidationError
-                    prefix="Message"
-                    field="message"
-                    errors={state.errors}
-                  />
-                  <p className="mt-3 text-sm text-zinc-500">
-                    What are your goals? What do you need help with?
+                  <SectionLabel>What Happens Next</SectionLabel>
+
+                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                    Simple, clear,{" "}
+                    <span className="italic text-amber-300">
+                      no-pressure next steps.
+                    </span>
+                  </h2>
+
+                  <p className="mt-6 max-w-md text-base leading-8 text-zinc-300">
+                    Once you send your enquiry, I’ll take a look at what you
+                    need and come back to you with a clear way forward.
                   </p>
                 </div>
 
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={state.submitting}
-                    className="rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    <span className="inline-flex items-center gap-2">
-                      {state.submitting ? "Sending..." : "Send Message"}
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </button>
+                <div className="grid gap-8 md:grid-cols-3">
+                  {[
+                    {
+                      number: "01",
+                      title: "I read your enquiry",
+                      copy: "Your message comes directly to me, so I can understand your project, goals and where you need support.",
+                    },
+                    {
+                      number: "02",
+                      title: "We talk it through",
+                      copy: "I’ll ask any useful questions, clarify what you’re trying to achieve and make sure I understand the bigger picture.",
+                    },
+                    {
+                      number: "03",
+                      title: "I recommend the next step",
+                      copy: "If we’re a good fit, I’ll outline the most sensible way to move forward and what that could look like.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.number}
+                      className="border-t border-white/10 pt-7"
+                    >
+                      <div className="text-xs tracking-[0.22em] text-amber-300/75">
+                        {item.number}
+                      </div>
+
+                      <h3 className="heading-display mt-5 text-2xl font-light leading-tight text-white">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-7 text-zinc-300">
+                        {item.copy}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              </form>
-            </PremiumCard>
+              </div>
 
-            <PremiumCard className="p-8 md:p-10">
-              <h2 className="heading-display text-4xl font-light leading-tight text-white">
-                Other ways to connect
-              </h2>
-              <p className="mt-4 text-base leading-8 text-zinc-400">
-                You can also reach out or connect through the platforms below.
-              </p>
+              <div className="mt-16 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
+                <div>
+                  <div className="heading-display text-2xl font-light text-white md:text-3xl">
+                    Not sure exactly what you need?
+                  </div>
 
-              <div className="mt-8 space-y-6">
-                <a
-                  href="https://www.instagram.com/rjmstudio89/"
-                  className="flex items-center gap-4 text-zinc-200 transition hover:text-white"
-                >
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                    <InstagramIcon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-zinc-100">Instagram</div>
-                    <div className="text-sm text-zinc-400">@rjmstudio89</div>
-                  </div>
-                </a>
-
-                <a
-                  href="https://facebook.com/profile.php?id=61590794513268"
-                  className="flex items-center gap-4 text-zinc-200 transition hover:text-white"
-                >
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                    <FacebookIcon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-zinc-100">Facebook</div>
-                    <div className="text-sm text-zinc-400">RjM Studio</div>
-                  </div>
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/rjm-studio-340a77413/"
-                  className="flex items-center gap-4 text-zinc-200 transition hover:text-white"
-                >
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                    <LinkedInIcon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-zinc-100">LinkedIn</div>
-                    <div className="text-sm text-zinc-400">RjM Studio</div>
-                  </div>
-                </a>
+                  <p className="mt-3 max-w-2xl text-base leading-8 text-zinc-400">
+                    That’s completely fine. Tell me where you’re at and we can
+                    work it out together.
+                  </p>
+                </div>
 
                 <a
                   href="mailto:studio@rjm-studio.co.uk"
-                  className="flex items-center gap-4 text-zinc-200 transition hover:text-white"
+                  className="mt-6 inline-flex items-center gap-2 text-sm text-amber-300 transition hover:text-amber-200 md:mt-0"
                 >
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-zinc-100">Email</div>
-                    <div className="text-sm text-zinc-400">
-                      studio@rjm-studio.co.uk
-                    </div>
-                  </div>
+                  Prefer email?
+                  <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
-
-              <div className="mt-10 border-t border-white/10 pt-8">
-                <div className="text-2xl text-amber-300">Prefer email?</div>
-                <p className="mt-3 text-base leading-8 text-zinc-400">
-                  That’s absolutely fine. Send a message through the form and
-                  I’ll reply by email as soon as possible.
-                </p>
-              </div>
-            </PremiumCard>
-          </section>
-
-          <section className="py-6">
-            <div className="text-center">
-              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                Why work with RJM Studio?
-              </h2>
-            </div>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {trustPoints.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <PremiumCard key={item.title} className="p-7">
-                    <div className="inline-flex rounded-2xl border border-amber-300/20 bg-amber-300/5 p-3 text-amber-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-5 text-2xl font-light text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {item.copy}
-                    </p>
-                  </PremiumCard>
-                );
-              })}
             </div>
           </section>
-
-          <section className="py-8">
-            <PremiumCard className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between md:p-10">
-              <div className="flex items-start gap-5">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-amber-300/20 bg-amber-300/5 text-amber-300">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h2 className="heading-display text-3xl font-light text-white md:text-4xl">
-                    Have a question before reaching out?
-                  </h2>
-                  <p className="mt-3 text-base leading-8 text-zinc-400">
-                    I’m happy to answer any questions you have.
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href="mailto:studio@rjm-studio.co.uk?subject=RJM%20Studio%20Enquiry"
-                className="inline-flex rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
-              >
-                <span className="inline-flex items-center gap-2 text-black">
-                  Send an Email <ArrowRight className="h-4 w-4 text-black" />
-                </span>
-              </a>
-            </PremiumCard>
-          </section>
-
           <Footer />
         </div>
       </div>
