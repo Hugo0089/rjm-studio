@@ -8,7 +8,6 @@ import Footer from "./Footer";
 import {
   ArrowRight,
   CheckCircle2,
-  Globe,
   Layers3,
   LayoutTemplate,
   Menu,

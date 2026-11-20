@@ -159,14 +159,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function SecondaryButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="cursor-pointer rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5">
-      {children}
-    </button>
-  );
-}
-
 export default function RJMStudioServicesPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
