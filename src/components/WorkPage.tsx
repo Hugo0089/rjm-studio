@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -22,6 +22,79 @@ function ScriptLogo() {
       alt="RJM Studio logo"
       className="h-12 w-auto object-contain"
     />
+  );
+}
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right";
+};
+
+function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  direction = "up",
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const hiddenTransform =
+    direction === "left"
+      ? "translate3d(-40px, 0, 0)"
+      : direction === "right"
+        ? "translate3d(40px, 0, 0)"
+        : "translate3d(0, 40px, 0)";
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translate3d(0, 0, 0)" : hiddenTransform,
+        transitionProperty: "opacity, transform",
+        transitionDuration: "900ms",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        transitionDelay: `${delay}ms`,
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -153,7 +226,7 @@ function ProjectCard({
   external?: boolean;
 }) {
   const content = (
-    <PremiumCard className="overflow-hidden">
+    <PremiumCard className="flex h-full flex-col overflow-hidden">
       <div className="aspect-[16/11] overflow-hidden border-b border-white/10">
         <img
           src={image}
@@ -164,7 +237,7 @@ function ProjectCard({
         />
       </div>
 
-      <div className="p-6 md:p-7">
+      <div className="flex flex-1 flex-col p-6 md:p-7">
         <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
           {category}
         </div>
@@ -174,7 +247,7 @@ function ProjectCard({
         <p className="mt-4 text-base leading-8 text-zinc-400">{copy}</p>
 
         {href ? (
-          <div className="mt-6">
+          <div className="mt-auto pt-6">
             {external ? (
               <a
                 href={href}
@@ -232,13 +305,13 @@ export default function WorkPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#08090b] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
           style={{
             background:
-              "radial-gradient(circle at top left, rgba(255,255,255,0.035), transparent 20%), radial-gradient(circle at bottom right, rgba(244,199,107,0.045), transparent 22%), radial-gradient(circle at top right, rgba(244,199,107,0.08), transparent 16%)",
+              "radial-gradient(circle at 12% 14%, rgba(255,255,255,0.05), transparent 24%), radial-gradient(circle at 86% 16%, rgba(244,199,107,0.09), transparent 24%), radial-gradient(circle at 18% 68%, rgba(244,199,107,0.055), transparent 28%), radial-gradient(circle at 82% 82%, rgba(255,255,255,0.035), transparent 24%)",
           }}
         />
         <div
@@ -354,130 +427,160 @@ export default function WorkPage() {
             )}
           </header>
 
-          <section className="mt-13 relative min-h-[620px]">
+          <section className="relative py-16 md:py-20 lg:py-24">
+            {/* Subtle hero atmosphere */}
             <div
-              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2"
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-1/2 w-screen -translate-x-1/2"
               style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-              }}
-            >
-              <img
-                src="/images/Slickdesktopbanner.png"
-                alt="RJM Studio work hero banner"
-                className="h-full w-full object-cover object-[72%_center] brightness-120"
-              />
-            </div>
-
-            <div
-              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2 bg-gradient-to-r from-black/88 via-black/62 to-black/15"
-              style={{
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
+                background:
+                  "radial-gradient(circle at 18% 42%, rgba(244,199,107,0.11), transparent 30%), radial-gradient(circle at 76% 38%, rgba(251,191,36,0.055), transparent 30%)",
               }}
             />
 
-            <div className="relative z-10 flex h-full flex-col justify-center px-6 py-10 md:px-8 lg:px-10">
-              <div className="max-w-[560px]">
-                <SectionLabel>Our Work</SectionLabel>
+            <div className="relative z-10">
+              {/* Main hero */}
+              <div className="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 xl:gap-20">
+                {/* Left copy */}
+                <div className="min-w-0">
+                  <Reveal>
+                    <div>
+                      <SectionLabel>Our Work</SectionLabel>
 
-                <h1 className="heading-display text-4xl font-light leading-[1.04] tracking-tight text-white md:text-[5.2rem]">
-                  Design that delivers{" "}
-                  <span className="text-amber-300">impact.</span>
-                </h1>
+                      <h1 className="heading-display max-w-xl text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
+                        Design that delivers{" "}
+                        <span className="italic text-amber-300">impact.</span>
+                      </h1>
+                    </div>
+                  </Reveal>
 
-                <p className="mt-6 max-w-[520px] text-lg leading-8 text-zinc-300">
-                  A selection of websites and digital projects designed to look
-                  good, work well, and help businesses grow.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="pt-10">
-            <div className="flex flex-wrap gap-4">
-              <div className="rounded-full border border-amber-300/40 bg-amber-300/10 px-7 py-3 text-sm text-amber-200">
-                All Projects
-              </div>
-              <div className="rounded-full border border-white/10 px-7 py-3 text-sm text-zinc-300">
-                Web Design
-              </div>
-              <div className="rounded-full border border-white/10 px-7 py-3 text-sm text-zinc-300">
-                Branding
-              </div>
-              <div className="rounded-full border border-white/10 px-7 py-3 text-sm text-zinc-300">
-                Digital Support
-              </div>
-              <div className="rounded-full border border-white/10 px-7 py-3 text-sm text-zinc-300">
-                Concepts
-              </div>
-            </div>
-          </section>
-
-          <section className="pt-12" aria-labelledby="ventosus-project-title">
-            <SectionLabel>Featured Case Study</SectionLabel>
-            <div className="overflow-hidden rounded-xl border border-amber-300/20 bg-white/[0.025] lg:grid lg:grid-cols-[1.3fr_1fr]">
-              <Link
-                to="/work/ventosus"
-                aria-label="View the Ventosus case study"
-                className="block focus-visible:outline-2 focus-visible:outline-amber-300"
-              >
-                <img
-                  src="/images/ventosus/home-after-1280.jpg"
-                  srcSet="/images/ventosus/home-after-640.jpg 640w, /images/ventosus/home-after-1280.jpg 1280w, /images/ventosus/home-after-1920.jpg 1920w"
-                  sizes="(max-width: 1023px) 90vw, 55vw"
-                  width={2504}
-                  height={1219}
-                  loading="lazy"
-                  decoding="async"
-                  alt="Ventosus redesigned homepage"
-                  className="h-auto w-full"
-                />
-              </Link>
-              <div className="self-center p-7 md:p-10">
-                <p className="text-sm text-amber-200">Website Redesign</p>
-                <h2
-                  id="ventosus-project-title"
-                  className="heading-display mt-3 text-4xl font-light"
-                >
-                  Ventosus Micro Winery
-                </h2>
-                <p className="mt-4 leading-8 text-zinc-300">
-                  See the homepage, wines and wedding pages before and after the
-                  redesign.
-                </p>
-                <figure className="mt-6 border-l-2 border-amber-300/60 pl-4">
-                  <blockquote className="text-base italic leading-7 text-zinc-200">
-                    <p>
-                      “Creating such a fantastic website and bringing our vision
-                      together.”
+                  <Reveal delay={140}>
+                    <p className="mt-7 max-w-[520px] text-lg leading-8 text-zinc-300">
+                      A selection of websites and digital work created to
+                      strengthen brands, improve online experiences and help
+                      small businesses make a stronger impression.
                     </p>
-                  </blockquote>
-                  <figcaption className="mt-2 text-sm text-zinc-400">
-                    Ventosus Micro Winery
-                  </figcaption>
-                </figure>
-                <div className="mt-6 flex flex-wrap gap-3">
+                  </Reveal>
+
+                  {/* Featured project details */}
+                  <Reveal delay={220}>
+                    <div className="mt-10 border-t border-white/10 pt-6">
+                      <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                        01 / Featured Project
+                      </div>
+
+                      <div className="mt-3 heading-display text-2xl font-light text-white">
+                        Ventosus Micro Winery
+                      </div>
+
+                      <p className="mt-2 text-sm leading-7 text-zinc-500">
+                        Website Refresh · WordPress / WooCommerce · Isle of Man
+                      </p>
+
+                      <Link
+                        to="/work/ventosus"
+                        className="mt-5 inline-flex items-center gap-2 text-sm text-amber-300 transition hover:text-amber-200"
+                      >
+                        View Case Study
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </Reveal>
+                </div>
+
+                {/* Featured image — static */}
+                <div className="relative">
                   <Link
                     to="/work/ventosus"
-                    className="inline-flex min-h-12 items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+                    aria-label="View Ventosus Micro Winery case study"
+                    className="group block overflow-hidden rounded-[0.8rem] border border-white/10 bg-[#0a0b0e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
                   >
-                    Explore Case Study
-                    <ArrowRight className="h-4 w-4" />
+                    <div className="overflow-hidden">
+                      <img
+                        src="/images/ventosus/home-after-1920.jpg"
+                        srcSet="/images/ventosus/home-after-640.jpg 640w, /images/ventosus/home-after-1280.jpg 1280w, /images/ventosus/home-after-1920.jpg 1920w"
+                        sizes="(max-width: 1023px) 100vw, 62vw"
+                        width={2504}
+                        height={1219}
+                        alt="Ventosus Micro Winery website redesign"
+                        className="h-auto w-full object-contain transition duration-700 group-hover:scale-[1.01]"
+                      />
+                    </div>
+
+                    {/* Very subtle bottom treatment */}
+                  </Link>
+                </div>
+              </div>
+
+              {/* Project index */}
+              <div className="mt-16 border-y border-white/10">
+                <div className="grid md:grid-cols-3">
+                  {/* Ventosus */}
+                  <Link
+                    to="/work/ventosus"
+                    className="group flex items-center justify-between gap-6 border-b border-white/10 py-6 transition md:border-b-0 md:border-r md:px-7 md:first:pl-0 hover:bg-white/[0.02]"
+                  >
+                    <div>
+                      <div className="text-xs tracking-[0.24em] text-amber-300/70">
+                        01
+                      </div>
+
+                      <div className="mt-2 text-lg text-white">
+                        Ventosus Micro Winery
+                      </div>
+
+                      <div className="mt-1 text-sm text-zinc-500">
+                        Website Refresh
+                      </div>
+                    </div>
+
+                    <ArrowRight className="h-4 w-4 shrink-0 text-amber-300/60 transition-transform group-hover:translate-x-1" />
                   </Link>
 
+                  {/* Tea Evolution */}
                   <a
-                    href="https://www.ventosus.co.uk/"
+                    href="https://tea-evolution.im/"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-12 items-center gap-2 rounded-md border border-amber-300/60 px-5 py-3 text-sm text-amber-200 transition hover:bg-amber-300/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+                    rel="noreferrer"
+                    className="group flex items-center justify-between gap-6 border-b border-white/10 py-6 transition md:border-b-0 md:border-r md:px-7 hover:bg-white/[0.02]"
                   >
-                    Visit Live Site
-                    <ExternalLink className="h-4 w-4" />
+                    <div>
+                      <div className="text-xs tracking-[0.24em] text-zinc-600">
+                        02
+                      </div>
+
+                      <div className="mt-2 text-lg text-white">
+                        Tea Evolution
+                      </div>
+
+                      <div className="mt-1 text-sm text-zinc-500">
+                        Web Design
+                      </div>
+                    </div>
+
+                    <ExternalLink className="h-4 w-4 shrink-0 text-zinc-600 transition group-hover:text-amber-300" />
+                  </a>
+
+                  {/* D'Barber */}
+                  <a
+                    href="https://dbarber.im/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center justify-between gap-6 py-6 transition md:px-7 md:last:pr-0 hover:bg-white/[0.02]"
+                  >
+                    <div>
+                      <div className="text-xs tracking-[0.24em] text-zinc-600">
+                        03
+                      </div>
+
+                      <div className="mt-2 text-lg text-white">D’Barber</div>
+
+                      <div className="mt-1 text-sm text-zinc-500">
+                        Web Design
+                      </div>
+                    </div>
+
+                    <ExternalLink className="h-4 w-4 shrink-0 text-zinc-600 transition group-hover:text-amber-300" />
                   </a>
                 </div>
               </div>
@@ -485,86 +588,103 @@ export default function WorkPage() {
           </section>
 
           <section className="pt-12">
-            <div className="mb-6 flex items-center gap-4">
-              <SectionLabel>Live Projects</SectionLabel>
-              <div className="h-px flex-1 bg-white/10" />
-            </div>
-
+            <Reveal>
+              <div className="mb-6 flex items-center gap-4">
+                <SectionLabel>Live Projects</SectionLabel>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+            </Reveal>
             <div className="grid gap-6 lg:grid-cols-2">
-              {liveProjects.map((project) => (
-                <ProjectCard key={project.title} {...project} external={true} />
+              {liveProjects.map((project, index) => (
+                <Reveal key={project.title} delay={index * 110}>
+                  <ProjectCard {...project} external={true} />
+                </Reveal>
               ))}
             </div>
           </section>
 
           <section className="pt-14">
-            <div className="mb-6 flex items-center gap-4">
-              <SectionLabel>Concept Projects</SectionLabel>
-              <div className="h-px flex-1 bg-white/10" />
-            </div>
+            <Reveal>
+              <div className="mb-6 flex items-center gap-4">
+                <SectionLabel>Concept Projects</SectionLabel>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+            </Reveal>
 
             <div className="grid gap-6 lg:grid-cols-3">
-              {conceptProjects.map((project) => (
-                <ProjectCard key={project.title} {...project} />
+              {conceptProjects.map((project, index) => (
+                <Reveal key={project.title} delay={index * 90}>
+                  <ProjectCard {...project} />
+                </Reveal>
               ))}
             </div>
           </section>
 
           <section className="border-t border-white/10 py-16 mt-16">
-            <div className="text-center">
-              <SectionLabel>How I Work</SectionLabel>
-              <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
-                A thoughtful process built around your goals
-              </h2>
-            </div>
+            <Reveal>
+              {" "}
+              <div className="text-center">
+                <SectionLabel>How I Work</SectionLabel>
+                <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
+                  A thoughtful process built around your goals
+                </h2>
+              </div>
+            </Reveal>
 
             <div className="mt-12 grid gap-8 lg:grid-cols-4">
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
+
                 return (
-                  <div key={step.title} className="relative">
-                    {index < processSteps.length - 1 && (
-                      <div className="absolute right-[-18px] top-8 hidden h-px w-9 bg-amber-300/40 lg:block" />
-                    )}
+                  <Reveal key={step.title} delay={index * 90}>
+                    <div className="relative">
+                      {index < processSteps.length - 1 && (
+                        <div className="absolute right-[-18px] top-8 hidden h-px w-9 bg-amber-300/40 lg:block" />
+                      )}
 
-                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-amber-300/30 bg-amber-300/5 text-amber-200">
-                      <Icon className="h-6 w-6" />
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-amber-300/30 bg-amber-300/5 text-amber-200">
+                        <Icon className="h-6 w-6" />
+                      </div>
+
+                      <h3 className="mt-5 text-2xl font-light text-white">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-3 text-sm leading-7 text-zinc-400">
+                        {step.copy}
+                      </p>
                     </div>
-
-                    <h3 className="mt-5 text-2xl font-light text-white">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {step.copy}
-                    </p>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
           </section>
 
           <section className="py-8">
-            <PremiumCard className="flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between md:p-10">
-              <div className="max-w-2xl">
-                <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                  Have a project{" "}
-                  <span className="text-amber-300">in mind?</span>
-                </h2>
-                <p className="mt-4 text-base leading-8 text-zinc-400">
-                  Let’s create something meaningful and impactful together.
-                </p>
-              </div>
+            <Reveal>
+              {" "}
+              <PremiumCard className="flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between md:p-10">
+                <div className="max-w-2xl">
+                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                    Have a project{" "}
+                    <span className="text-amber-300">in mind?</span>
+                  </h2>
+                  <p className="mt-4 text-base leading-8 text-zinc-400">
+                    Let’s create something meaningful and impactful together.
+                  </p>
+                </div>
 
-              <div className="flex flex-wrap gap-4">
-                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-                  <SecondaryButton>
-                    <span className="inline-flex items-center gap-2">
-                      Get in Touch <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </SecondaryButton>
-                </Link>
-              </div>
-            </PremiumCard>
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                    <SecondaryButton>
+                      <span className="inline-flex items-center gap-2">
+                        Get in Touch <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </SecondaryButton>
+                  </Link>
+                </div>
+              </PremiumCard>
+            </Reveal>
           </section>
 
           <Footer />

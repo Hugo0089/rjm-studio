@@ -2,7 +2,7 @@ import React from "react";
 import { X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -154,6 +154,80 @@ function ScriptLogo() {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-4 text-xs uppercase tracking-[0.35em] text-amber-300/80">
+      {children}
+    </div>
+  );
+}
+
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right";
+};
+
+function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  direction = "up",
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const hiddenTransform =
+    direction === "left"
+      ? "translate3d(-40px, 0, 0)"
+      : direction === "right"
+        ? "translate3d(40px, 0, 0)"
+        : "translate3d(0, 40px, 0)";
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translate3d(0, 0, 0)" : hiddenTransform,
+        transitionProperty: "opacity, transform",
+        transitionDuration: "900ms",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        transitionDelay: `${delay}ms`,
+        willChange: "opacity, transform",
+      }}
+    >
       {children}
     </div>
   );
@@ -316,15 +390,15 @@ export default function RJMStudioServicesPage() {
               }}
             >
               <img
-                src="/images/LaptopHero.png"
-                alt="RJM Studio services workspace"
-                className="h-full w-full object-cover object-[84%_center] md:object-[82%_center] lg:object-center"
+                src="/images/services-workstation-hero.webp"
+                alt="RjM Studio workstation showing web development and finished digital work"
+                className="h-full w-full object-cover object-center"
               />
             </div>
 
             {/* Dark overlay for readability */}
             <div
-              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2 bg-gradient-to-r from-black/82 via-black/58 to-black/18"
+              className="pointer-events-none absolute -top-20 -bottom-20 left-1/2 w-screen -translate-x-1/2 bg-gradient-to-r from-black/78 via-black/38 to-black/5"
               style={{
                 maskImage:
                   "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 8%, rgba(0,0,0,0.35) 18%, rgba(0,0,0,0.8) 32%, black 44%, black 58%, rgba(0,0,0,0.8) 68%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0.08) 92%, transparent 100%)",
@@ -336,87 +410,96 @@ export default function RJMStudioServicesPage() {
             {/* Hero content */}
             <div className="relative z-10 flex h-full flex-col justify-center px-4 py-10 md:px-2 lg:px-4">
               <div className="max-w-[560px]">
-                <SectionLabel>Services</SectionLabel>
+                <Reveal>
+                  <div>
+                    <SectionLabel>Services</SectionLabel>
 
-                <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
-                  Services designed to elevate your{" "}
-                  <span className="text-amber-300">online presence.</span>
-                </h1>
+                    <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
+                      Services designed to elevate your{" "}
+                      <span className="italic text-amber-300">
+                        online presence.
+                      </span>
+                    </h1>
+                  </div>
+                </Reveal>
 
-                <p className="mt-6 max-w-[500px] text-lg leading-8 text-zinc-300">
-                  From custom websites and website refreshes to ongoing digital
-                  support, RJM Studio helps small businesses build a
-                  professional, reliable, and security-aware online presence.
-                </p>
+                <Reveal delay={140}>
+                  <p className="mt-6 max-w-[500px] text-lg leading-8 text-zinc-300">
+                    From custom websites and website refreshes to ongoing
+                    digital support, RjM Studio helps small businesses build a
+                    professional, reliable and security-aware online presence.
+                  </p>
+                </Reveal>
               </div>
             </div>
           </section>
 
           <section className="border-t border-white/10 py-20">
-            <div className="mb-12 max-w-3xl">
-              <SectionLabel>What I Do</SectionLabel>
+            <Reveal>
+              <div className="mb-12 max-w-3xl">
+                <SectionLabel>What I Do</SectionLabel>
 
-              <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                Digital services built around{" "}
-                <span className="text-amber-300">your business.</span>
-              </h2>
+                <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                  Digital services built around{" "}
+                  <span className="text-amber-300">your business.</span>
+                </h2>
 
-              <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-                Whether you need a new website, improvements to an existing one,
-                or reliable support after launch, each service can be tailored
-                to what your business actually needs.
-              </p>
-            </div>
+                <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
+                  Whether you need a new website, improvements to an existing
+                  one, or reliable support after launch, each service can be
+                  tailored to what your business actually needs.
+                </p>
+              </div>
+            </Reveal>
 
             <div className="border-b border-white/10">
-              {editorialServices.map((service) => {
+              {editorialServices.map((service, index) => {
                 const Icon = service.icon;
 
                 return (
-                  <article
-                    key={service.number}
-                    className="grid gap-7 border-t border-white/10 py-10 md:py-12 lg:grid-cols-[110px_0.8fr_1.2fr] lg:gap-10"
-                  >
-                    <div>
-                      <span className="heading-display text-5xl font-light italic text-amber-300/80 md:text-6xl">
-                        {service.number}
-                      </span>
-                    </div>
+                  <Reveal key={service.number} delay={index * 90}>
+                    <article className="grid gap-7 border-t border-white/10 py-10 md:py-12 lg:grid-cols-[110px_0.8fr_1.2fr] lg:gap-10">
+                      <div>
+                        <span className="heading-display text-5xl font-light italic text-amber-300/80 md:text-6xl">
+                          {service.number}
+                        </span>
+                      </div>
 
-                    <div>
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                          <Icon className="h-5 w-5" />
+                      <div>
+                        <div className="flex items-center gap-4">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
+                            <Icon className="h-5 w-5" />
+                          </div>
+
+                          <h3 className="heading-display text-3xl font-light text-white md:text-4xl">
+                            {service.title}
+                          </h3>
                         </div>
 
-                        <h3 className="heading-display text-3xl font-light text-white md:text-4xl">
-                          {service.title}
-                        </h3>
+                        <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
+                          {service.description}
+                        </p>
                       </div>
 
-                      <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
-                        {service.description}
-                      </p>
-                    </div>
+                      <div className="lg:border-l lg:border-white/10 lg:pl-10">
+                        <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                          What’s Included
+                        </div>
 
-                    <div className="lg:border-l lg:border-white/10 lg:pl-10">
-                      <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
-                        What’s Included
+                        <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                          {service.includes.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-3 text-sm leading-6 text-zinc-300"
+                            >
+                              <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-
-                      <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                        {service.includes.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-start gap-3 text-sm leading-6 text-zinc-300"
-                          >
-                            <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
+                    </article>
+                  </Reveal>
                 );
               })}
             </div>
@@ -433,115 +516,122 @@ export default function RJMStudioServicesPage() {
             />
             <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
               <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr_1fr] lg:gap-0">
-                <div className="lg:pr-12">
-                  <SectionLabel>Packages & Pricing</SectionLabel>
+                <Reveal direction="left">
+                  <div className="lg:pr-12">
+                    <SectionLabel>Packages & Pricing</SectionLabel>
 
-                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                    Flexible options to suit{" "}
-                    <span className="italic text-amber-300">your needs.</span>
-                  </h2>
+                    <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                      Flexible options to suit{" "}
+                      <span className="italic text-amber-300">your needs.</span>
+                    </h2>
 
-                  <p className="mt-5 max-w-md text-base leading-8 text-zinc-300">
-                    Every business is different. Explore the current pricing
-                    guides for package details, or get in touch for something
-                    more tailored.
-                  </p>
-                </div>
-
-                <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
-                  <div className="text-2xl font-light text-white">
-                    Website Packages
+                    <p className="mt-5 max-w-md text-base leading-8 text-zinc-300">
+                      Every business is different. Explore the current pricing
+                      guides for package details, or get in touch for something
+                      more tailored.
+                    </p>
                   </div>
+                </Reveal>
 
-                  <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
-                    Website refreshes, redesigns and custom builds for small
-                    businesses at different stages of their online journey.
-                  </p>
+                <Reveal delay={100}>
+                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
+                    <div className="text-2xl font-light text-white">
+                      Website Packages
+                    </div>
 
-                  <div className="mt-auto flex flex-nowrap gap-3 pt-7">
-                    <a
-                      href="/images/website-packages-guide.png"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
-                    >
-                      View Pricing Guide
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
+                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                      Website refreshes, redesigns and custom builds for small
+                      businesses at different stages of their online journey.
+                    </p>
 
-                    <a
-                      href="/images/website-packages-guide.png"
-                      download
-                      className="inline-flex items-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
-                    >
-                      Download Guide
-                    </a>
+                    <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                      <a
+                        href="/images/website-packages-guide.png"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                      >
+                        View Pricing Guide
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+
+                      <a
+                        href="/images/website-packages-guide.png"
+                        download
+                        className="inline-flex items-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                      >
+                        Download Guide
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </Reveal>
+                <Reveal delay={200}>
+                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+                    <div className="text-2xl font-light text-white">
+                      Social Media & Digital Support
+                    </div>
 
-                <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-                  <div className="text-2xl font-light text-white">
-                    Social Media & Digital Support
+                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                      Content management and practical ongoing digital support
+                      designed to help your business stay visible and up to
+                      date.
+                    </p>
+
+                    <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                      <a
+                        href="/images/social-media-support-packages-guide.png"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
+                      >
+                        View Pricing Guide
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+
+                      <a
+                        href="/images/social-media-support-packages-guide.png"
+                        download
+                        className="inline-flex items-center rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                      >
+                        Download Guide
+                      </a>
+                    </div>
                   </div>
-
-                  <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
-                    Content management and practical ongoing digital support
-                    designed to help your business stay visible and up to date.
-                  </p>
-
-                  <div className="mt-auto flex flex-nowrap gap-3 pt-7">
-                    <a
-                      href="/images/social-media-support-packages-guide.png"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-md border border-amber-300 bg-amber-300 px-5 py-3 text-sm font-medium text-black transition hover:bg-amber-200"
-                    >
-                      View Pricing Guide
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
-
-                    <a
-                      href="/images/social-media-support-packages-guide.png"
-                      download
-                      className="inline-flex items-center rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
-                    >
-                      Download Guide
-                    </a>
-                  </div>
-                </div>
+                </Reveal>
               </div>
             </div>
           </section>
 
           <section className="border-b border-white/10 py-20">
             <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
-              <div>
-                <SectionLabel>My Process</SectionLabel>
+              <Reveal direction="left">
+                <div>
+                  <SectionLabel>My Process</SectionLabel>
 
-                <h2 className="heading-display max-w-md text-4xl font-light leading-tight text-white md:text-5xl">
-                  A simple process, built around{" "}
-                  <span className="italic text-amber-300">clarity.</span>
-                </h2>
-              </div>
+                  <h2 className="heading-display max-w-md text-4xl font-light leading-tight text-white md:text-5xl">
+                    A simple process, built around{" "}
+                    <span className="italic text-amber-300">clarity.</span>
+                  </h2>
+                </div>
+              </Reveal>
 
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {processSteps.map((step, index) => (
-                  <div
-                    key={step.number}
-                    className="border-t border-white/10 pt-6"
-                  >
-                    <div className="text-xs tracking-[0.24em] text-amber-300/80">
-                      0{index + 1}
+                  <Reveal key={step.number} delay={index * 90}>
+                    <div className="border-t border-white/10 pt-6">
+                      <div className="text-xs tracking-[0.24em] text-amber-300/80">
+                        0{index + 1}
+                      </div>
+
+                      <h3 className="mt-5 text-xl font-light text-white">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-3 text-sm leading-7 text-zinc-400">
+                        {step.description}
+                      </p>
                     </div>
-
-                    <h3 className="mt-5 text-xl font-light text-white">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {step.description}
-                    </p>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -557,69 +647,78 @@ export default function RJMStudioServicesPage() {
               }}
             />
             <div className="mx-auto max-w-5xl px-6 md:px-8 lg:px-10">
-              <div className="grid gap-6 md:grid-cols-[90px_1fr] md:items-start">
-                <div className="heading-display text-6xl leading-none text-amber-300/80">
-                  “
+              <Reveal>
+                <div className="grid gap-6 md:grid-cols-[90px_1fr] md:items-start">
+                  <div className="heading-display text-6xl leading-none text-amber-300/80">
+                    “
+                  </div>
+
+                  <figure>
+                    <blockquote className="heading-display text-xl font-light italic leading-relaxed text-zinc-100 md:text-2xl">
+                      <p>
+                        We’ve reflected on our recent journey with you and its
+                        impact on our business. It was a big decision for us as
+                        a small company with limited funds, but we are so
+                        pleased we made that decision and can’t thank you enough
+                        for all your efforts and the final outcome — our new
+                        website is fantastic!
+                      </p>
+                    </blockquote>
+
+                    <figcaption className="mt-5 text-xs uppercase tracking-[0.22em] text-amber-200/80">
+                      Rob — Ventosus Micro Winery
+                    </figcaption>
+                  </figure>
                 </div>
-
-                <figure>
-                  <blockquote className="heading-display text-xl font-light italic leading-relaxed text-zinc-100 md:text-2xl">
-                    <p>
-                      We’ve reflected on our recent journey with you and its
-                      impact on our business. It was a big decision for us as a
-                      small company with limited funds, but we are so pleased we
-                      made that decision and can’t thank you enough for all your
-                      efforts and the final outcome — our new website is
-                      fantastic!
-                    </p>
-                  </blockquote>
-
-                  <figcaption className="mt-5 text-xs uppercase tracking-[0.22em] text-amber-200/80">
-                    Rob — Ventosus Micro Winery
-                  </figcaption>
-                </figure>
-              </div>
+              </Reveal>
             </div>
           </section>
 
           <section className="border-b border-white/10 py-16 md:py-20">
             <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
-              <div>
-                <SectionLabel>FAQ</SectionLabel>
+              <Reveal direction="left">
+                <div>
+                  <SectionLabel>FAQ</SectionLabel>
 
-                <h2 className="heading-display max-w-sm text-4xl font-light leading-tight text-white md:text-5xl">
-                  Frequently asked{" "}
-                  <span className="italic text-amber-300">questions.</span>
-                </h2>
-              </div>
+                  <h2 className="heading-display max-w-sm text-4xl font-light leading-tight text-white md:text-5xl">
+                    Frequently asked{" "}
+                    <span className="italic text-amber-300">questions.</span>
+                  </h2>
+                </div>
+              </Reveal>
 
-              <div className="border-t border-white/10">
-                {faqs.map((faq: FaqItem, index: number) => (
-                  <div key={faq.question} className="border-b border-white/10">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setOpenFaq(openFaq === index ? null : index)
-                      }
-                      className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-white"
+              <Reveal direction="right" delay={100}>
+                <div className="border-t border-white/10">
+                  {faqs.map((faq: FaqItem, index: number) => (
+                    <div
+                      key={faq.question}
+                      className="border-b border-white/10"
                     >
-                      <span className="text-base">{faq.question}</span>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenFaq(openFaq === index ? null : index)
+                        }
+                        className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-white"
+                      >
+                        <span className="text-base">{faq.question}</span>
 
-                      <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-amber-300 transition-transform duration-200 ${
-                          openFaq === index ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
+                        <ChevronDown
+                          className={`h-5 w-5 shrink-0 text-amber-300 transition-transform duration-200 ${
+                            openFaq === index ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
 
-                    {openFaq === index && (
-                      <div className="max-w-2xl pb-6 pr-10 text-sm leading-7 text-zinc-400">
-                        {faq.answer}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      {openFaq === index && (
+                        <div className="max-w-2xl pb-6 pr-10 text-sm leading-7 text-zinc-400">
+                          {faq.answer}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             </div>
           </section>
 
@@ -635,29 +734,32 @@ export default function RJMStudioServicesPage() {
             />
 
             <div className="relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
-              <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
-                Let’s Work Together
-              </div>
+              <Reveal>
+                <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                  Let’s Work Together
+                </div>
 
-              <h2 className="heading-display mt-5 text-4xl font-light leading-tight text-white md:text-6xl">
-                Ready to discuss{" "}
-                <span className="italic text-amber-300">your project?</span>
-              </h2>
+                <h2 className="heading-display mt-5 text-4xl font-light leading-tight text-white md:text-6xl">
+                  Ready to discuss{" "}
+                  <span className="italic text-amber-300">your project?</span>
+                </h2>
 
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-300">
-                Whether you’re looking for a new website, a refresh, or ongoing
-                digital support, let’s talk about what your business needs.
-              </p>
+                <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-300">
+                  Whether you’re looking for a new website, a refresh, or
+                  ongoing digital support, let’s talk about what your business
+                  needs.
+                </p>
 
-              <div className="mt-8">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-medium text-black transition hover:bg-amber-200"
-                >
-                  Get in Touch
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+                <div className="mt-8">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-medium text-black transition hover:bg-amber-200"
+                  >
+                    Get in Touch
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
             </div>
           </section>
 
