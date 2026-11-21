@@ -348,7 +348,7 @@ export default function AboutPage() {
 
                 <Reveal delay={220}>
                   <p className="mt-9 max-w-[650px] text-lg leading-8 text-zinc-200 md:text-xl md:leading-9">
-                    I’m Rj, founder of RjM Studio — an independent web designer
+                    I’m Rj, founder of RjM Studio, an independent web designer
                     and developer based in the Isle of Man, helping small
                     businesses build a professional, confident and reliable
                     presence online.

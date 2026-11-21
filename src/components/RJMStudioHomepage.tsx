@@ -688,11 +688,15 @@ export default function RJMStudioHomepageApp() {
                 >
                   <div className="overflow-hidden rounded-[0.8rem] border border-white/10 bg-[#0b0c0e]">
                     <img
-                      src="/images/ventosus/home-after-1280.jpg"
+                      src="/images/ventosus/home-after-1920.jpg"
+                      srcSet="/images/ventosus/home-after-640.jpg 640w, /images/ventosus/home-after-1280.jpg 1280w, /images/ventosus/home-after-1920.jpg 1920w"
+                      sizes="100vw"
+                      width={2504}
+                      height={1219}
                       alt="Ventosus Micro Winery website redesign"
                       fetchPriority="high"
                       decoding="async"
-                      className="aspect-[16/8.5] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.015]"
+                      className="h-auto w-full object-contain object-top transition duration-700 ease-out group-hover:scale-[1.01]"
                     />
                   </div>
                 </Link>
