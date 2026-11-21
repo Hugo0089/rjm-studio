@@ -548,7 +548,7 @@ export default function RJMStudioServicesPage() {
                       businesses at different stages of their online journey.
                     </p>
 
-                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap">
+                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
                       <a
                         href="/images/website-packages-guide.png"
                         target="_blank"
@@ -581,7 +581,7 @@ export default function RJMStudioServicesPage() {
                       date.
                     </p>
 
-                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap">
+                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
                       <a
                         href="/images/social-media-support-packages-guide.png"
                         target="_blank"
