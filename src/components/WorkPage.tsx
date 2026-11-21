@@ -166,14 +166,14 @@ const liveProjects = [
   {
     category: "Web Design",
     title: "Tea Evolution",
-    copy: "A modern, vibrant website for a bubble tea brand built around product appeal, atmosphere, and handcrafted quality.",
+    copy: "A vibrant website designed to showcase Tea Evolution’s products, atmosphere and brand personality while giving customers a clearer, more engaging way to explore the business online.",
     image: "/images/Teaevolution.png",
     href: "https://tea-evolution.im/",
   },
   {
     category: "Web Design",
     title: "D’Barber",
-    copy: "A bold, masculine website for a barbershop focused on confidence, precision, and a strong first impression.",
+    copy: "A bold barbershop website designed to communicate the brand clearly, build confidence and create a strong first impression before customers ever step through the door.",
     image: "/images/Dbarber.png",
     href: "https://dbarber.im/",
   },
@@ -204,22 +204,22 @@ const processSteps = [
   {
     icon: MessageCircle,
     title: "Understand",
-    copy: "I learn about your business, audience, and goals to shape the right foundation.",
+    copy: "I start by understanding your business, audience and what the project needs to achieve.",
   },
   {
     icon: Pencil,
     title: "Plan",
-    copy: "Strategy, structure, and creative direction come together to guide the project clearly.",
+    copy: "I shape the structure, priorities and creative direction so the project has a clear path forward.",
   },
   {
     icon: LayoutTemplate,
     title: "Design",
-    copy: "Thoughtful design and content choices bring your vision to life in a polished way.",
+    copy: "I bring the project together through thoughtful design, clear content and practical decisions.",
   },
   {
     icon: Rocket,
     title: "Launch & Support",
-    copy: "I help bring everything live and provide support when you need it after launch.",
+    copy: "I refine, test and launch the final result, then provide ongoing support when you need it.",
   },
 ];
 
@@ -301,23 +301,33 @@ export default function WorkPage() {
   return (
     <>
       <Helmet>
-        <title>Work | RjM Studio™</title>
+        <title>Web Design Portfolio Isle of Man | RjM Studio</title>
+
         <meta
           name="description"
-          content="View selected website and digital design work created by RJM Studio for small businesses."
+          content="Explore website design and redesign projects by RjM Studio, including work for Isle of Man small businesses and selected digital concepts."
         />
-        <meta property="og:title" content="RJM Studio" />
+
+        <meta
+          property="og:title"
+          content="Web Design Portfolio Isle of Man | RjM Studio"
+        />
+
         <meta
           property="og:description"
-          content="Web design, social media management, and digital support for small businesses."
+          content="Explore website design, redesigns and selected digital work created by RjM Studio for small businesses."
         />
+
         <meta
           property="og:image"
           content="https://www.rjm-studio.co.uk/images/og-image.png"
         />
-        <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
+
+        <meta property="og:url" content="https://www.rjm-studio.co.uk/work" />
+
         <meta property="og:type" content="website" />
       </Helmet>
+
       <div className="relative min-h-screen overflow-x-clip bg-[#08090b] text-white">
         <div
           aria-hidden="true"
@@ -461,17 +471,20 @@ export default function WorkPage() {
                       <SectionLabel>Our Work</SectionLabel>
 
                       <h1 className="heading-display max-w-xl text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
-                        Design that delivers{" "}
-                        <span className="italic text-amber-300">impact.</span>
+                        Websites built to make businesses{" "}
+                        <span className="italic text-amber-300">
+                          stand out.
+                        </span>
                       </h1>
                     </div>
                   </Reveal>
 
                   <Reveal delay={140}>
                     <p className="mt-7 max-w-[520px] text-lg leading-8 text-zinc-300">
-                      A selection of websites and digital work created to
-                      strengthen brands, improve online experiences and help
-                      small businesses make a stronger impression.
+                      A selection of website design and redesign projects
+                      created to help small businesses present themselves more
+                      clearly, build trust and create a stronger experience for
+                      their customers.
                     </p>
                   </Reveal>
 
@@ -639,7 +652,7 @@ export default function WorkPage() {
               <div className="text-center">
                 <SectionLabel>How I Work</SectionLabel>
                 <h2 className="heading-display mx-auto max-w-4xl text-4xl font-light leading-tight text-white md:text-5xl">
-                  A thoughtful process built around your goals
+                  A clear process from first idea to launch.
                 </h2>
               </div>
             </Reveal>
@@ -682,8 +695,10 @@ export default function WorkPage() {
                     Have a project{" "}
                     <span className="text-amber-300">in mind?</span>
                   </h2>
+
                   <p className="mt-4 text-base leading-8 text-zinc-400">
-                    Let’s create something meaningful and impactful together.
+                    Tell me what you’re working on and what you want to improve.
+                    I’ll help you work out the right next step.
                   </p>
                 </div>
 

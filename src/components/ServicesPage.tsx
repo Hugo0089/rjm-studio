@@ -67,7 +67,7 @@ const editorialServices = [
     icon: ShieldCheck,
     title: "Security-Aware Development",
     description:
-      "A security-conscious approach informed by my background in IT and cybersecurity, helping ensure websites are built and configured with sensible security practices in mind.",
+      "A security-conscious approach informed by my background in IT and cybersecurity, with sensible practices considered throughout development, configuration and deployment.",
     includes: [
       "Security-conscious implementation",
       "Secure configuration",
@@ -90,7 +90,7 @@ const processSteps = [
     number: "02",
     title: "Plan & Create",
     description:
-      "I shape the right approach, then design and build with clarity, usability and your business in mind..",
+      "I shape the right approach, then design and build with clarity, usability and your business in mind.",
   },
   {
     number: "03",
@@ -256,7 +256,7 @@ export default function RJMStudioServicesPage() {
         <title>Web Design & Digital Support Isle of Man | RjM Studio</title>
         <meta
           name="description"
-          content="Explore website design, social media management, and digital support services from RJM Studio for small and medium businesses."
+          content="Web design, website refreshes and digital support for small businesses in the Isle of Man. Explore tailored services from RjM Studio."
         />
         <meta
           property="og:title"
