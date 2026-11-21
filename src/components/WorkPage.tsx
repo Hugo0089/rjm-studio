@@ -183,19 +183,19 @@ const conceptProjects = [
   {
     category: "Concept",
     title: "Solea Studio",
-    copy: "A calm, elevated concept for a premium wellness and skincare brand.",
+    copy: "A refined wellness concept exploring how calm visuals, clear structure and premium presentation can shape a more confident digital presence.",
     image: "/images/SoleaConcept.png",
   },
   {
     category: "Concept",
     title: "Northline Fitness",
-    copy: "An energetic concept for a modern performance-driven fitness brand.",
+    copy: "A performance-focused fitness concept built around strong hierarchy, energetic visuals and a clear, modern user experience.",
     image: "/images/FitnessConcept.png",
   },
   {
     category: "Concept",
     title: "Buono",
-    copy: "A warm restaurant concept built around appetite, atmosphere, and refined presentation.",
+    copy: "A warm restaurant concept designed around atmosphere, appetite and an inviting digital experience that puts the brand and menu presentation first.",
     image: "/images/BuonoConcept.png",
   },
 ];

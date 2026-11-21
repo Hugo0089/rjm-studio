@@ -227,21 +227,33 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact | RjM Studio™</title>
+        <title>Contact RjM Studio | Web Design Isle of Man</title>
+
         <meta
           name="description"
-          content="Get in touch with RJM Studio to discuss your website, social media, or digital support needs."
+          content="Get in touch with RjM Studio to discuss a new website, website refresh or ongoing digital support for your business."
         />
-        <meta property="og:title" content="RJM Studio" />
+
+        <meta
+          property="og:title"
+          content="Contact RjM Studio | Web Design Isle of Man"
+        />
+
         <meta
           property="og:description"
-          content="Web design, social media management, and digital support for small businesses."
+          content="Start a conversation with RjM Studio about web design, website refreshes and digital support for your business."
         />
+
         <meta
           property="og:image"
           content="https://www.rjm-studio.co.uk/images/og-image.png"
         />
-        <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
+
+        <meta
+          property="og:url"
+          content="https://www.rjm-studio.co.uk/contact"
+        />
+
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="relative min-h-screen overflow-x-clip bg-[#06070a] text-white">
@@ -396,8 +408,8 @@ export default function ContactPage() {
 
                 <Reveal delay={220}>
                   <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
-                    Whether you need a new website, a thoughtful refresh or
-                    ongoing digital support, tell me a little about what you’re
+                    Whether you need a new website, want to improve an existing
+                    one or need ongoing digital support, tell me what you’re
                     working on. You don’t need to have everything figured out.
                   </p>
                 </Reveal>
@@ -586,8 +598,8 @@ export default function ContactPage() {
                             <option value="Digital Support">
                               Digital Support
                             </option>
-                            <option value="Social Media / Content">
-                              Social Media / Content
+                            <option value="Website Updates / One-Off Work">
+                              Website Updates / One-Off Work
                             </option>
                             <option value="Not sure yet">Not Sure Yet</option>
                           </select>
@@ -634,7 +646,7 @@ export default function ContactPage() {
                           name="message"
                           rows={6}
                           required
-                          placeholder="Tell me what you're working on, what you'd like to improve, or what you're trying to achieve."
+                          placeholder="Tell me about your project, what you’d like to improve and what you want the website or digital support to achieve."
                           className="mt-3 w-full resize-none border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base leading-7 text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
                         />
 
@@ -725,7 +737,7 @@ export default function ContactPage() {
                   {[
                     {
                       number: "01",
-                      title: "I read your enquiry",
+                      title: "I review your enquiry",
                       copy: "Your message comes directly to me, so I can understand your project, goals and where you need support.",
                     },
                     {
@@ -736,7 +748,7 @@ export default function ContactPage() {
                     {
                       number: "03",
                       title: "I recommend the next step",
-                      copy: "If we’re a good fit, I’ll outline the most sensible way to move forward and what that could look like.",
+                      copy: "If we’re a good fit, I’ll outline the most sensible way forward and what the next stage could look like.",
                     },
                   ].map((item, index) => (
                     <Reveal key={item.number} delay={120 + index * 110}>

@@ -122,25 +122,25 @@ const approachSteps = [
     number: "01",
     icon: MessageCircle,
     title: "Discover",
-    copy: "We start with a conversation to understand your goals, your audience, and what your business needs most.",
+    copy: "I start by understanding your business, goals, audience and what the project needs to achieve.",
   },
   {
     number: "02",
     icon: Pencil,
     title: "Plan",
-    copy: "I create a clear plan and structure so your website, content, or support package is aligned with your goals.",
+    copy: "I shape the structure, priorities and direction so the project has a clear path forward.",
   },
   {
     number: "03",
     icon: LayoutTemplate,
     title: "Create",
-    copy: "Design, content, and digital execution come together to build something that feels polished and intentional.",
+    copy: "I bring the project together through thoughtful design, clear content and practical development decisions.",
   },
   {
     number: "04",
     icon: BarChart3,
     title: "Support",
-    copy: "Ongoing support, refinement, and updates help your business stay consistent and keep growing.",
+    copy: "After launch, I can continue to help with updates, refinements and ongoing digital support as your business evolves.",
   },
 ];
 
@@ -154,21 +154,30 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About | RjM Studio™</title>
+        <title>About RjM Studio | Web Designer Isle of Man</title>
+
         <meta
           name="description"
-          content="Learn more about RJM Studio and its approach to website design, social media management, and digital support."
+          content="Meet Rj, founder of RjM Studio — an independent web designer and developer in the Isle of Man helping small businesses build professional, reliable digital experiences."
         />
-        <meta property="og:title" content="RJM Studio" />
+
+        <meta
+          property="og:title"
+          content="About RjM Studio | Web Designer Isle of Man"
+        />
+
         <meta
           property="og:description"
-          content="Web design, social media management, and digital support for small businesses."
+          content="Learn more about RjM Studio, an independent Isle of Man web design studio combining thoughtful design, practical development and security-aware thinking."
         />
+
         <meta
           property="og:image"
           content="https://www.rjm-studio.co.uk/images/og-image.png"
         />
-        <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
+
+        <meta property="og:url" content="https://www.rjm-studio.co.uk/about" />
+
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="relative min-h-screen overflow-x-clip bg-[#06070a] text-white">
@@ -339,18 +348,19 @@ export default function AboutPage() {
 
                 <Reveal delay={220}>
                   <p className="mt-9 max-w-[650px] text-lg leading-8 text-zinc-200 md:text-xl md:leading-9">
-                    I’m Rj, founder of RjM Studio — an independent digital
-                    studio based in the Isle of Man, helping small businesses
-                    build a professional and confident presence online.
+                    I’m Rj, founder of RjM Studio — an independent web designer
+                    and developer based in the Isle of Man, helping small
+                    businesses build a professional, confident and reliable
+                    presence online.
                   </p>
                 </Reveal>
 
                 <Reveal delay={300}>
                   <p className="mt-6 max-w-[650px] text-base leading-8 text-zinc-400">
-                    I combine thoughtful design, web development, practical
-                    digital support and security-aware thinking to create work
-                    that looks polished, works reliably and makes sense for the
-                    business behind it.
+                    My background brings together web development, digital
+                    design, IT and cybersecurity. That combination shapes how I
+                    approach each project, balancing strong presentation with
+                    usability, reliability and practical technical decisions.
                   </p>
                 </Reveal>
 
@@ -445,21 +455,20 @@ export default function AboutPage() {
                   <Reveal delay={260}>
                     <p className="mt-7 text-base leading-8 text-zinc-300">
                       My background brings together web development, digital
-                      design, IT and cybersecurity. Over time, that combination
-                      naturally led me toward creating digital experiences that
-                      are not only visually considered, but practical, reliable
-                      and built with care.
+                      design, IT and cybersecurity. That combination shapes how
+                      I approach each project — balancing strong presentation
+                      with usability, reliability and practical technical
+                      decisions.
                     </p>
                   </Reveal>
 
                   <Reveal delay={260}>
                     <p className="mt-5 text-base leading-8 text-zinc-400">
-                      I started RjM Studio to offer small businesses a more
-                      personal alternative to the traditional agency experience.
-                      I like working closely with clients, understanding what
-                      they actually need, and creating solutions that feel right
-                      for the business rather than forcing every project into
-                      the same template.
+                      I started RjM Studio to give small businesses a direct,
+                      personal way to work on their digital presence. I work
+                      closely with clients, take the time to understand what
+                      they actually need, and create solutions shaped around the
+                      business, its goals and the people it serves.
                     </p>
                   </Reveal>
                   <Reveal delay={340}>
@@ -550,22 +559,22 @@ export default function AboutPage() {
                     {
                       number: "01",
                       title: "Clarity",
-                      copy: "Good design should make things easier to understand. Clear structure, messaging and navigation come before unnecessary complexity.",
+                      copy: "Good design should make things easier to understand. Clear structure, purposeful messaging and intuitive navigation come before unnecessary complexity.",
                     },
                     {
                       number: "02",
                       title: "Purpose",
-                      copy: "Every design choice should support a reason — whether that is building trust, improving usability or helping someone take the next step.",
+                      copy: "Every design decision should support a clear goal — whether that means building trust, improving usability or helping someone take the next step.",
                     },
                     {
                       number: "03",
                       title: "Reliability",
-                      copy: "A website needs to work just as well as it looks. I value thoughtful implementation, consistency and dependable support after launch.",
+                      copy: "A website needs to work just as well as it looks. I focus on thoughtful implementation, consistency and dependable support after launch.",
                     },
                     {
                       number: "04",
                       title: "Security Awareness",
-                      copy: "My cybersecurity background influences how I think about development, configuration and the small technical decisions that help create more considered digital experiences.",
+                      copy: "My background in IT and cybersecurity influences how I approach development, configuration and the technical decisions that support a more reliable digital experience.",
                     },
                   ].map((item, index) => (
                     <Reveal key={item.number} delay={120 + index * 100}>
@@ -633,17 +642,17 @@ export default function AboutPage() {
                     {
                       number: "01",
                       title: "Small Businesses",
-                      copy: "Helping established local businesses strengthen their online presence, communicate more clearly and build greater trust with their customers.",
+                      copy: "Helping established businesses strengthen their online presence, communicate more clearly and give customers greater confidence in what they offer.",
                     },
                     {
                       number: "02",
                       title: "Startups",
-                      copy: "Supporting new ventures with the digital foundations they need to look credible and professional from the beginning.",
+                      copy: "Helping new ventures build the digital foundations they need to look credible, professional and ready to grow from the beginning.",
                     },
                     {
                       number: "03",
                       title: "Entrepreneurs",
-                      copy: "Helping founders and independent business owners present their ideas, services and expertise with confidence online.",
+                      copy: "Helping founders and independent business owners present their ideas, services and expertise clearly and confidently online.",
                     },
                   ].map((item, index) => (
                     <Reveal key={item.number} delay={120 + index * 110}>
@@ -792,20 +801,19 @@ export default function AboutPage() {
                   <Reveal direction="right" delay={210}>
                     <p className="mt-5 text-base leading-8 text-zinc-300">
                       I enjoy the space where creativity and technology meet.
-                      Building websites gives me the opportunity to combine
-                      visual thinking with problem solving, development and the
-                      technical awareness I’ve developed through my background
-                      in IT and cybersecurity.
+                      Building websites allows me to combine visual thinking,
+                      problem solving, development and the technical awareness
+                      I’ve built through my background in IT and cybersecurity.
                     </p>
                   </Reveal>
 
                   <Reveal direction="right" delay={300}>
                     <p className="mt-5 text-base leading-8 text-zinc-400">
-                      Being independent also means I can stay close to each
-                      project. There are no layers of account management or
-                      hand-offs between departments — just clear communication,
-                      practical advice and a genuine interest in creating
-                      something that works well for your business.
+                      Being independent means I stay close to each project from
+                      start to finish. You work directly with me throughout,
+                      with clear communication, practical advice and a genuine
+                      focus on creating something that works well for your
+                      business.
                     </p>
                   </Reveal>
 
@@ -878,9 +886,10 @@ export default function AboutPage() {
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300">
-                      Whether you need a new website, a thoughtful refresh or
-                      ongoing digital support, tell me what you’re working on
-                      and we can explore the right way forward.
+                      Whether you need a new website, want to improve an
+                      existing one or need ongoing digital support, tell me what
+                      you’re working on. I’ll help you work out the right next
+                      step.
                     </p>
                   </div>
                 </Reveal>
