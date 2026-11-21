@@ -43,17 +43,17 @@ const services = [
   {
     number: "01",
     title: "Custom Websites",
-    copy: "Modern, responsive websites designed around your business, audience and goals — built to look professional and work beautifully across every screen.",
+    copy: "Modern, responsive websites designed around your business, audience and goals — built to communicate clearly, build trust and work beautifully across every screen.",
   },
   {
     number: "02",
     title: "Website Refreshes",
-    copy: "Give an existing website a stronger visual presence, clearer structure and a better user experience without starting again unnecessarily.",
+    copy: "Improve an existing website with stronger visuals, clearer structure and a better user experience — without rebuilding from scratch when it isn’t necessary.",
   },
   {
     number: "03",
     title: "Digital Support",
-    copy: "Practical ongoing support for website updates, content changes, troubleshooting and the day-to-day digital work that keeps your business moving.",
+    copy: "Practical ongoing support for website updates, content changes, troubleshooting and the day-to-day digital work that keeps your business current and running smoothly.",
   },
 ];
 
@@ -61,22 +61,22 @@ const processSteps = [
   {
     number: "1",
     title: "Discover",
-    copy: "We learn about your business, goals, and audience to define the right strategy and direction.",
+    copy: "I start by understanding your business, audience and goals so the project is built around what actually matters.",
   },
   {
     number: "2",
     title: "Create",
-    copy: "We design, build, and create content that aligns with your brand and converts visitors into action.",
+    copy: "I design and build with clarity, usability and your brand in mind, keeping you involved throughout the process.",
   },
   {
     number: "3",
     title: "Launch",
-    copy: "We refine, test, and launch your digital presence with support you can rely on.",
+    copy: "Before launch, everything is refined, tested and checked across devices so your website is ready to represent your business confidently.",
   },
   {
     number: "4",
     title: "Support",
-    copy: "We provide ongoing updates, content, and digital support so you stay consistent and grow.",
+    copy: "After launch, I can help with updates, improvements and ongoing digital support as your business evolves.",
   },
 ];
 
@@ -592,8 +592,9 @@ export default function RJMStudioHomepageApp() {
                   <div className="lg:pb-2">
                     <p className="max-w-2xl text-lg leading-8 text-zinc-400">
                       From new websites to thoughtful refreshes and ongoing
-                      support, everything is shaped around what your business
-                      actually needs.
+                      support, every project is shaped around what your business
+                      actually needs with a focus on clarity, trust and making
+                      it easier for customers to take the next step.
                     </p>
                   </div>
                 </div>
@@ -661,8 +662,8 @@ export default function RJMStudioHomepageApp() {
                 <div className="lg:pb-2">
                   <p className="max-w-2xl text-lg leading-8 text-zinc-400">
                     A selection of websites created to strengthen brands,
-                    improve usability and give businesses a more confident
-                    presence online.
+                    improve usability and make it easier for customers to
+                    understand, trust and engage with the business.
                   </p>
                 </div>
               </div>
@@ -708,7 +709,9 @@ export default function RJMStudioHomepageApp() {
                     <p className="mt-4 max-w-2xl text-base leading-8 text-zinc-400">
                       A complete website refresh focused on stronger visual
                       presentation, clearer content hierarchy and a more
-                      polished customer experience.
+                      polished customer experience, making it easier for
+                      visitors to explore the winery, its products and
+                      experiences.
                     </p>
 
                     <Link
@@ -757,8 +760,10 @@ export default function RJMStudioHomepageApp() {
                   </h3>
 
                   <p className="mt-5 text-base leading-8 text-zinc-400">
-                    A modern, vibrant website for a bubble tea brand built
-                    around product appeal, atmosphere and handcrafted quality.
+                    A vibrant website designed to showcase Tea Evolution’s
+                    products, atmosphere and brand personality while giving
+                    customers a clearer, more engaging way to explore the
+                    business online.
                   </p>
 
                   <a
@@ -787,8 +792,9 @@ export default function RJMStudioHomepageApp() {
                   </h3>
 
                   <p className="mt-5 text-base leading-8 text-zinc-400">
-                    A bold, masculine website focused on confidence, precision
-                    and a strong first impression.
+                    A bold barbershop website designed to communicate the brand
+                    clearly, build confidence and create a strong first
+                    impression before customers ever step through the door.
                   </p>
 
                   <a
@@ -875,9 +881,9 @@ export default function RJMStudioHomepageApp() {
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400">
                       I combine thoughtful design, practical technology and
-                      security-aware thinking to create digital work that looks
-                      professional, works reliably and makes sense for the
-                      business behind it.
+                      security-aware thinking to create websites and digital
+                      solutions that look professional, work reliably and
+                      support the way your business actually operates.
                     </p>
 
                     <Link
@@ -898,22 +904,22 @@ export default function RJMStudioHomepageApp() {
                   {
                     number: "01",
                     title: "Thoughtful Design",
-                    copy: "Clear, considered design shaped around your business and audience.",
+                    copy: "Clear, considered design shaped around your business, audience and the actions you want customers to take.",
                   },
                   {
                     number: "02",
                     title: "Practical Technology",
-                    copy: "Digital solutions chosen for reliability, usability and real-world needs.",
+                    copy: "Digital solutions chosen for reliability, usability and what will genuinely work for your business.",
                   },
                   {
                     number: "03",
                     title: "Security-Aware",
-                    copy: "A technical approach informed by experience in IT and cybersecurity.",
+                    copy: "A security-conscious approach informed by experience in IT and cybersecurity, without unnecessary complexity.",
                   },
                   {
                     number: "04",
                     title: "Ongoing Support",
-                    copy: "Direct help after launch when your website or digital presence needs attention.",
+                    copy: "Direct help after launch for updates, improvements and the digital tasks that keep your business moving.",
                   },
                 ].map((item, index) => (
                   <Reveal key={item.number} delay={index * 90}>
@@ -957,7 +963,7 @@ export default function RJMStudioHomepageApp() {
                 {/* Introduction */}
                 <Reveal direction="left">
                   <div>
-                    <SectionLabel>Our Process</SectionLabel>
+                    <SectionLabel>My Process</SectionLabel>
 
                     <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-6xl">
                       A simple process, built around{" "}
@@ -1051,15 +1057,16 @@ export default function RJMStudioHomepageApp() {
 
                     <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
                       My background combines web development, digital design, IT
-                      and cybersecurity. That mix shapes how I approach every
-                      project: visually considered, technically aware and
-                      focused on what the business actually needs.
+                      and cybersecurity. That mix helps me create websites that
+                      are visually considered, technically sound and shaped
+                      around what the business actually needs.
                     </p>
 
                     <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
                       Working independently means you deal directly with me
-                      throughout the project — from the first conversation to
-                      launch and ongoing support.
+                      throughout the project, from the first conversation and
+                      initial ideas through to launch, updates and ongoing
+                      support.
                     </p>
 
                     <div className="mt-9 flex flex-wrap gap-6">
@@ -1068,7 +1075,7 @@ export default function RJMStudioHomepageApp() {
                         onClick={() => window.scrollTo(0, 0)}
                         className="inline-flex items-center gap-2 text-sm text-amber-300 transition hover:text-amber-200"
                       >
-                        More About RjM Studio
+                        Meet the Person Behind RjM Studio
                         <ArrowRight className="h-4 w-4" />
                       </Link>
 
@@ -1122,14 +1129,16 @@ export default function RJMStudioHomepageApp() {
                 <Reveal direction="right" delay={100}>
                   <div className="max-w-2xl lg:pb-2">
                     <p className="text-lg leading-8 text-zinc-300">
-                      Whether you need a new website, a thoughtful refresh or
-                      ongoing digital support, tell me what you’re working on
-                      and we can explore the right way forward.
+                      Whether you need a new website, want to improve an
+                      existing one or need ongoing digital support, tell me a
+                      little about your business and what you’re trying to
+                      achieve. I’ll come back to you with clear next steps.
                     </p>
 
                     <p className="mt-4 text-sm leading-7 text-zinc-500">
                       You don’t need to have everything figured out before
-                      getting in touch.
+                      getting in touch, a simple idea or problem is enough to
+                      start the conversation.
                     </p>
 
                     <div className="mt-8">
