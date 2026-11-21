@@ -100,22 +100,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PrimaryButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="cursor-pointer rounded-md border border-amber-300 bg-amber-300 px-6 py-3 text-sm font-medium text-black transition hover:bg-amber-200">
-      {children}
-    </button>
-  );
-}
-
-function SecondaryButton({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="cursor-pointer rounded-md border border-amber-300/70 px-6 py-3 text-sm text-white transition hover:bg-white/5">
-      {children}
-    </button>
-  );
-}
-
 function HeroVisual() {
   const lines = [
     "const studio = {",
