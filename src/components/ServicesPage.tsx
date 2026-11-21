@@ -551,13 +551,13 @@ export default function RJMStudioServicesPage() {
                       Website Packages
                     </div>
 
-                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300 lg:min-h-[128px]">
                       Website refreshes, redesigns and custom builds for small
                       businesses that need a stronger, clearer and more
                       professional presence online.
                     </p>
 
-                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
+                    <div className="flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
                       <a
                         href="/images/website-packages-guide.png"
                         target="_blank"
@@ -579,18 +579,18 @@ export default function RJMStudioServicesPage() {
                   </div>
                 </Reveal>
                 <Reveal delay={200}>
-                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
                     <div className="text-2xl font-light text-white">
                       Social Media & Digital Support
                     </div>
 
-                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
+                    <p className="mt-4 max-w-md text-base leading-8 text-zinc-300 lg:min-h-[128px]">
                       Ongoing content and digital support to help your business
                       stay active, consistent and professionally presented
                       online.
                     </p>
 
-                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
+                    <div className="flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
                       <a
                         href="/images/social-media-support-packages-guide.png"
                         target="_blank"
