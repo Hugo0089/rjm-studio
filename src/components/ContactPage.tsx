@@ -73,7 +73,7 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 function ScriptLogo() {
   return (
     <img
-      src="/images/rjm-logo4.png"
+      src="/images/rjm-logo4.webp"
       alt="RJM Studio logo"
       className="h-12 w-auto object-contain"
     />

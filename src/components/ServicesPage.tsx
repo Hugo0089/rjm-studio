@@ -143,7 +143,7 @@ function ScriptLogo() {
   return (
     <a href="#" className="shrink-0">
       <img
-        src="/images/rjm-logo4.png"
+        src="/images/rjm-logo4.webp"
         alt="RJM Studio logo"
         className="h-12 w-auto object-contain"
       />

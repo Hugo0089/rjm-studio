@@ -16,7 +16,7 @@ const navItems = ["Home", "Services", "Work", "About", "Contact"];
 function ScriptLogo() {
   return (
     <img
-      src="/images/rjm-logo4.png"
+      src="/images/rjm-logo4.webp"
       alt="RJM Studio logo"
       className="h-12 w-auto object-contain"
     />
@@ -298,7 +298,7 @@ export default function AboutPage() {
               className="pointer-events-none absolute right-[-4%] top-1/2 hidden w-[58%] -translate-y-1/2 select-none lg:block xl:w-[54%]"
             >
               <img
-                src="/images/rjm-logo4.png"
+                src="/images/rjm-logo4.webp"
                 alt=""
                 className="h-auto w-full object-contain opacity-[0.035] grayscale brightness-[1.8]"
               />
