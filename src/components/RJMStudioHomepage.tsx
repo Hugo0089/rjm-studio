@@ -322,7 +322,7 @@ export default function RJMStudioHomepageApp() {
         />
         <meta
           property="og:description"
-          content="RJM Studio is a digital studio based in the Isle of Man, providing custom web development and digital design for small businesses."
+          content="RjM Studio provides web design, website refreshes and digital support for small businesses in the Isle of Man. Professional, responsive websites built to improve trust and generate enquiries."
         />
         <meta
           property="og:image"
