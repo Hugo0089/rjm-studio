@@ -750,7 +750,7 @@ export default function AboutPage() {
                       <img
                         src="/images/rjm-founder-cyber.jpg"
                         alt="Rj, founder of RjM Studio"
-                        loading="lazy"
+                        fetchPriority="high"
                         decoding="async"
                         className="aspect-[4/5] h-full w-full object-cover object-center"
                       />

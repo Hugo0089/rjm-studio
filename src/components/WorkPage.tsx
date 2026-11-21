@@ -234,7 +234,7 @@ function ProjectCard({
       <div className="aspect-[16/11] overflow-hidden border-b border-white/10">
         <img
           src={image}
-          loading="lazy"
+          fetchPriority="high"
           decoding="async"
           alt={title}
           className="h-full w-full object-cover transition duration-500 hover:scale-[1.02]"

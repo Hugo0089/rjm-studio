@@ -63,7 +63,7 @@ export default function Footer() {
             alt="RJM Studio logo"
             width={252}
             height={84}
-            fetchPriority="high"
+            loading="lazy"
             decoding="async"
             className="h-12 w-auto object-contain"
           />

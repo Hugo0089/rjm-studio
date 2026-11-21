@@ -679,7 +679,7 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/ventosus/home-after-1280.jpg"
                       alt="Ventosus Micro Winery website redesign"
-                      loading="lazy"
+                      fetchPriority="high"
                       decoding="async"
                       className="aspect-[16/8.5] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.015]"
                     />
@@ -736,7 +736,7 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/Teaevolution.png"
                       alt="Tea Evolution website"
-                      loading="lazy"
+                      fetchPriority="high"
                       decoding="async"
                       className="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
                     />
@@ -812,7 +812,7 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/Dbarber.png"
                       alt="D'Barber website"
-                      loading="lazy"
+                      fetchPriority="high"
                       decoding="async"
                       className="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
                     />
@@ -1023,7 +1023,7 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/rjm-founder-cyber.jpg"
                       alt="Rj, founder of RjM Studio"
-                      loading="lazy"
+                      fetchPriority="high"
                       decoding="async"
                       className="aspect-[4/5] w-full rounded-[0.7rem] object-cover object-center"
                     />
