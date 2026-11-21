@@ -736,7 +736,8 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/Teaevolution.png"
                       alt="Tea Evolution website"
-                      fetchPriority="high"
+                      loading="lazy"
+                      fetchPriority="auto"
                       decoding="async"
                       className="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
                     />
@@ -812,7 +813,8 @@ export default function RJMStudioHomepageApp() {
                     <img
                       src="/images/Dbarber.png"
                       alt="D'Barber website"
-                      fetchPriority="high"
+                      loading="lazy"
+                      fetchPriority="auto"
                       decoding="async"
                       className="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
                     />
