@@ -10,7 +10,7 @@ const AboutPage = lazy(() => import("./components/AboutPage"));
 
 const VentosusCaseStudy = lazy(() => import("./components/VentosusCaseStudy"));
 
-const LegalDraftPage = import.meta.env.DEV ? lazy(() => import("./components/LegalDraftPage")) : null;
+const LegalDraftPage = lazy(() => import("./components/LegalDraftPage"));
 
 export default function App() {
   return (
@@ -18,8 +18,8 @@ export default function App() {
       <BrowserRouter>
         <Suspense fallback={<div role="status" className="min-h-screen bg-[#06070a] p-10 text-zinc-200">Loading page…</div>}>
         <Routes>
-          {LegalDraftPage && <Route path="/privacy" element={<LegalDraftPage kind="privacy" />} />}
-          {LegalDraftPage && <Route path="/terms" element={<LegalDraftPage kind="terms" />} />}
+          <Route path="/privacy" element={<LegalDraftPage kind="privacy" />} />
+          <Route path="/terms" element={<LegalDraftPage kind="terms" />} />
           <Route path="/" element={<RJMStudioHomepage />} />
           <Route path="/services" element={<RJMStudioServicesPage />} />
           <Route path="/work/ventosus" element={<VentosusCaseStudy />} />

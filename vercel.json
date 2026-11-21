@@ -19,6 +19,14 @@
     {
       "source": "/work/ventosus",
       "destination": "/"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/"
+    },
+    {
+      "source": "/terms",
+      "destination": "/"
     }
   ]
 }

@@ -98,7 +98,7 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   useEffect(() => {
     const element = ref.current;
@@ -109,10 +109,7 @@ function Reveal({
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (reduceMotion) {
-      setVisible(true);
-      return;
-    }
+    if (reduceMotion) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -635,6 +632,10 @@ export default function ContactPage() {
                           field="message"
                           errors={state.errors}
                         />
+                      </div>
+
+                      <div className="space-y-4 rounded-lg border border-white/15 p-5 text-sm leading-6 text-zinc-300">
+                        <p>We use your details to respond to your enquiry. Read our <Link to="/privacy" className="text-amber-200 underline">Privacy Policy</Link>, including retention and your rights.</p>
                       </div>
 
                       <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">

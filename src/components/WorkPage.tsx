@@ -42,7 +42,7 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   useEffect(() => {
     const element = ref.current;
@@ -53,10 +53,7 @@ function Reveal({
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (reduceMotion) {
-      setVisible(true);
-      return;
-    }
+    if (reduceMotion) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
