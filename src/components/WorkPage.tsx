@@ -20,6 +20,10 @@ function ScriptLogo() {
     <img
       src="/images/rjm-logo4.webp"
       alt="RJM Studio logo"
+      width={252}
+      height={84}
+      fetchPriority="high"
+      decoding="async"
       className="h-12 w-auto object-contain"
     />
   );
