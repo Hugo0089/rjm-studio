@@ -15,15 +15,22 @@ const navItems = ["Home", "Services", "Work", "About", "Contact"];
 
 function ScriptLogo() {
   return (
-    <img
-      src="/images/rjm-logo4.webp"
-      alt="RJM Studio logo"
-      width={252}
-      height={84}
-      fetchPriority="high"
-      decoding="async"
-      className="h-12 w-auto object-contain"
-    />
+    <Link
+      to="/"
+      onClick={() => window.scrollTo(0, 0)}
+      className="relative z-50 shrink-0"
+      aria-label="RjM Studio home"
+    >
+      <img
+        src="/images/rjm-logo4.webp"
+        alt="RjM Studio"
+        width={252}
+        height={84}
+        fetchPriority="high"
+        decoding="async"
+        className="h-12 w-auto object-contain"
+      />
+    </Link>
   );
 }
 
@@ -41,7 +48,11 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [visible, setVisible] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const element = ref.current;
@@ -160,7 +171,7 @@ export default function AboutPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
+      <div className="relative min-h-screen overflow-x-clip bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"

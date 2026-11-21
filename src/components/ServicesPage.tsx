@@ -141,17 +141,22 @@ const faqs: FaqItem[] = [
 
 function ScriptLogo() {
   return (
-    <a href="#" className="shrink-0">
+    <Link
+      to="/"
+      onClick={() => window.scrollTo(0, 0)}
+      className="relative z-50 shrink-0"
+      aria-label="RjM Studio home"
+    >
       <img
         src="/images/rjm-logo4.webp"
-        alt="RJM Studio logo"
+        alt="RjM Studio"
         width={252}
         height={84}
         fetchPriority="high"
         decoding="async"
         className="h-12 w-auto object-contain"
       />
-    </a>
+    </Link>
   );
 }
 
@@ -271,7 +276,7 @@ export default function RJMStudioServicesPage() {
         />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
+      <div className="relative min-h-screen overflow-x-clip bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"

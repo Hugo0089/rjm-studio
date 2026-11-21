@@ -82,17 +82,22 @@ const processSteps = [
 
 function ScriptLogo() {
   return (
-    <a href="#" className="shrink-0">
+    <Link
+      to="/"
+      onClick={() => window.scrollTo(0, 0)}
+      className="relative z-50 shrink-0"
+      aria-label="RjM Studio home"
+    >
       <img
         src="/images/rjm-logo4.webp"
-        alt="RJM Studio logo"
+        alt="RjM Studio"
         width={252}
         height={84}
         fetchPriority="high"
         decoding="async"
         className="h-12 w-auto object-contain"
       />
-    </a>
+    </Link>
   );
 }
 
@@ -240,7 +245,11 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [visible, setVisible] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const element = ref.current;

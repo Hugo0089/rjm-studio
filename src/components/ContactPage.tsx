@@ -72,15 +72,22 @@ function LinkedInIcon({ className = "" }: { className?: string }) {
 
 function ScriptLogo() {
   return (
-    <img
-      src="/images/rjm-logo4.webp"
-      alt="RJM Studio logo"
-      width={252}
-      height={84}
-      fetchPriority="high"
-      decoding="async"
-      className="h-12 w-auto object-contain"
-    />
+    <Link
+      to="/"
+      onClick={() => window.scrollTo(0, 0)}
+      className="relative z-50 shrink-0"
+      aria-label="RjM Studio home"
+    >
+      <img
+        src="/images/rjm-logo4.webp"
+        alt="RjM Studio"
+        width={252}
+        height={84}
+        fetchPriority="high"
+        decoding="async"
+        className="h-12 w-auto object-contain"
+      />
+    </Link>
   );
 }
 
@@ -98,7 +105,11 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [visible, setVisible] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const element = ref.current;
@@ -233,7 +244,7 @@ export default function ContactPage() {
         <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
+      <div className="relative min-h-screen overflow-x-clip bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
@@ -635,7 +646,17 @@ export default function ContactPage() {
                       </div>
 
                       <div className="space-y-4 rounded-lg border border-white/15 p-5 text-sm leading-6 text-zinc-300">
-                        <p>We use your details to respond to your enquiry. Read our <Link to="/privacy" className="text-amber-200 underline">Privacy Policy</Link>, including retention and your rights.</p>
+                        <p>
+                          We use your details to respond to your enquiry. Read
+                          our{" "}
+                          <Link
+                            to="/privacy"
+                            className="text-amber-200 underline"
+                          >
+                            Privacy Policy
+                          </Link>
+                          , including retention and your rights.
+                        </p>
                       </div>
 
                       <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
