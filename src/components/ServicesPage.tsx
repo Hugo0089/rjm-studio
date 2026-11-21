@@ -270,7 +270,7 @@ export default function RJMStudioServicesPage() {
         />
         <meta property="og:type" content="website" />
       </Helmet>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#090807] text-white">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#06070a] text-white">
         <div
           aria-hidden="true"
           className="pointer-events-none fixed inset-0 z-0"
@@ -523,7 +523,7 @@ export default function RJMStudioServicesPage() {
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at 18% 20%, rgba(138,90,36,0.14), transparent 34%), radial-gradient(circle at 82% 72%, rgba(251,191,36,0.10), transparent 30%)",
+                  "radial-gradient(circle at 18% 22%, rgba(251,191,36,0.055), transparent 32%), radial-gradient(circle at 82% 70%, rgba(244,199,107,0.025), transparent 28%)",
               }}
             />
             <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
@@ -738,7 +738,7 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-amber-300/10 bg-[#06070a] py-20 md:py-24">
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-y border-white/10 bg-[#06070a] py-20 md:py-24">
             {/* Left bronze sweep */}
             <div
               aria-hidden="true"
