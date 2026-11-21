@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import { Helmet } from "react-helmet-async";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Link } from "react-router-dom";
@@ -77,6 +77,80 @@ function ScriptLogo() {
       alt="RJM Studio logo"
       className="h-12 w-auto object-contain"
     />
+  );
+}
+
+type RevealProps = {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right";
+};
+
+function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  direction = "up",
+}: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reduceMotion) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const hiddenTransform =
+    direction === "left"
+      ? "translate3d(-40px, 0, 0)"
+      : direction === "right"
+        ? "translate3d(40px, 0, 0)"
+        : "translate3d(0, 40px, 0)";
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translate3d(0, 0, 0)" : hiddenTransform,
+        transitionProperty: "opacity, transform",
+        transitionDuration: "900ms",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        transitionDelay: `${delay}ms`,
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -295,283 +369,293 @@ export default function ContactPage() {
             <div className="relative z-10 mx-auto w-full max-w-[1500px] px-6 md:px-8 lg:px-10">
               {/* Intro */}
               <div className="mx-auto max-w-4xl text-center">
-                <SectionLabel>Start a Conversation</SectionLabel>
+                <Reveal>
+                  <SectionLabel>Start a Conversation</SectionLabel>
+                </Reveal>
 
-                <h1 className="heading-display text-5xl font-light leading-[1.03] text-white md:text-7xl">
-                  Have something in mind?{" "}
-                  <span className="italic text-amber-300">
-                    Tell me about it.
-                  </span>
-                </h1>
+                <Reveal delay={120}>
+                  <h1 className="heading-display text-5xl font-light leading-[1.03] text-white md:text-7xl">
+                    Have something in mind?{" "}
+                    <span className="italic text-amber-300">
+                      Tell me about it.
+                    </span>
+                  </h1>
+                </Reveal>
 
-                <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
-                  Whether you need a new website, a thoughtful refresh or
-                  ongoing digital support, tell me a little about what you’re
-                  working on. You don’t need to have everything figured out.
-                </p>
+                <Reveal delay={220}>
+                  <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
+                    Whether you need a new website, a thoughtful refresh or
+                    ongoing digital support, tell me a little about what you’re
+                    working on. You don’t need to have everything figured out.
+                  </p>
+                </Reveal>
               </div>
 
               {/* Contact + form */}
               <div className="mt-16 grid gap-12 border-t border-white/10 pt-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16 lg:pt-16">
                 {/* Left column */}
-                <div className="lg:pr-8">
-                  <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
-                    Direct Contact
-                  </div>
+                <Reveal direction="left" delay={120}>
+                  <div className="lg:pr-8">
+                    <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                      Direct Contact
+                    </div>
 
-                  <h2 className="heading-display mt-5 max-w-md text-3xl font-light leading-tight text-white md:text-4xl">
-                    You’ll be speaking{" "}
-                    <span className="italic text-amber-300">
-                      directly with me.
-                    </span>
-                  </h2>
+                    <h2 className="heading-display mt-5 max-w-md text-3xl font-light leading-tight text-white md:text-4xl">
+                      You’ll be speaking{" "}
+                      <span className="italic text-amber-300">
+                        directly with me.
+                      </span>
+                    </h2>
 
-                  <p className="mt-5 max-w-md text-base leading-8 text-zinc-400">
-                    I’m Rj, founder of RjM Studio. Your enquiry comes directly
-                    to me, and I’ll personally get back to you.
-                  </p>
+                    <p className="mt-5 max-w-md text-base leading-8 text-zinc-400">
+                      I’m Rj, founder of RjM Studio. Your enquiry comes directly
+                      to me, and I’ll personally get back to you.
+                    </p>
 
-                  <div className="mt-10 space-y-6">
-                    {contactItems.map((item) => (
-                      <div key={item.label}>
-                        <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
-                          {item.label}
+                    <div className="mt-10 space-y-6">
+                      {contactItems.map((item) => (
+                        <div key={item.label}>
+                          <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                            {item.label}
+                          </div>
+
+                          <div className="mt-2 text-base text-zinc-200">
+                            {item.value}
+                          </div>
                         </div>
+                      ))}
+                    </div>
 
-                        <div className="mt-2 text-base text-zinc-200">
-                          {item.value}
-                        </div>
+                    <div className="mt-10 border-t border-white/10 pt-7">
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                        Prefer email?
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-10 border-t border-white/10 pt-7">
-                    <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
-                      Prefer email?
-                    </div>
-
-                    <a
-                      href="mailto:studio@rjm-studio.co.uk"
-                      className="mt-2 inline-block text-base text-zinc-200 transition hover:text-amber-200"
-                    >
-                      studio@rjm-studio.co.uk
-                    </a>
-                  </div>
-
-                  <div className="mt-10">
-                    <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
-                      Connect
-                    </div>
-
-                    <div className="mt-4 flex items-center gap-4">
-                      <a
-                        href="https://www.instagram.com/rjmstudio89/"
-                        aria-label="RjM Studio on Instagram"
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
-                      >
-                        <InstagramIcon className="h-5 w-5" />
-                      </a>
 
                       <a
-                        href="https://facebook.com/profile.php?id=61590794513268"
-                        aria-label="RjM Studio on Facebook"
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                        href="mailto:studio@rjm-studio.co.uk"
+                        className="mt-2 inline-block text-base text-zinc-200 transition hover:text-amber-200"
                       >
-                        <FacebookIcon className="h-5 w-5" />
-                      </a>
-
-                      <a
-                        href="https://www.linkedin.com/in/rjm-studio-340a77413/"
-                        aria-label="RjM Studio on LinkedIn"
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
-                      >
-                        <LinkedInIcon className="h-5 w-5" />
+                        studio@rjm-studio.co.uk
                       </a>
                     </div>
+
+                    <div className="mt-10">
+                      <div className="text-xs uppercase tracking-[0.22em] text-amber-300/70">
+                        Connect
+                      </div>
+
+                      <div className="mt-4 flex items-center gap-4">
+                        <a
+                          href="https://www.instagram.com/rjmstudio89/"
+                          aria-label="RjM Studio on Instagram"
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                        >
+                          <InstagramIcon className="h-5 w-5" />
+                        </a>
+
+                        <a
+                          href="https://facebook.com/profile.php?id=61590794513268"
+                          aria-label="RjM Studio on Facebook"
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                        >
+                          <FacebookIcon className="h-5 w-5" />
+                        </a>
+
+                        <a
+                          href="https://www.linkedin.com/in/rjm-studio-340a77413/"
+                          aria-label="RjM Studio on LinkedIn"
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-amber-300/40 hover:text-amber-300"
+                        >
+                          <LinkedInIcon className="h-5 w-5" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Reveal>
 
                 {/* Right column */}
-                <div className="lg:border-l lg:border-white/10 lg:pl-16">
-                  <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
-                    Project Enquiry
-                  </div>
+                <Reveal direction="right" delay={200}>
+                  <div className="lg:border-l lg:border-white/10 lg:pl-16">
+                    <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                      Project Enquiry
+                    </div>
 
-                  <h2 className="heading-display mt-5 text-3xl font-light text-white md:text-4xl">
-                    Tell me what you’re working on.
-                  </h2>
+                    <h2 className="heading-display mt-5 text-3xl font-light text-white md:text-4xl">
+                      Tell me what you’re working on.
+                    </h2>
 
-                  <p className="mt-4 max-w-xl text-base leading-8 text-zinc-400">
-                    A few details will help me understand what you need and
-                    recommend the most sensible next step.
-                  </p>
+                    <p className="mt-4 max-w-xl text-base leading-8 text-zinc-400">
+                      A few details will help me understand what you need and
+                      recommend the most sensible next step.
+                    </p>
 
-                  <form onSubmit={handleSubmit} className="mt-10 space-y-8">
-                    <div className="grid gap-8 md:grid-cols-2">
+                    <form onSubmit={handleSubmit} className="mt-10 space-y-8">
+                      <div className="grid gap-8 md:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor="name"
+                            className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                          >
+                            Your Name
+                          </label>
+
+                          <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            required
+                            placeholder="What should I call you?"
+                            className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                          >
+                            Email
+                          </label>
+
+                          <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="Where can I reach you?"
+                            className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                          />
+
+                          <ValidationError
+                            prefix="Email"
+                            field="email"
+                            errors={state.errors}
+                          />
+                        </div>
+                      </div>
+
                       <div>
                         <label
-                          htmlFor="name"
+                          htmlFor="business"
                           className="text-xs uppercase tracking-[0.2em] text-zinc-400"
                         >
-                          Your Name
+                          Business / Website
                         </label>
 
                         <input
-                          id="name"
+                          id="business"
                           type="text"
-                          name="name"
-                          required
-                          placeholder="What should I call you?"
+                          name="business"
+                          placeholder="Business name or current website — optional"
                           className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
                         />
                       </div>
 
+                      <div className="grid gap-8 md:grid-cols-2">
+                        <div className="relative">
+                          <label
+                            htmlFor="service"
+                            className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                          >
+                            What Can I Help With?
+                          </label>
+
+                          <select
+                            id="service"
+                            name="service"
+                            defaultValue=""
+                            className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
+                          >
+                            <option value="">Choose a service</option>
+                            <option value="New Website">New Website</option>
+                            <option value="Website Refresh">
+                              Website Refresh
+                            </option>
+                            <option value="Digital Support">
+                              Digital Support
+                            </option>
+                            <option value="Social Media / Content">
+                              Social Media / Content
+                            </option>
+                            <option value="Not sure yet">Not Sure Yet</option>
+                          </select>
+
+                          <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
+                        </div>
+
+                        <div className="relative">
+                          <label
+                            htmlFor="budget"
+                            className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                          >
+                            Budget — Optional
+                          </label>
+
+                          <select
+                            id="budget"
+                            name="budget"
+                            defaultValue=""
+                            className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
+                          >
+                            <option value="">Choose a range</option>
+                            <option value="Under £500">Under £500</option>
+                            <option value="£500–£1,000">£500–£1,000</option>
+                            <option value="£1,000–£2,500">£1,000–£2,500</option>
+                            <option value="£2,500+">£2,500+</option>
+                            <option value="Not sure">Not Sure Yet</option>
+                          </select>
+
+                          <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
+                        </div>
+                      </div>
+
                       <div>
                         <label
-                          htmlFor="email"
+                          htmlFor="message"
                           className="text-xs uppercase tracking-[0.2em] text-zinc-400"
                         >
-                          Email
+                          Project Details
                         </label>
 
-                        <input
-                          id="email"
-                          type="email"
-                          name="email"
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={6}
                           required
-                          placeholder="Where can I reach you?"
-                          className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
+                          placeholder="Tell me what you're working on, what you'd like to improve, or what you're trying to achieve."
+                          className="mt-3 w-full resize-none border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base leading-7 text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
                         />
 
                         <ValidationError
-                          prefix="Email"
-                          field="email"
+                          prefix="Message"
+                          field="message"
                           errors={state.errors}
                         />
                       </div>
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="business"
-                        className="text-xs uppercase tracking-[0.2em] text-zinc-400"
-                      >
-                        Business / Website
-                      </label>
+                      <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                        <p className="max-w-md text-sm leading-6 text-zinc-500">
+                          You don’t need a finished brief. A rough idea is
+                          enough to start the conversation.
+                        </p>
 
-                      <input
-                        id="business"
-                        type="text"
-                        name="business"
-                        placeholder="Business name or current website — optional"
-                        className="mt-3 w-full border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
-                      />
-                    </div>
-
-                    <div className="grid gap-8 md:grid-cols-2">
-                      <div className="relative">
-                        <label
-                          htmlFor="service"
-                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
+                        <button
+                          type="submit"
+                          disabled={state.submitting}
+                          className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:opacity-60"
                         >
-                          What Can I Help With?
-                        </label>
+                          <span className="inline-flex items-center gap-2">
+                            {state.submitting
+                              ? "Sending..."
+                              : "Start a Conversation"}
 
-                        <select
-                          id="service"
-                          name="service"
-                          defaultValue=""
-                          className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
-                        >
-                          <option value="">Choose a service</option>
-                          <option value="New Website">New Website</option>
-                          <option value="Website Refresh">
-                            Website Refresh
-                          </option>
-                          <option value="Digital Support">
-                            Digital Support
-                          </option>
-                          <option value="Social Media / Content">
-                            Social Media / Content
-                          </option>
-                          <option value="Not sure yet">Not Sure Yet</option>
-                        </select>
-
-                        <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
+                            <ArrowRight className="h-4 w-4" />
+                          </span>
+                        </button>
                       </div>
-
-                      <div className="relative">
-                        <label
-                          htmlFor="budget"
-                          className="text-xs uppercase tracking-[0.2em] text-zinc-400"
-                        >
-                          Budget — Optional
-                        </label>
-
-                        <select
-                          id="budget"
-                          name="budget"
-                          defaultValue=""
-                          className="mt-3 w-full appearance-none border-0 border-b border-white/15 bg-[#06070a] px-0 pb-4 pr-8 text-base text-white outline-none transition focus:border-amber-300"
-                        >
-                          <option value="">Choose a range</option>
-                          <option value="Under £500">Under £500</option>
-                          <option value="£500–£1,000">£500–£1,000</option>
-                          <option value="£1,000–£2,500">£1,000–£2,500</option>
-                          <option value="£2,500+">£2,500+</option>
-                          <option value="Not sure">Not Sure Yet</option>
-                        </select>
-
-                        <ChevronDown className="pointer-events-none absolute bottom-4 right-0 h-4 w-4 text-zinc-500" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="text-xs uppercase tracking-[0.2em] text-zinc-400"
-                      >
-                        Project Details
-                      </label>
-
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={6}
-                        required
-                        placeholder="Tell me what you're working on, what you'd like to improve, or what you're trying to achieve."
-                        className="mt-3 w-full resize-none border-0 border-b border-white/15 bg-transparent px-0 pb-4 text-base leading-7 text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300"
-                      />
-
-                      <ValidationError
-                        prefix="Message"
-                        field="message"
-                        errors={state.errors}
-                      />
-                    </div>
-
-                    <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                      <p className="max-w-md text-sm leading-6 text-zinc-500">
-                        You don’t need a finished brief. A rough idea is enough
-                        to start the conversation.
-                      </p>
-
-                      <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-semibold text-black transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:opacity-60"
-                      >
-                        <span className="inline-flex items-center gap-2">
-                          {state.submitting
-                            ? "Sending..."
-                            : "Start a Conversation"}
-
-                          <ArrowRight className="h-4 w-4" />
-                        </span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                    </form>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </section>
@@ -593,21 +677,23 @@ export default function ContactPage() {
 
             <div className="relative z-10 w-full px-6 md:px-8 lg:px-10">
               <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-16">
-                <div>
-                  <SectionLabel>What Happens Next</SectionLabel>
+                <Reveal direction="left">
+                  <div>
+                    <SectionLabel>What Happens Next</SectionLabel>
 
-                  <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
-                    Simple, clear,{" "}
-                    <span className="italic text-amber-300">
-                      no-pressure next steps.
-                    </span>
-                  </h2>
+                    <h2 className="heading-display max-w-lg text-4xl font-light leading-tight text-white md:text-5xl">
+                      Simple, clear,{" "}
+                      <span className="italic text-amber-300">
+                        no-pressure next steps.
+                      </span>
+                    </h2>
 
-                  <p className="mt-6 max-w-md text-base leading-8 text-zinc-300">
-                    Once you send your enquiry, I’ll take a look at what you
-                    need and come back to you with a clear way forward.
-                  </p>
-                </div>
+                    <p className="mt-6 max-w-md text-base leading-8 text-zinc-300">
+                      Once you send your enquiry, I’ll take a look at what you
+                      need and come back to you with a clear way forward.
+                    </p>
+                  </div>
+                </Reveal>
 
                 <div className="grid gap-8 md:grid-cols-3">
                   {[
@@ -626,47 +712,49 @@ export default function ContactPage() {
                       title: "I recommend the next step",
                       copy: "If we’re a good fit, I’ll outline the most sensible way to move forward and what that could look like.",
                     },
-                  ].map((item) => (
-                    <div
-                      key={item.number}
-                      className="border-t border-white/10 pt-7"
-                    >
-                      <div className="text-xs tracking-[0.22em] text-amber-300/75">
-                        {item.number}
+                  ].map((item, index) => (
+                    <Reveal key={item.number} delay={120 + index * 110}>
+                      <div className="border-t border-white/10 pt-7">
+                        <div className="text-xs tracking-[0.22em] text-amber-300/75">
+                          {item.number}
+                        </div>
+
+                        <h3 className="heading-display mt-5 text-2xl font-light leading-tight text-white">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-4 text-sm leading-7 text-zinc-300">
+                          {item.copy}
+                        </p>
                       </div>
-
-                      <h3 className="heading-display mt-5 text-2xl font-light leading-tight text-white">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-4 text-sm leading-7 text-zinc-300">
-                        {item.copy}
-                      </p>
-                    </div>
+                    </Reveal>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-16 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
-                <div>
-                  <div className="heading-display text-2xl font-light text-white md:text-3xl">
-                    Not sure exactly what you need?
+              <Reveal delay={180}>
+                {" "}
+                <div className="mt-16 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
+                  <div>
+                    <div className="heading-display text-2xl font-light text-white md:text-3xl">
+                      Not sure exactly what you need?
+                    </div>
+
+                    <p className="mt-3 max-w-2xl text-base leading-8 text-zinc-400">
+                      That’s completely fine. Tell me where you’re at and we can
+                      work it out together.
+                    </p>
                   </div>
 
-                  <p className="mt-3 max-w-2xl text-base leading-8 text-zinc-400">
-                    That’s completely fine. Tell me where you’re at and we can
-                    work it out together.
-                  </p>
+                  <a
+                    href="mailto:studio@rjm-studio.co.uk"
+                    className="mt-6 inline-flex items-center gap-2 text-sm text-amber-300 transition hover:text-amber-200 md:mt-0"
+                  >
+                    Prefer email?
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
-
-                <a
-                  href="mailto:studio@rjm-studio.co.uk"
-                  className="mt-6 inline-flex items-center gap-2 text-sm text-amber-300 transition hover:text-amber-200 md:mt-0"
-                >
-                  Prefer email?
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+              </Reveal>
             </div>
           </section>
           <Footer />
