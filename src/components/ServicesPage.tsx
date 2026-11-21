@@ -548,7 +548,7 @@ export default function RJMStudioServicesPage() {
                       businesses at different stages of their online journey.
                     </p>
 
-                    <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap">
                       <a
                         href="/images/website-packages-guide.png"
                         target="_blank"
@@ -562,7 +562,7 @@ export default function RJMStudioServicesPage() {
                       <a
                         href="/images/website-packages-guide.png"
                         download
-                        className="inline-flex items-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                        className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5 sm:w-auto"
                       >
                         Download Guide
                       </a>
@@ -581,7 +581,7 @@ export default function RJMStudioServicesPage() {
                       date.
                     </p>
 
-                    <div className="mt-auto flex flex-nowrap gap-3 pt-7">
+                    <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-wrap">
                       <a
                         href="/images/social-media-support-packages-guide.png"
                         target="_blank"
@@ -595,7 +595,7 @@ export default function RJMStudioServicesPage() {
                       <a
                         href="/images/social-media-support-packages-guide.png"
                         download
-                        className="inline-flex items-center rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                        className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-md border border-amber-300/50 px-5 py-3 text-sm text-white transition hover:bg-white/5 sm:w-auto"
                       >
                         Download Guide
                       </a>
