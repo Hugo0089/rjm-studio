@@ -177,7 +177,11 @@ function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [visible, setVisible] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const element = ref.current;
@@ -442,75 +446,86 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="border-t border-white/10 py-20">
-            <Reveal>
-              <div className="mb-12 max-w-3xl">
-                <SectionLabel>What I Do</SectionLabel>
+          <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-t border-white/10 py-20">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 12% 42%, rgba(251,191,36,0.055), transparent 30%)",
+              }}
+            />
 
-                <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
-                  Digital services built around{" "}
-                  <span className="text-amber-300">your business.</span>
-                </h2>
+            <div className="relative z-10 mx-auto w-full px-6 md:px-8 lg:px-10">
+              <Reveal>
+                <div className="mb-12 max-w-3xl">
+                  <SectionLabel>What I Do</SectionLabel>
 
-                <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-                  Whether you need a new website, want to improve an existing
-                  one or need reliable support after launch, each service is
-                  shaped around your business, goals and the level of support
-                  you actually need.
-                </p>
-              </div>
-            </Reveal>
+                  <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
+                    Digital services built around{" "}
+                    <span className="text-amber-300">your business.</span>
+                  </h2>
 
-            <div className="border-b border-white/10">
-              {editorialServices.map((service, index) => {
-                const Icon = service.icon;
+                  <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
+                    Whether you need a new website, want to improve an existing
+                    one or need reliable support after launch, each service is
+                    shaped around your business, goals and the level of support
+                    you actually need.
+                  </p>
+                </div>
+              </Reveal>
 
-                return (
-                  <Reveal key={service.number} delay={index * 90}>
-                    <article className="grid gap-7 border-t border-white/10 py-10 md:py-12 lg:grid-cols-[110px_0.8fr_1.2fr] lg:gap-10">
-                      <div>
-                        <span className="heading-display text-5xl font-light italic text-amber-300/80 md:text-6xl">
-                          {service.number}
-                        </span>
-                      </div>
+              <div className="border-b border-white/10">
+                {editorialServices.map((service, index) => {
+                  const Icon = service.icon;
 
-                      <div>
-                        <div className="flex items-center gap-4">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
-                            <Icon className="h-5 w-5" />
+                  return (
+                    <Reveal key={service.number} delay={index * 90}>
+                      <article className="grid gap-7 border-t border-white/10 py-10 md:py-12 lg:grid-cols-[110px_0.8fr_1.2fr] lg:gap-10">
+                        <div>
+                          <span className="heading-display text-5xl font-light italic text-amber-300/80 md:text-6xl">
+                            {service.number}
+                          </span>
+                        </div>
+
+                        <div>
+                          <div className="flex items-center gap-4">
+                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/5 text-amber-300">
+                              <Icon className="h-5 w-5" />
+                            </div>
+
+                            <h3 className="heading-display text-3xl font-light text-white md:text-4xl">
+                              {service.title}
+                            </h3>
                           </div>
 
-                          <h3 className="heading-display text-3xl font-light text-white md:text-4xl">
-                            {service.title}
-                          </h3>
+                          <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
+                            {service.description}
+                          </p>
                         </div>
 
-                        <p className="mt-5 max-w-xl text-base leading-8 text-zinc-400">
-                          {service.description}
-                        </p>
-                      </div>
+                        <div className="lg:border-l lg:border-white/10 lg:pl-10">
+                          <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                            What’s Included
+                          </div>
 
-                      <div className="lg:border-l lg:border-white/10 lg:pl-10">
-                        <div className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
-                          What’s Included
+                          <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                            {service.includes.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-3 text-sm leading-6 text-zinc-300"
+                              >
+                                <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-
-                        <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                          {service.includes.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-start gap-3 text-sm leading-6 text-zinc-300"
-                            >
-                              <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </article>
-                  </Reveal>
-                );
-              })}
+                      </article>
+                    </Reveal>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
@@ -524,9 +539,9 @@ export default function RJMStudioServicesPage() {
               }}
             />
             <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-10">
-              <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr_1fr] lg:gap-0">
+              <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr_1.15fr] lg:gap-0">
                 <Reveal direction="left">
-                  <div className="lg:pr-12">
+                  <div className="lg:pr-10">
                     <SectionLabel>Packages & Pricing</SectionLabel>
 
                     <h2 className="heading-display text-4xl font-light leading-tight text-white md:text-5xl">
@@ -543,7 +558,7 @@ export default function RJMStudioServicesPage() {
                 </Reveal>
 
                 <Reveal delay={100}>
-                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
+                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-10 lg:pt-0">
                     <div className="text-2xl font-light text-white">
                       Website Packages
                     </div>
@@ -576,7 +591,7 @@ export default function RJMStudioServicesPage() {
                   </div>
                 </Reveal>
                 <Reveal delay={200}>
-                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-12 lg:pt-0">
+                  <div className="flex flex-col border-t border-white/10 pt-8 lg:border-l lg:border-t-0 lg:px-10 lg:pt-0">
                     <div className="text-2xl font-light text-white">
                       Social Media & Digital Support
                     </div>
@@ -612,37 +627,53 @@ export default function RJMStudioServicesPage() {
             </div>
           </section>
 
-          <section className="border-b border-white/10 py-20">
-            <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
-              <Reveal direction="left">
-                <div>
-                  <SectionLabel>My Process</SectionLabel>
+          <section
+            className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border-b border-white/10 py-20"
+            style={{
+              background:
+                "linear-gradient(to bottom, #06070a 0%, #0a0b0e 48%, #08090b 100%)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 82% 38%, rgba(251,191,36,0.045), transparent 30%)",
+              }}
+            />
+            <div className="mx-auto w-full px-6 md:px-8 lg:px-10">
+              <div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr]">
+                <Reveal direction="left">
+                  <div>
+                    <SectionLabel>My Process</SectionLabel>
 
-                  <h2 className="heading-display max-w-md text-4xl font-light leading-tight text-white md:text-5xl">
-                    A simple process, built around{" "}
-                    <span className="italic text-amber-300">clarity.</span>
-                  </h2>
-                </div>
-              </Reveal>
+                    <h2 className="heading-display max-w-md text-4xl font-light leading-tight text-white md:text-5xl">
+                      A simple process, built around{" "}
+                      <span className="italic text-amber-300">clarity.</span>
+                    </h2>
+                  </div>
+                </Reveal>
 
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                {processSteps.map((step, index) => (
-                  <Reveal key={step.number} delay={index * 90}>
-                    <div className="border-t border-white/10 pt-6">
-                      <div className="text-xs tracking-[0.24em] text-amber-300/80">
-                        0{index + 1}
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  {processSteps.map((step, index) => (
+                    <Reveal key={step.number} delay={index * 90}>
+                      <div className="border-t border-white/10 pt-6">
+                        <div className="text-xs tracking-[0.24em] text-amber-300/80">
+                          0{index + 1}
+                        </div>
+
+                        <h3 className="mt-5 text-xl font-light text-white">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-3 text-sm leading-7 text-zinc-400">
+                          {step.description}
+                        </p>
                       </div>
-
-                      <h3 className="mt-5 text-xl font-light text-white">
-                        {step.title}
-                      </h3>
-
-                      <p className="mt-3 text-sm leading-7 text-zinc-400">
-                        {step.description}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
+                    </Reveal>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
