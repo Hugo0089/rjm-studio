@@ -22,7 +22,7 @@ const editorialServices = [
     icon: MonitorSmartphone,
     title: "Custom Websites",
     description:
-      "Modern websites designed around your business, audience, and goals — with a professional experience across every screen.",
+      "Modern, responsive websites designed around your business, audience and goals, built to communicate clearly, build trust and make it easier for customers to take action.",
     includes: [
       "Responsive website design",
       "Custom development",
@@ -37,7 +37,7 @@ const editorialServices = [
     icon: RefreshCw,
     title: "Website Refreshes",
     description:
-      "Give an existing website a stronger visual presence, clearer structure, and a better experience without starting again unnecessarily.",
+      "Improve an existing website with stronger visuals, clearer structure and a better user experience, without rebuilding from scratch when it isn’t necessary.",
     includes: [
       "Website redesigns",
       "Layout improvements",
@@ -52,7 +52,7 @@ const editorialServices = [
     icon: Wrench,
     title: "Digital Support",
     description:
-      "Practical ongoing help to keep your website and digital presence current, reliable, and working for your business.",
+      "Practical ongoing support for website updates, content changes, troubleshooting and the day-to-day digital work that keeps your business current and running smoothly.",
     includes: [
       "Website updates",
       "Technical troubleshooting",
@@ -67,7 +67,7 @@ const editorialServices = [
     icon: ShieldCheck,
     title: "Security-Aware Development",
     description:
-      "A security-conscious approach informed by cybersecurity experience, helping create websites that are considered carefully from build to launch.",
+      "A security-conscious approach informed by my background in IT and cybersecurity, helping ensure websites are built and configured with sensible security practices in mind.",
     includes: [
       "Security-conscious implementation",
       "Secure configuration",
@@ -84,25 +84,25 @@ const processSteps = [
     number: "01",
     title: "Discover",
     description:
-      "We chat about your business, goals, and what you need from your online presence.",
+      "I start by understanding your business, goals and what you need from your website or digital presence.",
   },
   {
     number: "02",
     title: "Plan & Create",
     description:
-      "I create a tailored plan and get to work bringing your vision to life.",
+      "I shape the right approach, then design and build with clarity, usability and your business in mind..",
   },
   {
     number: "03",
     title: "Launch",
     description:
-      "We review, refine, and launch with everything in place for a smooth handover.",
+      "Before launch, I refine, test and check everything carefully so the final result is ready to represent your business confidently.",
   },
   {
     number: "04",
     title: "Support",
     description:
-      "Ongoing support and updates to keep your business moving forward.",
+      "After launch, I can continue to help with updates, improvements and ongoing digital support as your business evolves..",
   },
 ];
 
@@ -115,27 +115,27 @@ const faqs: FaqItem[] = [
   {
     question: "Do you offer custom quotes?",
     answer:
-      "Yes. Every project is different, so quotes are tailored to the scope of work, your goals, and the level of support you need.",
+      "Yes. Every project is different, so I tailor each quote around the scope of work, your goals and the level of support you need. The pricing guides are a starting point rather than a one-size-fits-all package.",
   },
   {
     question: "How long does a website take?",
     answer:
-      "Timelines depend on the size and complexity of the project. Smaller websites can move faster, while more detailed projects may take longer. Once I understand your requirements, I’ll give you a clearer timeline.",
+      "Timelines depend on the size and complexity of the project, as well as how quickly content and feedback are available. Once I understand what you need, I’ll give you a clear project timeline before work begins.",
   },
   {
     question: "Do you write the content?",
     answer:
-      "I can help shape, refine, and organise your content so it works well online. If you already have content, I can work with that too.",
+      "I can help shape, refine and organise your website content so it is clear, useful and works well online. If you already have copy, I can work with that too and suggest improvements where needed.",
   },
   {
     question: "Do you offer ongoing support?",
     answer:
-      "Yes. I can provide ongoing website, content, and digital support to help your business stay updated and consistent after launch.",
+      "Yes. I can provide ongoing website updates, content changes, troubleshooting and practical digital support after launch, depending on what your business needs.",
   },
   {
     question: "Can I request one-off work?",
     answer:
-      "Yes. If you only need help with a specific update, design task, or piece of digital support, one-off work can be discussed depending on availability.",
+      "Yes. If you need help with a specific website update, design task, content change or piece of digital support, one-off work can be discussed depending on the scope and availability.",
   },
 ];
 
@@ -247,21 +247,27 @@ export default function RJMStudioServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Services | RjM Studio™</title>
+        <title>Web Design & Digital Support Isle of Man | RjM Studio</title>
         <meta
           name="description"
           content="Explore website design, social media management, and digital support services from RJM Studio for small and medium businesses."
         />
-        <meta property="og:title" content="RJM Studio" />
+        <meta
+          property="og:title"
+          content="Web Design & Digital Support Isle of Man | RjM Studio"
+        />
         <meta
           property="og:description"
-          content="Web design, social media management, and digital support for small businesses."
+          content="Web design, website refreshes and digital support for small businesses in the Isle of Man. Explore tailored services from RjM Studio."
         />
         <meta
           property="og:image"
           content="https://www.rjm-studio.co.uk/images/og-image.png"
         />
-        <meta property="og:url" content="https://www.rjm-studio.co.uk/" />
+        <meta
+          property="og:url"
+          content="https://www.rjm-studio.co.uk/services"
+        />
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="relative min-h-screen overflow-x-hidden bg-[#090807] text-white">
@@ -419,9 +425,9 @@ export default function RJMStudioServicesPage() {
                     <SectionLabel>Services</SectionLabel>
 
                     <h1 className="heading-display text-5xl font-light leading-[1.03] tracking-tight text-white md:text-7xl">
-                      Services designed to elevate your{" "}
-                      <span className="italic text-amber-300">
-                        online presence.
+                      Web design and digital support{" "}
+                      <span className="text-amber-300">
+                        built around your business.
                       </span>
                     </h1>
                   </div>
@@ -429,9 +435,10 @@ export default function RJMStudioServicesPage() {
 
                 <Reveal delay={140}>
                   <p className="mt-6 max-w-[500px] text-lg leading-8 text-zinc-300">
-                    From custom websites and website refreshes to ongoing
-                    digital support, RjM Studio helps small businesses build a
-                    professional, reliable and security-aware online presence.
+                    RjM Studio provides custom web design, website refreshes and
+                    ongoing digital support for small businesses in the Isle of
+                    Man — helping you present your business clearly, build trust
+                    and make it easier for customers to take the next step.
                   </p>
                 </Reveal>
               </div>
@@ -449,9 +456,10 @@ export default function RJMStudioServicesPage() {
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-base leading-8 text-zinc-400">
-                  Whether you need a new website, improvements to an existing
-                  one, or reliable support after launch, each service can be
-                  tailored to what your business actually needs.
+                  Whether you need a new website, want to improve an existing
+                  one or need reliable support after launch, each service is
+                  shaped around your business, goals and the level of support
+                  you actually need.
                 </p>
               </div>
             </Reveal>
@@ -530,9 +538,9 @@ export default function RJMStudioServicesPage() {
                     </h2>
 
                     <p className="mt-5 max-w-md text-base leading-8 text-zinc-300">
-                      Every business is different. Explore the current pricing
-                      guides for package details, or get in touch for something
-                      more tailored.
+                      Every business has different needs and budgets. Explore
+                      the current pricing guides for starting options, or get in
+                      touch if you need something more tailored.
                     </p>
                   </div>
                 </Reveal>
@@ -545,7 +553,8 @@ export default function RJMStudioServicesPage() {
 
                     <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
                       Website refreshes, redesigns and custom builds for small
-                      businesses at different stages of their online journey.
+                      businesses that need a stronger, clearer and more
+                      professional presence online.
                     </p>
 
                     <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
@@ -576,9 +585,9 @@ export default function RJMStudioServicesPage() {
                     </div>
 
                     <p className="mt-4 max-w-md text-base leading-8 text-zinc-300">
-                      Content management and practical ongoing digital support
-                      designed to help your business stay visible and up to
-                      date.
+                      Ongoing content and digital support to help your business
+                      stay active, consistent and professionally presented
+                      online.
                     </p>
 
                     <div className="mt-auto flex flex-col gap-3 pt-7 sm:flex-row sm:flex-nowrap">
@@ -647,7 +656,7 @@ export default function RJMStudioServicesPage() {
               className="pointer-events-none absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(circle at 20% 50%, rgba(251,191,36,0.055), transparent 34%)",
+                  "radial-gradient(circle at 18% 45%, rgba(251,191,36,0.055), transparent 30%), radial-gradient(circle at 84% 60%, rgba(244,199,107,0.025), transparent 28%)",
               }}
             />
             <div className="mx-auto max-w-5xl px-6 md:px-8 lg:px-10">
@@ -658,6 +667,9 @@ export default function RJMStudioServicesPage() {
                   </div>
 
                   <figure>
+                    <div className="mb-4 text-xs uppercase tracking-[0.28em] text-amber-300/70">
+                      Client Feedback
+                    </div>
                     <blockquote className="heading-display text-xl font-light italic leading-relaxed text-zinc-100 md:text-2xl">
                       <p>
                         We’ve reflected on our recent journey with you and its
@@ -670,7 +682,7 @@ export default function RJMStudioServicesPage() {
                     </blockquote>
 
                     <figcaption className="mt-5 text-xs uppercase tracking-[0.22em] text-amber-200/80">
-                      Rob — Ventosus Micro Winery
+                      Rob — Ventosus Micro Winery, Isle of Man
                     </figcaption>
                   </figure>
                 </div>
@@ -744,14 +756,15 @@ export default function RJMStudioServicesPage() {
                 </div>
 
                 <h2 className="heading-display mt-5 text-4xl font-light leading-tight text-white md:text-6xl">
-                  Ready to discuss{" "}
-                  <span className="italic text-amber-300">your project?</span>
+                  Tell me what your business{" "}
+                  <span className="italic text-amber-300">needs next.</span>
                 </h2>
 
                 <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-300">
-                  Whether you’re looking for a new website, a refresh, or
-                  ongoing digital support, let’s talk about what your business
-                  needs.
+                  Whether you need a new website, want to improve an existing
+                  one or need ongoing digital support, tell me a little about
+                  what you’re working on. I’ll help you work out the right next
+                  step.
                 </p>
 
                 <div className="mt-8">
@@ -759,7 +772,7 @@ export default function RJMStudioServicesPage() {
                     to="/contact"
                     className="inline-flex items-center gap-2 rounded-md border border-amber-300 bg-amber-300 px-7 py-3.5 text-sm font-medium text-black transition hover:bg-amber-200"
                   >
-                    Get in Touch
+                    Start a Conversation
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
