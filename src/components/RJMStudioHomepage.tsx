@@ -309,7 +309,9 @@ export default function RJMStudioHomepageApp() {
   return (
     <>
       <Helmet>
-        <title>Web Developer & Designer Isle of Man | RjM Studio</title>
+        <title>
+          Web Design Isle of Man | Websites & Digital Support | RjM Studio
+        </title>
         <meta
           name="description"
           content="RJM Studio is a digital studio based in the Isle of Man, providing custom web development and digital design for small businesses."
@@ -487,11 +489,10 @@ export default function RJMStudioHomepageApp() {
               {/* Supporting copy */}
               <Reveal delay={120}>
                 <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-300">
-                  RjM Studio is a professional digital studio based in the{" "}
-                  <strong>Isle of Man</strong>. I provide freelance{" "}
-                  <strong>web developer</strong> services, custom web design,
-                  and ongoing digital support to help local small businesses
-                  build a strong, professional online presence.
+                  RjM Studio is an independent web design studio based in the
+                  Isle of Man, helping small businesses launch, refresh and
+                  improve websites that look professional, build trust and make
+                  it easier for customers to enquire.
                 </p>
               </Reveal>
 
@@ -867,7 +868,7 @@ export default function RJMStudioHomepageApp() {
                 <Reveal direction="right" delay={100}>
                   <div className="max-w-3xl lg:pt-8">
                     <p className="text-xl leading-9 text-zinc-200 md:text-2xl md:leading-10">
-                      When you work with RjM Studio, you work directly with me —
+                      When you work with RjM Studio, you work directly with me,
                       from the first conversation through design, development,
                       launch and ongoing support.
                     </p>
