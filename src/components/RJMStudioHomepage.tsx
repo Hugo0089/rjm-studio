@@ -125,7 +125,7 @@ function HeroVisual() {
       className="pointer-events-none relative w-full min-w-0 select-none pb-0 pt-0 sm:pb-16 sm:pt-24 lg:pt-24"
     >
       <div className="absolute inset-0 -z-10 rounded-full blur-3xl bg-[radial-gradient(ellipse_at_25%_40%,rgba(251,191,36,0.20),transparent_65%)]" />
-      <div className="relative mb-4 rounded-2xl border border-amber-300/25 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.10),transparent_42%),linear-gradient(135deg,#111214,#0b0c0e)] p-5 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:w-64 sm:pb-12">
+      <div className="relative z-20 mb-4 rounded-2xl border border-amber-300/25 bg-[radial-gradient(circle_at_top_left,rgba(244,199,107,0.10),transparent_42%),linear-gradient(135deg,#111214,#0b0c0e)] p-5 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:w-64 sm:pb-8">
         <p className="flex items-center gap-2 text-sm font-medium text-amber-200">
           <ShieldCheck className="h-5 w-5" /> Security by design
         </p>
