@@ -512,7 +512,7 @@ export default function RJMStudioHomepageApp() {
                     to="/work"
                     className="inline-flex min-h-12 items-center justify-center rounded-md border border-amber-300 bg-gradient-to-b from-amber-200 to-amber-400 px-8 py-4 text-base font-semibold !text-black transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 motion-reduce:transition-none"
                   >
-                    View Our Work
+                    View My Work
                   </Link>
 
                   <Link
