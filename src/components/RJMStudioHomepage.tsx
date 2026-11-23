@@ -324,6 +324,71 @@ export default function RJMStudioHomepageApp() {
         />
         <link rel="canonical" href="https://www.rjm-studio.co.uk/" />
 
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://www.rjm-studio.co.uk/#organization",
+            name: "RjM Studio",
+            url: "https://www.rjm-studio.co.uk/",
+            logo: "https://www.rjm-studio.co.uk/images/rjm-logo-gold-v2.png",
+            email: "studio@rjm-studio.co.uk",
+            description:
+              "RjM Studio is an independent web design studio based in the Isle of Man, providing web design, website refreshes and digital support for small businesses.",
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Isle of Man",
+            },
+            sameAs: [
+              "https://www.instagram.com/rjmstudio89/",
+              "https://facebook.com/profile.php?id=61590794513268",
+              "https://www.linkedin.com/in/rjm-studio-340a77413/",
+            ],
+            makesOffer: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Web Design",
+                  description:
+                    "Custom website design and development for small businesses.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Website Refreshes",
+                  description:
+                    "Website redesigns and improvements for existing business websites.",
+                },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Digital Support",
+                  description:
+                    "Ongoing website updates, troubleshooting and digital support.",
+                },
+              },
+            ],
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://www.rjm-studio.co.uk/#website",
+            url: "https://www.rjm-studio.co.uk/",
+            name: "RjM Studio",
+            publisher: {
+              "@id": "https://www.rjm-studio.co.uk/#organization",
+            },
+          })}
+        </script>
+
         <meta
           property="og:title"
           content="Web Design Isle of Man | Websites & Digital Support | RjM Studio"
