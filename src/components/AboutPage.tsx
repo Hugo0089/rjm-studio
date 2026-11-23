@@ -161,6 +161,8 @@ export default function AboutPage() {
           content="Meet Rj, founder of RjM Studio — an independent web designer and developer in the Isle of Man helping small businesses build professional, reliable digital experiences."
         />
 
+        <link rel="canonical" href="https://www.rjm-studio.co.uk/about" />
+
         <meta
           property="og:title"
           content="About RjM Studio | Web Designer Isle of Man"

@@ -322,6 +322,8 @@ export default function RJMStudioHomepageApp() {
           name="description"
           content="RjM Studio provides web design, website refreshes and digital support for small businesses in the Isle of Man. Professional, responsive websites built to improve trust and generate enquiries."
         />
+        <link rel="canonical" href="https://www.rjm-studio.co.uk/" />
+
         <meta
           property="og:title"
           content="Web Design Isle of Man | Websites & Digital Support | RjM Studio"

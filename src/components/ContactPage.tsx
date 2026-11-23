@@ -234,6 +234,8 @@ export default function ContactPage() {
           content="Get in touch with RjM Studio to discuss a new website, website refresh or ongoing digital support for your business."
         />
 
+        <link rel="canonical" href="https://www.rjm-studio.co.uk/contact" />
+
         <meta
           property="og:title"
           content="Contact RjM Studio | Web Design Isle of Man"

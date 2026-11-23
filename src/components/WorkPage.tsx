@@ -308,6 +308,8 @@ export default function WorkPage() {
           content="Explore website design and redesign projects by RjM Studio, including work for Isle of Man small businesses and selected digital concepts."
         />
 
+        <link rel="canonical" href="https://www.rjm-studio.co.uk/work" />
+
         <meta
           property="og:title"
           content="Web Design Portfolio Isle of Man | RjM Studio"
